@@ -1,0 +1,141 @@
+.highlight pre {
+    @apply p-7 rounded overflow-auto font-mono;
+    color: #C2CAFD;
+    background: #140F2F;
+}
+
+.highlight pre code {
+    color: #C2CAFD !important;
+}
+
+/* Builtin (Pseudo */
+
+.highlight pre code .bp {
+    color: #60A5FA;
+}
+
+/* Comment */
+
+.highlight pre code .c {
+    color: #777EA5;
+}
+
+/* Comment (Single) */
+
+.highlight pre code .c1 {
+    color: #777EA5;
+}
+
+/* Error */
+
+.highlight pre code .err {
+    color: #C2CAFD;
+}
+
+/* Generic */
+
+.highlight pre code .g {
+    color: #93A1A1;
+}
+
+/* Keyword */
+
+.highlight pre code .k {
+    color: #A5B4FC;
+}
+
+/* Keyword (Constant) */
+
+.highlight pre code .kc {
+    color: #7DD3FC;
+}
+
+/* Keyword (Namespace) */
+
+.highlight pre code .kn {
+    color: #A5B4FC;
+}
+
+/* Literal */
+
+.highlight pre code .l {
+    color: #B7A21A;
+}
+
+/* Number */
+
+.highlight pre code .m {
+    color: #6EE7B7;
+}
+
+/* Name */
+
+.highlight pre code .n {
+    color: inherit;
+}
+
+/* Name (Attribute) */
+
+.highlight pre code .na {
+    color: #A7ACFC;
+}
+
+/* Name (Builtin) */
+
+.highlight pre code .nb {
+    color: #F0ABFC;
+}
+
+/* Name (Class) */
+
+.highlight pre code .nc {
+    color: #60A5FA;
+}
+
+/* Name (Function) */
+
+.highlight pre code .nf {
+    color: #A78BFA;
+}
+
+/* Name (Other) */
+
+.highlight pre code .nx {
+    color: #A5B4FC;
+}
+
+/* Name (Variable) */
+
+.highlight pre code .nv {
+    color: #7AB9F8;
+}
+
+/* Operator */
+
+.highlight pre code .o {
+    color: #727AAD;
+}
+
+/* Punctuation */
+
+.highlight pre code .p {
+    color: #727AAD;
+}
+
+/* String (Literal) */
+
+.highlight pre code .s {
+    color: #FDBA74;
+}
+
+/* String (Single) */
+
+.highlight pre code .s1 {
+    color: #FDBA74;
+}
+
+/* String (Double) */
+
+.highlight pre code .s2 {
+    color: #FDBA74;
+}

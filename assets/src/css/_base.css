@@ -1,0 +1,7 @@
+body {
+    @apply bg-light-primary text-base text-primary font-sans antialiased;
+}
+
+strong {
+    @apply font-medium;
+}

@@ -1,0 +1,15 @@
+baseURL = "https://python-poetry.org/"
+languageCode = "en-us"
+title = "Poetry - Python dependency management and packaging made easy"
+
+theme = "poetry"
+
+ignoreFiles = ["^assets/src"]
+pygmentsUseClasses = true
+
+[params]
+description = "Python dependency management and packaging made easy"
+
+
+[markup.goldmark.renderer]
+unsafe = true

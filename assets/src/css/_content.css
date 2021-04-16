@@ -1,0 +1,213 @@
+#content main h1 {
+    @apply relative text-5xl font-light;
+}
+
+#content main h1:not(.with-meta) {
+    @apply mb-12;
+}
+
+/* Special for link h1 */
+
+#content main a>h1, #content main a:visited>h1, #content main a:focus>h1, #content main a:active>h1 {
+    @apply text-primary;
+}
+
+#content main h2 {
+    @apply relative text-4xl font-light mt-16 mb-12;
+}
+
+#content main h3 {
+    @apply relative text-3xl font-light mt-16 mb-12;
+}
+
+#content main h4 {
+    @apply relative text-2xl font-light mt-12 mb-8;
+}
+
+#content main h5 {
+    @apply relative text-xl font-light mt-12 mb-8;
+}
+
+#content main a, #content main a:visited {
+    @apply text-link font-medium transition-colors duration-300;
+}
+
+#content main a:hover, #content main a:focus {
+    @apply text-link-hover font-medium;
+}
+
+#content main a>code {
+    @apply transition-colors duration-300;
+}
+
+#content main a:hover>code {
+    @apply text-link-hover;
+}
+
+#content main a>code:after {
+    @apply relative inline-block w-3 h-3 ml-2 top-0.5 text-primary fill-current opacity-60 transition duration-300;
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23093D8D" d="M67.508 468.467c-58.005-58.013-58.016-151.92 0-209.943l225.011-225.04c44.643-44.645 117.279-44.645 161.92 0 44.743 44.749 44.753 117.186 0 161.944l-189.465 189.49c-31.41 31.413-82.518 31.412-113.926.001-31.479-31.482-31.49-82.453 0-113.944L311.51 110.491c4.687-4.687 12.286-4.687 16.972 0l16.967 16.971c4.685 4.686 4.685 12.283 0 16.969L184.983 304.917c-12.724 12.724-12.73 33.328 0 46.058 12.696 12.697 33.356 12.699 46.054-.001l189.465-189.489c25.987-25.989 25.994-68.06.001-94.056-25.931-25.934-68.119-25.932-94.049 0l-225.01 225.039c-39.249 39.252-39.258 102.795-.001 142.057 39.285 39.29 102.885 39.287 142.162-.028A739446.174 739446.174 0 0 1 439.497 238.49c4.686-4.687 12.282-4.684 16.969.004l16.967 16.971c4.685 4.686 4.689 12.279.004 16.965a755654.128 755654.128 0 0 0-195.881 195.996c-58.034 58.092-152.004 58.093-210.048.041z"></path></svg>')
+}
+
+#content main a:hover>code:after {
+    @apply opacity-80;
+}
+
+#content main strong {
+    @apply font-medium;
+}
+
+#content main code {
+    @apply text-code font-mono;
+}
+
+#content main p {
+    @apply mb-4 leading-7;
+}
+
+#content main p code {
+    @apply text-xs text-code font-mono font-semibold bg-indigo-50 border border-dashed border-indigo-200 rounded p-1;
+}
+
+#content main ul {
+    @apply list-disc list-inside my-8 pl-8;
+}
+
+#content main ol {
+    @apply list-decimal list-inside my-8 pl-8;
+}
+
+#content main ul li, #content main ol li {
+    @apply leading-7;
+}
+
+#content main li code {
+    @apply text-xs text-code font-mono font-semibold bg-indigo-50 border border-dashed border-indigo-200 rounded p-1;
+}
+
+/* Summary */
+
+#content main:not(#docs) h1~p:first-of-type, #content main div.summary p {
+    @apply font-medium;
+}
+
+#content main:not(#docs) h1~p:first-of-type strong, #content main div.summary p strong {
+    @apply font-semibold;
+}
+
+/* Tables */
+
+#content main table {
+    @apply min-w-full my-8 rounded shadow-sm divide-y;
+}
+
+#content main table thead {
+    @apply bg-gray-50;
+}
+
+#content main table thead th {
+    @apply px-8 py-6 text-left text-xs font-medium uppercase tracking-wider;
+}
+
+#content main table tbody {
+    @apply bg-light-note divide-y divide-blue-100;
+}
+
+#content main table td {
+    @apply px-8 py-4 text-sm;
+}
+
+#content main table td code {
+    @apply text-xs p-1 shadow-none bg-indigo-50 font-semibold border border-dashed border-indigo-200 rounded;
+}
+
+/* Highlight */
+
+#content main .highlight {
+    @apply w-full rounded overflow-hidden text-sm mx-auto my-12;
+}
+
+/* Admonitions */
+
+#content main .admonition {
+    @apply relative w-5/6 mx-auto my-8 leading-7 bg-light-note rounded p-7 shadow-sm;
+}
+
+#content main .admonition:before, #content main .admonition:after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -3.5rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+#content main .admonition .title {
+    @apply hidden;
+}
+
+#content main .admonition.note {
+    border: 1px dashed #4352B960;
+}
+
+#content main .admonition.note:before {
+    color: #4352B9;
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path fill="%234352B9" fill-opacity="40%" d="M512 256a88 88 0 0 0-57.1-82.4A88 88 0 0 0 338.4 57.1a88 88 0 0 0-164.8 0A88 88 0 0 0 57.1 173.6a88 88 0 0 0 0 164.8 88 88 0 0 0 116.5 116.5 88 88 0 0 0 164.8 0 88 88 0 0 0 116.5-116.5A88 88 0 0 0 512 256zm-144.8-44.25l-131 130a11 11 0 0 1-15.55-.06l-75.72-76.33a11 11 0 0 1 .06-15.56L171 224a11 11 0 0 1 15.56.06l42.15 42.49 97.2-96.42a11 11 0 0 1 15.55.06l25.82 26a11 11 0 0 1-.08 15.56z"></path><path fill="%234352B9" d="M367.2 211.75l-131 130a11 11 0 0 1-15.55-.06l-75.72-76.33a11 11 0 0 1 .06-15.56L171 224a11 11 0 0 1 15.56.06l42.15 42.49 97.2-96.42a11 11 0 0 1 15.55.06l25.82 26a11 11 0 0 1-.06 15.56z"></path></g></svg>');
+}
+
+#content main .admonition.warning {
+    color: #D70B1F;
+    border: 1px dashed #F74B5F80;
+}
+
+#content main .admonition.warning:before {
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path fill="%23F74B5F" fill-opacity="40%" d="M406.78 361.53a186.53 186.53 0 0 1-45.25 45.25L105.22 150.47a186.53 186.53 0 0 1 45.25-45.25z"></path><path fill="%23F74B5F" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm130.11 378.11A184 184 0 1 1 440 256a182.82 182.82 0 0 1-53.89 130.11z"></path></g></svg>');
+}
+
+#content main .admonition .highlight {
+    @apply w-full;
+}
+
+#content main .admonition p:last-child, #content main .admonition .highlight:last-child {
+    @apply mb-0;
+}
+
+#content main .admonition .content>code, #content main .admonition .content p>code {
+    @apply text-xs p-1 shadow-none bg-indigo-50 font-semibold border border-dashed border-indigo-200 rounded;
+}
+
+/* Heading Permanent links */
+
+#content main .header-link {
+    @apply invisible;
+}
+
+@screen md {
+    #content main .highlight {
+        @apply w-5/6;
+    }
+    #content main .admonition {
+        @apply mx-auto;
+    }
+    #content main .admonition .highlight {
+        @apply w-11/12;
+    }
+    /* Heading Permanent links */
+    #content main .header-link {
+        @apply invisible absolute left-0 w-full h-full text-2xl;
+    }
+    #content main h1:hover>.header-link:before, #content main h2:hover>.header-link:before, #content main h3:hover>.header-link:before, #content main h4:hover>.header-link:before, #content main h5:hover>.header-link:before, #content main h6:hover>.header-link:before {
+        @apply opacity-50;
+    }
+    #content main .header-link:before {
+        @apply absolute -left-12 w-5 h-6 visible text-right z-10 transition duration-500 opacity-0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #content main .header-link:before {
+        content: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g><path fill="%23299BD7" fill-opacity="40%" d="M202.46 32.19a11.5 11.5 0 0 0-2.11-.19h-40.63a12 12 0 0 0-11.81 9.89L132.53 128h65l14.62-81.89a12 12 0 0 0-9.69-13.92zM72.19 465.89a12 12 0 0 0 9.7 13.92A11.5 11.5 0 0 0 84 480h40.64a12 12 0 0 0 11.81-9.89L186.11 192h-65zm163.65 0a12 12 0 0 0 9.7 13.92 11.5 11.5 0 0 0 2.11.19h40.63a12 12 0 0 0 11.82-9.89L315.47 384h-65zm130.27-433.7A11.5 11.5 0 0 0 364 32h-40.63a12 12 0 0 0-11.82 9.89L261.89 320h65l48.92-273.89a12 12 0 0 0-9.7-13.92z" class="fa-secondary"></path><path fill="%234352B9" d="M44.18 191.81a11.5 11.5 0 0 0 2.11.19H285l11-64H53.43a12 12 0 0 0-11.81 9.89l-7.14 40a12 12 0 0 0 9.7 13.92zM7.33 329.89l-7.14 40a12 12 0 0 0 9.7 13.92A11.5 11.5 0 0 0 12 384h75l11-64H19.15a12 12 0 0 0-11.82 9.89zm430.78-201.7A11.5 11.5 0 0 0 436 128h-75l-11 64h78.85a12 12 0 0 0 11.82-9.89l7.14-40a12 12 0 0 0-9.7-13.92zm-34.29 192a11.5 11.5 0 0 0-2.11-.19H163l-11 64h242.57a12 12 0 0 0 11.81-9.89l7.14-40a12 12 0 0 0-9.7-13.92z"></path></g></svg>');
+    }
+    #content main .header-link:hover:before {
+        @apply opacity-100 !important;
+    }
+}
