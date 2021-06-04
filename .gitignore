@@ -2,4 +2,7 @@ node_modules
 public
 assets/assets
 assets/assets
+/content/docs
 /resources
+.python-version
+.vscode
