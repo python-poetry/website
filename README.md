@@ -10,5 +10,6 @@ If you want to work on this project on your local machine, you may follow the in
 2. Clone you fork locally
 3. The website uses [Hugo](https://gohugo.io) so you will need to have it installed. You can follow the [official instructions](https://gohugo.io/getting-started/installing/) on the website.
 4. You will also need to have `npm` installed to build and compile assets.
+5. The documentation is not bundled with the website, so you will need to execute `poetry run ./bin/website docs pull` to retrieve the latest version of the documentation.
 
 Once these steps are done, you can launch the Hugo website with `hugo server -w` and `npm run dev`.

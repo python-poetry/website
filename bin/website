@@ -1,0 +1,117 @@
+#!/usr/bin/env python
+
+import os
+import shutil
+import stat
+import subprocess
+import tempfile
+from contextlib import contextmanager
+from pathlib import Path
+
+import tomli
+import yaml
+from cleo.application import Application
+from cleo.commands.command import Command
+
+
+def _del_ro(action, name, exc) -> None:
+    os.chmod(name, stat.S_IWRITE)
+    os.remove(name)
+
+
+@contextmanager
+def temporary_directory(*args, **kwargs):
+    name = tempfile.mkdtemp(*args, **kwargs)
+
+    yield name
+
+    shutil.rmtree(name, onerror=_del_ro)
+
+
+class DocsPullCommand(Command):
+
+    CONFIGURATION = tomli.loads(
+        Path(__file__).parent.parent.joinpath("config.toml").read_text()
+    )["params"]["documentation"]
+
+    VERSIONS = CONFIGURATION["versions"]
+    DEFAULT_VERSION = CONFIGURATION["defaultVersion"]
+    DESTINATION = Path(__file__).parent.parent.joinpath("content/docs")
+    REPOSITORY = "https://github.com/python-poetry/poetry.git"
+
+    name = "docs pull"
+
+    description = "Pull the latest version of the documentation."
+
+    def handle(self) -> int:
+        with temporary_directory() as tmp_dir:
+            for version in self.VERSIONS:
+                self._pull_version(version, tmp_dir)
+
+            if self.DESTINATION.exists():
+                shutil.rmtree(self.DESTINATION)
+
+            shutil.copytree(tmp_dir, self.DESTINATION)
+
+    def _pull_version(self, version: str, dest: str) -> None:
+        self.line("")
+        self.line(f"  Pulling documentation for version <b>{version}</b>")
+        cwd = Path.cwd()
+        dest = Path(dest)
+        path = dest.joinpath(version)
+        try:
+            if path.exists():
+                shutil.rmtree(path.as_posix())
+
+            with temporary_directory() as tmp_dir:
+                os.chdir(tmp_dir)
+                tmp_dir = Path(tmp_dir)
+                subprocess.run(
+                    [
+                        "git",
+                        "clone",
+                        "--single-branch",
+                        "--branch",
+                        version,
+                        "--depth",
+                        "1",
+                        "--filter=blob:none",
+                        "--sparse",
+                        self.REPOSITORY,
+                        ".",
+                    ]
+                )
+                subprocess.run(["git", "sparse-checkout", "init", "--cone"])
+                subprocess.run(["git", "sparse-checkout", "set", "docs"])
+                path.mkdir()
+
+                if version == self.DEFAULT_VERSION:
+                    # Copy files at the root of the destination
+                    for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
+                        shutil.copyfile(filepath, dest.joinpath(filepath.name))
+                else:
+                    for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
+                        with filepath.open() as f:
+                            content = f.read()
+                            # Load front matter data
+                            _, frontmatter, content = content.split("---", maxsplit=2)
+                            frontmatter = yaml.safe_load(frontmatter)
+                            frontmatter["title"] += f" | {version}"
+                            new_frontmatter = yaml.dump(frontmatter).strip()
+
+                        new_content = "---\n{}\n---\n{}".format(
+                            new_frontmatter, content
+                        )
+
+                        with path.joinpath(filepath.name).open("w") as f:
+                            f.write(new_content)
+        finally:
+            os.chdir(cwd.as_posix())
+
+
+app = Application()
+app.add(DocsPullCommand())
+
+
+if __name__ == "__main__":
+    app.run()

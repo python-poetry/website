@@ -10,6 +10,10 @@ pygmentsUseClasses = true
 [params]
 description = "Python dependency management and packaging made easy"
 
+[params.documentation]
+versions = ["master", "1.1"]
+defaultVersion = "1.1"
+
 
 [markup.goldmark.renderer]
 unsafe = true
