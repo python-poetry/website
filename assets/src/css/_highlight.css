@@ -139,3 +139,10 @@
 .highlight pre code .s2 {
     color: #FDBA74;
 }
+
+
+@media (prefers-color-scheme: dark) {
+    .highlight pre {
+        @apply bg-gray-900;
+    }
+}
