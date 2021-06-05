@@ -1,5 +1,4 @@
-<div x-data="Components.popover({ open: false, focus: true })" x-init="init()" @keydown.escape="onEscape"
-    @close-popover-group.window="onClosePopoverGroup">
+<div data-controller="menu" data-action="keydown->menu#close">
     <div class="absolute max-w-7xl mx-auto px-4 top-0 left-0 right-0 z-30 sm:px-6 lg:px-8">
         <div class="relative flex justify-between items-center py-6 md:space-x-10">
             <div class="flex justify-start lg:w-0 lg:flex-1">
@@ -11,8 +10,7 @@
             <div class="-mr-2 -my-2 md:hidden">
                 <button type="button"
                     class="rounded-md p-2 inline-flex items-center justify-center transition opacity-60 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                    @click="toggle" @mousedown="if (open) $event.preventDefault()" aria-expanded="false"
-                    :aria-expanded="open.toString()">
+                    data-menu-target="button" data-action="click->menu#open" aria-expanded="false">
                     <span class="sr-only">Open menu</span>
                     <!-- Heroicon name: outline/menu -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -27,7 +25,8 @@
                 transition duration-300 opacity-60 hover:opacity-100">Documentation</a>
                 <a href="{{ "/blog/" | relURL }}"
                     class="self-center text-sm font-bold font-subtitle uppercase transition duration-300 opacity-60 hover:opacity-100">Blog</a>
-                <a href="{{ "/history/" | relURL }}" class="self-center text-sm font-bold font-subtitle uppercase transition duration-300 opacity-60 hover:opacity-100">History</a>
+                <a href="{{ "/history/" | relURL }}"
+                    class="self-center text-sm font-bold font-subtitle uppercase transition duration-300 opacity-60 hover:opacity-100">History</a>
                 <a href="https://github.com/python-poetry/poetry" title="Go to the Github project"
                     class="self-center transition duration-300 opacity-60 hover:opacity-100">
                     <svg class="w-8 h-8" viewBox="0 0 256 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
@@ -50,12 +49,12 @@
             From: "opacity-100 scale-100"
             To: "opacity-0 scale-95"
         -->
-    <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in"
-        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
-        x-description="Mobile menu, show/hide based on menu open state."
-        class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right z-50 md:hidden" x-ref="panel"
-        @click.away="open = false">
+    <div data-menu-target="menu" data-transition-enter-active="duration-150 ease-out"
+        data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100"
+        data-transition-leave-active="duration-100 ease-in" data-transition-leave-from="opacity-100 scale-100"
+        data-transition-leave-to="opacity-0 scale-95"
+        class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right z-40 md:hidden" role="menu"
+        aria-orientation="vertical">
         <div class="rounded-lg shadow-md bg-light-note ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="px-5 pt-4 flex items-center justify-between">
                 <div>
@@ -64,7 +63,7 @@
                 <div class="-mr-2">
                     <button type="button"
                         class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                        @click="toggle">
+                        data-action="click->menu#close">
                         <span class="sr-only">Close menu</span>
                         <!-- Heroicon name: outline/x -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
