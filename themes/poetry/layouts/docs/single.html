@@ -15,8 +15,8 @@
                         {{ range sort .Site.Menus.docs "Weight" }}
                         {{ if (eq $dir .Page.File.Dir) }}
                         <li class="pb-8">
-                            <a href="{{ .Page.RelPermalink }}" class="{{ if $currentPage.IsMenuCurrent " docs" .
-                                }}text-indigo-500{{ end }}">{{ index (split .Name "|") 0 -}}</a>
+                            <a href="{{ .Page.RelPermalink }}" class="{{ if $currentPage.IsMenuCurrent "docs" . }}
+                                text-indigo-500{{ end }}">{{ index (split .Name "|") 0 -}}</a>
                         </li>
                         {{ end }}
                         {{ end }}
