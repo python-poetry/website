@@ -8,13 +8,17 @@
                 class="h-full overflow-y-auto scrolling-touch lg:h-auto lg:block lg:relative lg:sticky overflow-hidden lg:top-18 mr-24 lg:mr-0">
                 <nav
                     class="px-1 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pb-14 sticky?lg:h-(screen-18)">
+
+                    {{ $currentPage := . }}
+                    {{ $dir := $currentPage.File.Dir }}
                     <ul>
-                        {{ $currentPage := . }}
                         {{ range sort .Site.Menus.docs "Weight" }}
+                        {{ if (eq $dir .Page.File.Dir) }}
                         <li class="pb-8">
-                            <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "docs" . }}text-indigo-500{{
-                                end }}">{{ .Name }}</a>
+                            <a href="{{ .Page.RelPermalink }}" class="{{ if $currentPage.IsMenuCurrent " docs" .
+                                }}text-indigo-500{{ end }}">{{ index (split .Name "|") 0 -}}</a>
                         </li>
+                        {{ end }}
                         {{ end }}
                     </ul>
                 </nav>
