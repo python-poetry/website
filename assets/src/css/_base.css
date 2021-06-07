@@ -1,7 +1,17 @@
+:root {
+  color-scheme: light dark;
+}
+
 body {
     @apply bg-light-primary text-base text-primary font-sans antialiased;
 }
 
 strong {
     @apply font-medium;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @apply bg-dark-secondary text-dark-primary;
+    }
 }
