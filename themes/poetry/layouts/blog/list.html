@@ -3,7 +3,7 @@
     {{ if .Pages }}
     {{ range .Paginator.Pages }}
     <section class="mb-32">
-        <a href="{{ .Permalink }}">
+        <a href="{{ .RelPermalink }}">
             <h1 class="with-meta">{{ .Title }}</h1>
         </a>
         {{- partial "blog_meta.html" . -}}
