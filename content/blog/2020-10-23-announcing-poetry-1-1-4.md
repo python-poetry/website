@@ -4,6 +4,9 @@ title:  "Announcing Poetry 1.1.4"
 date:   2020-10-23 00:00:00
 categories: [releases]
 tags: ['1.x', '1.1']
+
+aliases:
+  - announcing-poetry-1-1-4.html
 ---
 
 The Poetry team is pleased to announce the immediate availability of Poetry 1.1.4.

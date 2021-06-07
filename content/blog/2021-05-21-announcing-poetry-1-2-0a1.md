@@ -1,10 +1,12 @@
 ---
 layout: single
 title: "Announcing Poetry 1.2.0a1"
-url: "/blog/announcing-poetry-1-2-0a1"
 date:   2021-05-21 00:00:00
 categories: ['releases']
 tags: ['1.x', '1.2']
+
+aliases:
+    - announcing-poetry-1-2-0a1.html
 ---
 
 The Poetry team is pleased to announce the immediate availability of Poetry **1.2.0a1**.

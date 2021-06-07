@@ -4,6 +4,9 @@ title:  "Announcing Poetry 1.0.6"
 date:   2020-06-05 10:12:35
 categories: [releases]
 tags: ['1.x']
+
+aliases:
+  - announcing-poetry-1-0-6.html
 ---
 
 The Poetry team is pleased to announce the immediate availability of Poetry 1.0.6.
