@@ -22,3 +22,8 @@ defaultVersion = "1.1"
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[minify]
+ [minify.tdewolff]
+    [minify.tdewolff.css]
+    keepWhitespace = true
