@@ -25,5 +25,5 @@ unsafe = true
 
 [minify]
  [minify.tdewolff]
-    [minify.tdewolff.css]
+    [minify.tdewolff.html]
     keepWhitespace = true
