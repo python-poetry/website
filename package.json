@@ -24,10 +24,12 @@
     "atomic-algolia": "^0.3.19",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.2",
     "postcss-nested": "^5.0.5",
+    "prettier": "^2.3.1",
     "rollup": "^2.50.2",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-scss": "^2.6.1",
@@ -35,5 +37,8 @@
     "stimulus": "^2.0.0",
     "stimulus-use": "^0.24.0-2",
     "tailwindcss": "^3.0.11"
+  },
+  "prettier": {
+    "semi": false
   }
 }
