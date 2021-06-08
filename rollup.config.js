@@ -4,6 +4,7 @@ import babel from '@rollup/plugin-babel';
 import eslint from "@rollup/plugin-eslint"
 import { terser } from 'rollup-plugin-terser';
 import postcss from "rollup-plugin-postcss"
+import replace from '@rollup/plugin-replace'
 
 import path from "path"
 
@@ -12,12 +13,18 @@ const dev = {
     input: "assets/src/app.js",
     output: {
         file: "assets/assets/app.js",
-        format: "esm"
+        format: "umd"
     },
     context: 'window',
     plugins: [
-        resolve(),
+        resolve({
+            preferBuiltins: true
+        }),
         commonjs(),
+        replace({
+          preventAssignment: true,
+          'process.env.NODE_ENV': JSON.stringify('development')
+        }),
         postcss({
             config: {
                 path: "./postcss.config.js",
@@ -44,8 +51,14 @@ const prod = {
     },
     context: 'window',
     plugins: [
-        resolve(),
+        resolve({
+            preferBuiltins: true
+        }),
         commonjs(),
+        replace({
+          preventAssignment: true,
+          'process.env.NODE_ENV': JSON.stringify('production')
+        }),
         postcss({
             config: {
                 path: "./postcss.config.js",

@@ -1,8 +1,8 @@
 {{ $script := resources.Get "assets/app.js" }}
 
 {{ if .Site.IsServer }}
-<script src="{{ $script.RelPermalink }}"></script>
+<script type="module" src="{{ $script.RelPermalink }}"></script>
 {{ else }}
 {{ $script := $script | fingerprint }}
-<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+<script type="module" src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 {{ end }}

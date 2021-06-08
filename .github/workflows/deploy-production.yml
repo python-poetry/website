@@ -25,6 +25,12 @@ jobs:
         with:
           node-version: "14"
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
       - name: Build Assets
         run: npm ci && npm run prod
 
@@ -49,6 +55,16 @@ jobs:
 
       - name: Build
         run: hugo -v --minify
+
+      - name: Build search index
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          ALGOLIA_INDEX_FILE: 'algolia.json'
+        run: |
+          bundle exec bin/build_index.rb
+          npm run algolia
 
       - name: Deploy
         uses: amondnet/vercel-action@v20
