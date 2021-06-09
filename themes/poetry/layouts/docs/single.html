@@ -1,22 +1,25 @@
 {{ define "main" }}
-<div class="w-full mt-48 max-w-7xl mx-auto pb-16 px-12 md:mt-64 md:px-24">
+<div class="w-full mt-48 max-w-8xl mx-auto pb-16 px-12 md:mt-64 md:px-24">
     <div class="lg:flex">
         <!-- Sidebar -->
         <div
-            class="z-10 lg:flex-none h-full lg:pt-0 lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-60 xl:w-72 lg:block">
+            class="z-10 lg:flex-none h-full lg:pt-0 lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-60 xl:w-80 lg:block">
             <div
                 class="h-full overflow-y-auto scrolling-touch lg:h-auto lg:block lg:relative lg:sticky overflow-hidden lg:top-18 mr-24 lg:mr-0">
                 <nav
-                    class="px-1 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pb-14 sticky?lg:h-(screen-18)">
-
+                    id="documentation-menu"
+                    class="px-1 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pb-14 sticky?lg:h-(screen-18)"
+                >
                     {{ $currentPage := . }}
                     {{ $dir := $currentPage.File.Dir }}
                     <ul>
                         {{ range sort .Site.Menus.docs "Weight" }}
                         {{ if (eq $dir .Page.File.Dir) }}
                         <li class="pb-8">
-                            <a href="{{ .Page.RelPermalink }}" class="{{ if $currentPage.IsMenuCurrent " docs" .
-                                }}text-indigo-500{{ end }}">{{ index (split .Name "|") 0 -}}</a>
+                            <a href="{{ .Page.RelPermalink }}" class="text-base {{ if $currentPage.IsMenuCurrent "docs" . }}text-indigo-500 dark:text-blue-300{{ end }}">{{ index (split .Name "|") 0 -}}</a>
+                            {{ if $currentPage.IsMenuCurrent "docs" . }}
+                            {{ .Page.TableOfContents }}
+                            {{ end }}
                         </li>
                         {{ end }}
                         {{ end }}
@@ -27,7 +30,7 @@
         <!-- /Sidebar -->
 
         <!-- Content -->
-        <main id="docs" class="min-w-0 w-full lg:flex-auto lg:static lg:max-h-full lg:overflow-visible">
+        <main id="docs" class="min-w-0 w-full lg:px-12 lg:flex-auto lg:static lg:max-h-full lg:overflow-visible">
             {{- with .Content -}}
             {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1} <a href="#${2}" class="header-link"
                     aria-label="Permanent link">#</a> ${3}` | safeHTML }}

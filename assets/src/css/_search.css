@@ -106,6 +106,7 @@
 
 @media (prefers-color-scheme: dark) {
     .aa-Autocomplete .aa-DetachedSearchButton {
+        @apply bg-gray-900 bg-opacity-40;
     }
 
     .aa-Autocomplete .aa-DetachedSearchButton .aa-DetachedSearchButtonIcon {

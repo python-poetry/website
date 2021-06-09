@@ -53,10 +53,6 @@
     @apply opacity-80;
 }
 
-#content main strong {
-    @apply font-medium;
-}
-
 #content main code {
     @apply text-code font-mono;
 }
@@ -95,10 +91,32 @@
     @apply font-semibold;
 }
 
+/* Documentation menu */
+#documentation-menu nav#TableOfContents {
+    @apply pt-4;
+}
+
+#documentation-menu nav#TableOfContents ul > li {
+    @apply relative pl-5 leading-6 text-sm font-normal;
+}
+
+#documentation-menu nav#TableOfContents ul > li > a {
+    @apply w-full;
+}
+
+#documentation-menu nav#TableOfContents ul > li > a:before {
+    @apply absolute left-1 opacity-50 transition transition-all duration-300 text-indigo-300;
+    content: "#";
+}
+
+#documentation-menu nav#TableOfContents ul > li > a:hover:before {
+    @apply opacity-100;
+}
+
 /* Tables */
 
 #content main table {
-    @apply min-w-full my-8 rounded shadow-sm divide-y;
+    @apply min-w-full my-8 rounded shadow-sm divide-y border-separate;
 }
 
 #content main table thead {
@@ -106,7 +124,7 @@
 }
 
 #content main table thead th {
-    @apply px-8 py-6 text-left text-xs font-medium uppercase tracking-wider;
+    @apply px-8 py-6 border-0 text-left text-xs font-medium uppercase tracking-wider rounded-md;
 }
 
 #content main table tbody {
@@ -114,7 +132,7 @@
 }
 
 #content main table td {
-    @apply px-8 py-4 text-sm;
+    @apply px-8 py-6 text-sm;
 }
 
 #content main table td code {
@@ -223,11 +241,11 @@
     }
 
     #content main a, #content main a:visited {
-        @apply text-indigo-300 border-b border-dotted border-indigo-300;
+        @apply text-blue-300;
     }
 
     #content main a:hover, #content main a:focus {
-        @apply text-indigo-100;
+        @apply text-blue-100;
     }
 
     #content main a>code:after {
@@ -247,7 +265,12 @@
     #content main .admonition .content>code,
     #content main .admonition .content p>code,
     #content main table td code {
-        @apply text-blue-200 bg-gray-900 border-gray-600;
+        @apply text-indigo-300 bg-gray-900 border-gray-600;
+    }
+
+    /* Documentation menu */
+    #documentation-menu nav#TableOfContents ul > li > a:before {
+        @apply text-blue-300;
     }
 
     /* Admonitions */
@@ -260,37 +283,47 @@
     }
 
     #content main .admonition.note:before {
-        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23C7D2FE" d="M512 256c0-37.7-23.7-69.9-57.1-82.4 14.7-32.4 8.8-71.9-17.9-98.6-26.7-26.7-66.2-32.6-98.6-17.9C325.9 23.7 293.7 0 256 0s-69.9 23.7-82.4 57.1c-32.4-14.7-72-8.8-98.6 17.9-26.7 26.7-32.6 66.2-17.9 98.6C23.7 186.1 0 218.3 0 256s23.7 69.9 57.1 82.4c-14.7 32.4-8.8 72 17.9 98.6 26.6 26.6 66.1 32.7 98.6 17.9 12.5 33.3 44.7 57.1 82.4 57.1s69.9-23.7 82.4-57.1c32.6 14.8 72 8.7 98.6-17.9 26.7-26.7 32.6-66.2 17.9-98.6 33.4-12.5 57.1-44.7 57.1-82.4zm-144.8-44.25L236.16 341.74c-4.31 4.28-11.28 4.25-15.55-.06l-75.72-76.33c-4.28-4.31-4.25-11.28.06-15.56l26.03-25.82c4.31-4.28 11.28-4.25 15.56.06l42.15 42.49 97.2-96.42c4.31-4.28 11.28-4.25 15.55.06l25.82 26.03c4.28 4.32 4.26 11.29-.06 15.56z"></path></svg>');
+        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23A5B4FC" d="M512 256c0-37.7-23.7-69.9-57.1-82.4 14.7-32.4 8.8-71.9-17.9-98.6-26.7-26.7-66.2-32.6-98.6-17.9C325.9 23.7 293.7 0 256 0s-69.9 23.7-82.4 57.1c-32.4-14.7-72-8.8-98.6 17.9-26.7 26.7-32.6 66.2-17.9 98.6C23.7 186.1 0 218.3 0 256s23.7 69.9 57.1 82.4c-14.7 32.4-8.8 72 17.9 98.6 26.6 26.6 66.1 32.7 98.6 17.9 12.5 33.3 44.7 57.1 82.4 57.1s69.9-23.7 82.4-57.1c32.6 14.8 72 8.7 98.6-17.9 26.7-26.7 32.6-66.2 17.9-98.6 33.4-12.5 57.1-44.7 57.1-82.4zm-144.8-44.25L236.16 341.74c-4.31 4.28-11.28 4.25-15.55-.06l-75.72-76.33c-4.28-4.31-4.25-11.28.06-15.56l26.03-25.82c4.31-4.28 11.28-4.25 15.56.06l42.15 42.49 97.2-96.42c4.31-4.28 11.28-4.25 15.55.06l25.82 26.03c4.28 4.32 4.26 11.29-.06 15.56z"></path></svg>');
     }
 
     #content main .admonition.warning:before {
-        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path fill="%23F87171" d="M406.78 361.53a186.53 186.53 0 0 1-45.25 45.25L105.22 150.47a186.53 186.53 0 0 1 45.25-45.25z"></path><path fill="%23FCA5A5" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm130.11 378.11A184 184 0 1 1 440 256a182.82 182.82 0 0 1-53.89 130.11z"></path></g></svg>');
+        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path fill="%23FB7185" fill-opacity="50%" d="M406.78 361.53a186.53 186.53 0 0 1-45.25 45.25L105.22 150.47a186.53 186.53 0 0 1 45.25-45.25z"></path><path fill="%23FB7185" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm130.11 378.11A184 184 0 1 1 440 256a182.82 182.82 0 0 1-53.89 130.11z"></path></g></svg>');
     }
 
     #content main .admonition.warning {
+        @apply bg-red-400 bg-opacity-10;
         color: #FECDD3;
         border: 1px dashed #FECDD380;
     }
 
     /* Tables */
     #content main table {
-        @apply shadow-md;
-    }
-
-    #content main table thead {
-        @apply border-gray-800;
+        @apply border border-indigo-600 shadow-md;
+        border-spacing: 0;
     }
 
     #content main table thead {
         @apply bg-indigo-700 bg-opacity-20;
     }
 
+    #content main table thead th {
+        @apply border-b border-gray-800 rounded-none;
+    }
+
     #content main table tbody {
         @apply bg-indigo-800 bg-opacity-10 divide-gray-800 border-gray-800;
     }
 
+    #content main table tbody tr td {
+        @apply border-b border-gray-800 rounded-none;
+    }
+
+    #content main table tbody tr:last-child td {
+        @apply border-0;
+    }
+
     /* Heading Permanent links */
     #content main .header-link:before {
-        content: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g><path fill="%23C7D2FE" fill-opacity="40%" d="M202.46 32.19a11.5 11.5 0 0 0-2.11-.19h-40.63a12 12 0 0 0-11.81 9.89L132.53 128h65l14.62-81.89a12 12 0 0 0-9.69-13.92zM72.19 465.89a12 12 0 0 0 9.7 13.92A11.5 11.5 0 0 0 84 480h40.64a12 12 0 0 0 11.81-9.89L186.11 192h-65zm163.65 0a12 12 0 0 0 9.7 13.92 11.5 11.5 0 0 0 2.11.19h40.63a12 12 0 0 0 11.82-9.89L315.47 384h-65zm130.27-433.7A11.5 11.5 0 0 0 364 32h-40.63a12 12 0 0 0-11.82 9.89L261.89 320h65l48.92-273.89a12 12 0 0 0-9.7-13.92z"></path><path fill="%23C7D2FE" d="M44.18 191.81a11.5 11.5 0 0 0 2.11.19H285l11-64H53.43a12 12 0 0 0-11.81 9.89l-7.14 40a12 12 0 0 0 9.7 13.92zM7.33 329.89l-7.14 40a12 12 0 0 0 9.7 13.92A11.5 11.5 0 0 0 12 384h75l11-64H19.15a12 12 0 0 0-11.82 9.89zm430.78-201.7A11.5 11.5 0 0 0 436 128h-75l-11 64h78.85a12 12 0 0 0 11.82-9.89l7.14-40a12 12 0 0 0-9.7-13.92zm-34.29 192a11.5 11.5 0 0 0-2.11-.19H163l-11 64h242.57a12 12 0 0 0 11.81-9.89l7.14-40a12 12 0 0 0-9.7-13.92z"></path></g></svg>');
+        content: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g><path fill="%23E0E7FF" fill-opacity="40%" d="M202.46 32.19a11.5 11.5 0 0 0-2.11-.19h-40.63a12 12 0 0 0-11.81 9.89L132.53 128h65l14.62-81.89a12 12 0 0 0-9.69-13.92zM72.19 465.89a12 12 0 0 0 9.7 13.92A11.5 11.5 0 0 0 84 480h40.64a12 12 0 0 0 11.81-9.89L186.11 192h-65zm163.65 0a12 12 0 0 0 9.7 13.92 11.5 11.5 0 0 0 2.11.19h40.63a12 12 0 0 0 11.82-9.89L315.47 384h-65zm130.27-433.7A11.5 11.5 0 0 0 364 32h-40.63a12 12 0 0 0-11.82 9.89L261.89 320h65l48.92-273.89a12 12 0 0 0-9.7-13.92z"></path><path fill="%237DD3FC" d="M44.18 191.81a11.5 11.5 0 0 0 2.11.19H285l11-64H53.43a12 12 0 0 0-11.81 9.89l-7.14 40a12 12 0 0 0 9.7 13.92zM7.33 329.89l-7.14 40a12 12 0 0 0 9.7 13.92A11.5 11.5 0 0 0 12 384h75l11-64H19.15a12 12 0 0 0-11.82 9.89zm430.78-201.7A11.5 11.5 0 0 0 436 128h-75l-11 64h78.85a12 12 0 0 0 11.82-9.89l7.14-40a12 12 0 0 0-9.7-13.92zm-34.29 192a11.5 11.5 0 0 0-2.11-.19H163l-11 64h242.57a12 12 0 0 0 11.81-9.89l7.14-40a12 12 0 0 0-9.7-13.92z"></path></g></svg>');
     }
 }
