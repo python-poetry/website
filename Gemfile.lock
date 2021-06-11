@@ -1,0 +1,25 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    algolia_html_extractor (2.6.4)
+      json (~> 2.0)
+      nokogiri (~> 1.10)
+    citrus (3.0.2)
+    json (2.5.1)
+    mini_portile2 (2.5.3)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    racc (1.5.2)
+    toml-rb (2.0.1)
+      citrus (~> 3.0, > 3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  algolia_html_extractor (~> 2.0)
+  toml-rb (~> 2.0)
+
+BUNDLED WITH
+   2.0.2

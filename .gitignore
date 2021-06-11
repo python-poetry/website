@@ -8,3 +8,5 @@ assets/assets
 .vscode
 
 .vercel
+.env
+algolia.json
