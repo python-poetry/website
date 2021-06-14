@@ -14,4 +14,8 @@ strong {
     body {
         @apply bg-dark-secondary text-dark-primary;
     }
+
+    strong {
+        @apply font-semibold;
+    }
 }

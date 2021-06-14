@@ -1,9 +1,9 @@
 .aa-Autocomplete {
-    @apply flex items-center w-36;
+    @apply flex items-center w-full;
 }
 
 .aa-Autocomplete .aa-DetachedSearchButton {
-    @apply flex items-center justify-start w-full p-2 rounded text-gray-400;
+    @apply flex items-center justify-start w-full p-2 rounded text-gray-400 bg-gray-200 bg-opacity-40;
 }
 
 .aa-Autocomplete .aa-DetachedSearchButton .aa-DetachedSearchButtonIcon {
@@ -106,6 +106,7 @@
 
 @media (prefers-color-scheme: dark) {
     .aa-Autocomplete .aa-DetachedSearchButton {
+        @apply bg-gray-900 bg-opacity-40;
     }
 
     .aa-Autocomplete .aa-DetachedSearchButton .aa-DetachedSearchButtonIcon {

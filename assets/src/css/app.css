@@ -4,6 +4,7 @@
 @import "./_fonts";
 @import "./_base";
 @import "./_content";
+@import "./_docs.css";
 @import "./_windows.css";
 @import "./_highlight";
 @import "./_search.css";
