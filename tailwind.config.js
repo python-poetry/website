@@ -20,7 +20,7 @@ module.exports = {
         primary: '#093D8D',
         code: '#008ADD',
         'light-primary': '#F0F4FC',
-        'light-note': '#F6F9FC',
+        'light-note': '#F4F8FF',
         'link': '#6772E5',
         'link-hover': '#32325D',
         'dark-primary': '#D0D4FC',
