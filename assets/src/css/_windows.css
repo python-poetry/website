@@ -99,14 +99,12 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-    .browser-window.dark,
-    .terminal-window.dark {
-        @apply bg-gray-900 border-0;
-    }
+html.dark .browser-window.dark,
+html.dark .terminal-window.dark {
+    @apply bg-gray-900 border-0;
+}
 
-    .browser-window.dark .window-content>pre,
-    .terminal-window.dark .window-content>pre {
-        @apply bg-gray-900;
-    }
+html.dark .browser-window.dark .window-content>pre,
+html.dark .terminal-window.dark .window-content>pre {
+    @apply bg-gray-900;
 }

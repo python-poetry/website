@@ -17,6 +17,7 @@ module.exports = {
         gray: colors.blueGray,
         cyan: colors.cyan,
         red: colors.rose,
+        yellow: colors.amber,
         primary: '#093D8D',
         code: '#008ADD',
         'light-primary': '#F0F4FC',
