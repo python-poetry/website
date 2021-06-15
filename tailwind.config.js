@@ -5,7 +5,7 @@ module.exports = {
   purge: {
     content: ["./themes/**/*.html", "./assets/src/js/**/*.js"]
   },
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     fontFamily: {
       'mono': 'Hack, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',

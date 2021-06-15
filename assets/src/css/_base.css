@@ -10,12 +10,10 @@ strong {
     @apply font-medium;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        @apply bg-dark-secondary text-dark-primary;
-    }
+html.dark body {
+    @apply bg-dark-secondary text-dark-primary;
+}
 
-    strong {
-        @apply font-semibold;
-    }
+html.dark strong {
+    @apply font-semibold;
 }

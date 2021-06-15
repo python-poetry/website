@@ -3,6 +3,7 @@
 {{- partial "head.html" . -}}
 
 <body>
+    {{- partial "dark_mode.html" . -}}
     {{- partial "header_docs.html" . -}}
     <div id="content">
         {{ block "main" . }}{{ end }}
