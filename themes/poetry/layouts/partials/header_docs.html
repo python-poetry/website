@@ -12,7 +12,7 @@
                 <img class="h-8 w-auto sm:h-10" src="/images/logo-origami.svg" alt="Poetry logo">
                 </a>
             </div>
-            <div class="search-container hidden w-36 self-end relative md:flex" data-version="{{ $version }}">
+            <div class="search-container hidden w-36 self-end relative lg:flex" data-version="{{ $version }}">
             </div>
             <div class="self-end mr-8 w-28 relative md:mr-0" data-controller="select" data-action="select:click:outside->select#close">
                 <button type="button"
@@ -65,6 +65,7 @@
                     {{ end }}
                 </ul>
             </div>
+            {{- partial "dark_mode_switcher.html" . -}}
             <div class="-mr-2 -my-2 md:hidden">
                 <button type="button"
                         class="rounded-md p-2 inline-flex items-center justify-center transition opacity-60 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-300 dark:focus:border-indigo-300"

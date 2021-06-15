@@ -6,12 +6,14 @@ import { Application } from "stimulus"
 import { TransitionController, ClickOutsideController } from 'stimulus-use'
 import MenuController from './js/controllers/menu_controller'
 import SelectController from './js/controllers/select_controller'
+import ModeSwitchController from './js/controllers/mode_switch_controller'
 
 const application = Application.start()
 application.register("transition", TransitionController)
 application.register("click-outside", ClickOutsideController)
 application.register("menu", MenuController)
 application.register("select", SelectController)
+application.register("mode-switch", ModeSwitchController)
 
 // Search
 const searchClient = algoliasearch(
