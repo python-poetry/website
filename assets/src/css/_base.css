@@ -17,3 +17,17 @@ html.dark body {
 html.dark strong {
     @apply font-semibold;
 }
+
+/* Vercel */
+.vercel-footer-link {
+    @apply text-black ml-1 opacity-100;
+}
+
+.vercel-footer-link svg {
+    height: 1rem;
+    width: 4.438rem;
+}
+
+html.dark .vercel-footer-link {
+    @apply text-white;
+}
