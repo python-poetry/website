@@ -71,7 +71,7 @@
 
 #content main ol {
     @apply list-inside my-8 pl-8;
-    counter-reset: list-item;
+    counter-reset: count;
 }
 
 #content main ul li, #content main ol li {
@@ -79,7 +79,7 @@
 }
 
 #content main ol li {
-    counter-increment: list-item;
+    counter-increment: count;
 }
 
 #content main ul li:before {
@@ -90,7 +90,7 @@
 
 #content main ol li:before {
     @apply absolute w-1.5 h-1.5 -left-5 text-blue-500 font-medium;
-    content: counter(list-item) ". ";
+    content: counter(count) ". ";
 }
 
 #content main ul li ul, #content main ul li ol #content main ol li ul, #content main ol li ol {
