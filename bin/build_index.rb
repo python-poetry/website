@@ -2,6 +2,7 @@
 
 require 'algolia_html_extractor'
 require 'json'
+require 'nokogiri'
 require 'pathname'
 require 'toml-rb'
 
@@ -29,7 +30,7 @@ versions.each do |version|
             next
         end
 
-        content = File.read(file)
+        content = Nokogiri::HTML(File.read(file)).at_css("main").to_s
         page = AlgoliaHTMLExtractor.run(content)
         page.each do |record|
             if record[:anchor] == "footerHeading"
