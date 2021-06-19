@@ -141,8 +141,6 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-    .highlight pre {
-        @apply bg-gray-900;
-    }
+html.dark .highlight pre {
+    @apply bg-gray-900;
 }

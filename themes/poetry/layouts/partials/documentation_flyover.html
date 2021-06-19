@@ -14,10 +14,10 @@
             data-transition-leave-to="opacity-0 scale-95"
     >
         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-            <div class="relative grid auto-cols-fr gap-6 bg-light-note px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2 dark:bg-gray-700">
+            <div class="relative grid auto-cols-fr gap-6 bg-light-note px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-3 dark:bg-gray-700">
                 {{ range sort .Site.Menus.docs "Weight" }}
                 {{ if (eq .Page.File.Dir "docs/") }}
-                <a href="{{ .Page.RelPermalink }}" class="-m-3 p-3 flex items-start rounded-lg whitespace-nowrap hover:bg-gray-100 transition ease-in-out duration-150 dark:hover:bg-dark-note-darker">
+                <a href="{{ .Page.RelPermalink }}" class="-m-3 p-3 flex items-start rounded-lg whitespace-nowrap hover:bg-light-note-darker transition ease-in-out duration-150 dark:hover:bg-dark-note-darker">
                     <div class="max-w-full">
                         <p class="text-base font-medium">
                             {{ .Name }}
@@ -34,7 +34,7 @@
                 <div class="relative grid gap-6 sm:gap-8 lg:grid-cols-2">
                     {{ $latestVersion := index ( .Site.Params.documentation.versions ) 0 -}}
                     {{ $stableVersion := index ( .Site.Params.documentation.versions ) 1 -}}
-                    <a href="{{ "/docs/" | relURL }}" class="-m-3 p-3 flow-root rounded-md hover:bg-indigo-50 transition ease-in-out duration-150 dark:hover:bg-gray-900">
+                    <a href="{{ "/docs/" | relURL }}" class="-m-3 p-3 flow-root rounded-md hover:bg-indigo-50 transition ease-in-out duration-150 dark:hover:bg-gray-800">
                     <span class="flex items-center">
                                     <span class="text-base font-medium">
                                       {{ $stableVersion }}
@@ -44,10 +44,10 @@
                                     </span>
                                   </span>
                     <span class="mt-1 block text-sm opacity-80">
-                                    Documentation for the latest, <strong class="text-medium text-indigo-800 dark:text-indigo-100">stable</strong>, branch.
+                                    Documentation for the latest, <strong class="text-medium text-indigo-800 dark:text-indigo-300">stable</strong>, branch.
                                   </span>
                     </a>
-                    <a href="{{ printf "%s%s/" "/docs/" $latestVersion | relURL }}" class="-m-3 p-3 flow-root rounded-md hover:bg-indigo-50 transition ease-in-out duration-150 dark:hover:bg-gray-900">
+                    <a href="{{ printf "%s%s/" "/docs/" $latestVersion | relURL }}" class="-m-3 p-3 flow-root rounded-md hover:bg-indigo-50 transition ease-in-out duration-150 dark:hover:bg-gray-800">
                     <span class="flex items-center">
                                     <span class="text-base font-medium">
                                       {{ $latestVersion }}
@@ -57,7 +57,7 @@
                                     </span>
                                   </span>
                     <span class="mt-1 block text-sm opacity-80">
-                                      Documentation for the latest, <strong class="text-medium text-red-800 dark:text-red-100">in-development</strong>, branch.
+                                      Documentation for the latest, <strong class="text-medium text-red-800 dark:text-red-300">in-development</strong>, branch.
                                   </span>
                     </a>
                 </div>
