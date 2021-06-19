@@ -25,5 +25,6 @@
     {{ printf `
     <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
+    <script defer data-domain="python-poetry.org" src="https://plausible.io/js/plausible.js"></script>
     {{- partial "stylesheets.html" . -}}
 </head>
