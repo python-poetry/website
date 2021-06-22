@@ -2,6 +2,7 @@ import "./css/app.css"
 
 import algoliasearch from 'algoliasearch/dist/algoliasearch.esm.browser'
 import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js"
+import Particles from "./js/particles"
 import { Application } from "stimulus"
 import { TransitionController, ClickOutsideController } from 'stimulus-use'
 import MenuController from './js/controllers/menu_controller'
@@ -16,6 +17,13 @@ application.register("menu", MenuController)
 application.register("select", SelectController)
 application.register("mode-switch", ModeSwitchController)
 application.register("flyover", FlyoverController)
+
+const particlesSection = document.getElementById("title-section")
+
+if (particlesSection) {
+  const particles = new Particles(particlesSection)
+  particles.start()
+}
 
 // Search
 const searchClient = algoliasearch(

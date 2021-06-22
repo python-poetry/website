@@ -7,15 +7,19 @@ body {
 }
 
 strong {
-    @apply font-medium;
+    @apply font-semibold;
 }
 
 html.dark body {
     @apply bg-dark-secondary text-dark-primary;
 }
 
-html.dark strong {
-    @apply font-semibold;
+#title-section canvas {
+    @apply bg-light-primary
+}
+
+html.dark #title-section canvas {
+    @apply bg-gray-800
 }
 
 /* Vercel */
