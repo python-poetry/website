@@ -17,25 +17,10 @@
 }
 
 @font-face {
-  font-family: 'Hack';
-  font-weight: 400;
-  font-display: block;
+  font-family: 'Jetbrains Mono';
+  font-weight: 100 900;
+  font-display: swap;
   font-style: normal;
-  src: url("/fonts/hack/hack-regular-subset.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: 'Hack';
-  font-weight: 400;
-  font-display: block;
-  font-style: italic;
-  src: url("/fonts/hack/hack-italic-subset.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: 'Hack';
-  font-weight: 600;
-  font-display: block;
-  font-style: normal;
-  src: url("/fonts/hack/hack-bold-subset.woff2") format("woff2");
+  font-named-instance: 'Regular';
+  src: url("/fonts/jetbrains-mono/JetBrainsMono-var.woff2") format("woff2");
 }

@@ -8,7 +8,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      'mono': 'Hack, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      'mono': '"Jetbrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
       'sans': '"Inter var", -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif',
     },
     extend: {
@@ -19,7 +19,7 @@ module.exports = {
         red: colors.rose,
         yellow: colors.amber,
         primary: '#093D8D',
-        code: '#008ADD',
+        code: '#0284C7',
         'light-primary': '#F0F4FC',
         'light-note': '#F7F9FF',
         'light-note-darker': '#F2F6FF',

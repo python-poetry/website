@@ -7,7 +7,7 @@ body {
 }
 
 strong {
-    @apply font-medium;
+    @apply font-semibold;
 }
 
 html.dark body {
