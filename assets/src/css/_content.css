@@ -113,8 +113,12 @@
 
 /* Tables */
 
+#content main .table-wrapper {
+    @apply min-w-full my-8 rounded-md shadow-sm border border-gray-50 overflow-hidden;
+}
+
 #content main table {
-    @apply min-w-full my-8 rounded-lg shadow-sm divide-y border-separate;
+    @apply min-w-full divide-y;
     border-spacing: 0;
 }
 
@@ -127,19 +131,11 @@
 }
 
 #content main table tbody {
-    @apply bg-light-note divide-y divide-blue-100;
+    @apply bg-light-note divide-y divide-indigo-50;
 }
 
 #content main table tbody td {
-    @apply px-8 py-6 text-sm border-b border-indigo-50;
-}
-
-#content main table tbody tr:last-child td {
-    @apply border-0;
-}
-
-#content main table tbody tr:last-child td:first-child {
-    @apply border-b border-transparent rounded-bl-md;
+    @apply px-8 py-6 text-sm;
 }
 
 #content main table td code {
@@ -318,24 +314,24 @@ html.dark #content main .admonition.warning {
 }
 
 /* Tables */
-html.dark #content main table {
-    @apply border border-indigo-600 shadow-md;
+html.dark #content main .table-wrapper {
+    @apply border-gray-600 shadow-md;
 }
 
 html.dark #content main table thead {
-    @apply bg-indigo-700 bg-opacity-20;
+    @apply bg-gray-900 bg-opacity-10;
 }
 
 html.dark #content main table thead th {
-    @apply border-b border-gray-800 rounded-none;
+    @apply border-b border-gray-700 rounded-none;
 }
 
 html.dark #content main table tbody {
-    @apply bg-indigo-800 bg-opacity-10 divide-gray-800 border-gray-800;
+    @apply bg-gray-700 bg-opacity-10 divide-gray-800 border-gray-800;
 }
 
 html.dark #content main table tbody tr td {
-    @apply border-b border-gray-800 rounded-none;
+    @apply border-b border-gray-600 border-opacity-20 rounded-none;
 }
 
 html.dark #content main table tbody tr:last-child td {
@@ -344,5 +340,5 @@ html.dark #content main table tbody tr:last-child td {
 
 /* Heading Permanent links */
 html.dark #content main .header-link:before {
-    content: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g><path fill="%23E0E7FF" fill-opacity="40%" d="M341.3 32.43c-17.53-2.875-33.92 8.891-36.83 26.3l-43.54 261.3h64.88l41.79-250.7C370.5 51.83 358.7 35.34 341.3 32.43zM240.4 442.7c-2.906 17.44 8.875 33.92 26.3 36.83C268.5 479.9 270.3 480 272 480c15.36 0 28.92-11.09 31.53-26.73l11.54-69.27h-64.88L240.4 442.7zM80.44 442.7c-2.906 17.44 8.875 33.92 26.3 36.83C108.5 479.9 110.3 480 112 480c15.36 0 28.92-11.09 31.53-26.73L187.1 191.1H122.2L80.44 442.7zM181.3 32.43c-17.53-2.875-33.92 8.891-36.83 26.3L132.9 127.1H197.8l9.789-58.74C210.5 51.83 198.7 35.34 181.3 32.43z"></path><path fill="%237DD3FC" d="M416 127.1h-58.23l-10.67 64H416c17.67 0 32-14.32 32-31.1C448 142.3 433.7 127.1 416 127.1zM0 352c0 17.67 14.33 31.1 32 31.1h58.23l10.67-64H32C14.33 319.1 0 334.3 0 352zM384 319.1H165.8l-10.67 64H384c17.67 0 32-14.33 32-31.1C416 334.3 401.7 319.1 384 319.1zM64 191.1h218.2l10.67-64H64c-17.67 0-32 14.33-32 32C32 177.7 46.33 191.1 64 191.1z"></path></g></svg>');
+    content: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g><path fill="%23A5B4FC" fill-opacity="60%" d="M341.3 32.43c-17.53-2.875-33.92 8.891-36.83 26.3l-43.54 261.3h64.88l41.79-250.7C370.5 51.83 358.7 35.34 341.3 32.43zM240.4 442.7c-2.906 17.44 8.875 33.92 26.3 36.83C268.5 479.9 270.3 480 272 480c15.36 0 28.92-11.09 31.53-26.73l11.54-69.27h-64.88L240.4 442.7zM80.44 442.7c-2.906 17.44 8.875 33.92 26.3 36.83C108.5 479.9 110.3 480 112 480c15.36 0 28.92-11.09 31.53-26.73L187.1 191.1H122.2L80.44 442.7zM181.3 32.43c-17.53-2.875-33.92 8.891-36.83 26.3L132.9 127.1H197.8l9.789-58.74C210.5 51.83 198.7 35.34 181.3 32.43z"></path><path fill="%237DD3FC" d="M416 127.1h-58.23l-10.67 64H416c17.67 0 32-14.32 32-31.1C448 142.3 433.7 127.1 416 127.1zM0 352c0 17.67 14.33 31.1 32 31.1h58.23l10.67-64H32C14.33 319.1 0 334.3 0 352zM384 319.1H165.8l-10.67 64H384c17.67 0 32-14.33 32-31.1C416 334.3 401.7 319.1 384 319.1zM64 191.1h218.2l10.67-64H64c-17.67 0-32 14.33-32 32C32 177.7 46.33 191.1 64 191.1z"></path></g></svg>');
 }

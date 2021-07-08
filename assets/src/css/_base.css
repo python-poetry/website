@@ -6,6 +6,10 @@ body {
     @apply bg-light-primary text-base text-primary font-sans antialiased;
 }
 
+code {
+    font-variant-ligatures: none;
+}
+
 strong {
     @apply font-semibold;
 }
