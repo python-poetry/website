@@ -4,6 +4,17 @@ layout: single
 title: History
 ---
 
+## [1.1.8] - 2021-08-19
+
+### Fixed
+
+- Fixed an error with repository prioritization when specifying secondary repositories. ([#4241](https://github.com/python-poetry/poetry/pull/4241))
+- Fixed the detection of the system environment when the setting `virtualenvs.create` is deactivated. ([#4330](https://github.com/python-poetry/poetry/pull/4330), [#4407](https://github.com/python-poetry/poetry/pull/4407))
+- Fixed the evaluation of relative path dependencies. ([#4246](https://github.com/python-poetry/poetry/pull/4246))
+- Fixed environment detection for Python 3.10 environments. ([#4387](https://github.com/python-poetry/poetry/pull/4387))
+- Fixed an error in the evaluation of `in/not in` markers ([python-poetry/poetry-core#189](https://github.com/python-poetry/poetry-core/pull/189))
+
+
 ## [1.2.0a2] - 2021-08-01
 
 ### Added
@@ -1180,9 +1191,10 @@ Initial release
 
 
 [Unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0a2...master
+[1.1.8]: https://github.com/python-poetry/poetry/releases/tag/1.1.8
 [1.2.0a2]: https://github.com/python-poetry/poetry/releases/tag/1.2.0a2
 [1.2.0a1]: https://github.com/python-poetry/poetry/releases/tag/1.2.0a1
-[1.1.7]: https://github.com/python-poetry/poetry/releases/tag/1.2.0a1
+[1.1.7]: https://github.com/python-poetry/poetry/releases/tag/1.1.7
 [1.1.6]: https://github.com/python-poetry/poetry/releases/tag/1.1.6
 [1.1.5]: https://github.com/python-poetry/poetry/releases/tag/1.1.5
 [1.1.4]: https://github.com/python-poetry/poetry/releases/tag/1.1.4
