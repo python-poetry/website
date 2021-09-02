@@ -114,7 +114,7 @@
 /* Tables */
 
 #content main .table-wrapper {
-    @apply min-w-full my-8 rounded-md shadow-sm border border-gray-50 overflow-hidden;
+    @apply min-w-full my-8 rounded-md shadow-sm overflow-hidden;
 }
 
 #content main table {
@@ -123,11 +123,11 @@
 }
 
 #content main table thead {
-    @apply bg-gray-50;
+    @apply bg-table-header;
 }
 
 #content main table thead th {
-    @apply px-8 py-6 border-b border-indigo-100 text-left text-xs font-medium uppercase tracking-wider;
+    @apply px-8 py-6 border-b border-indigo-100 text-left text-xs font-semibold uppercase tracking-wider;
 }
 
 #content main table tbody {

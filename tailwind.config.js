@@ -27,7 +27,8 @@ module.exports = {
         'link': '#6772E5',
         'link-hover': '#32325D',
         'dark-primary': '#D0D4FC',
-        'dark-secondary': '#1E293B'
+        'dark-secondary': '#1E293B',
+        'table-header': '#EAEFFF'
       },
       fontSize: {
         'base': '0.9rem',
