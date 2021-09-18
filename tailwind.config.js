@@ -18,8 +18,9 @@ module.exports = {
         cyan: colors.cyan,
         red: colors.rose,
         yellow: colors.amber,
+        orange: colors.orange,
         primary: '#093D8D',
-        code: '#0284C7',
+        code: '#4474CC',
         'light-primary': '#F0F4FC',
         'light-note': '#F7F9FF',
         'light-note-darker': '#F2F6FF',
@@ -40,11 +41,19 @@ module.exports = {
         '100': 100,
         '200': 200,
         '1000': 1000,
+      },
+      border: {
+        primary: "#093D8D"
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringWidth: ["active"],
+      ringColor: ["active"],
+      borderWidth: ["active"],
+      borderColor: ["active"]
+    },
   },
   plugins: [],
 }
