@@ -65,6 +65,14 @@
     @apply text-xs text-code font-mono font-semibold bg-blue-200 border border-dashed border-code border-opacity-40 bg-opacity-10 rounded p-1;
 }
 
+/* CLI options */
+#content main p code.option.deprecated, #content main li code.option.deprecated {
+    @apply text-red-700 border-red-300 bg-red-100 bg-opacity-30;
+}
+#content main p code.option.new, #content main li code.option.new {
+    @apply text-indigo-700 border-indigo-300 bg-indigo-100 bg-opacity-30;
+}
+
 #content main ul {
     @apply list-inside my-8 pl-8;
 }
@@ -75,7 +83,7 @@
 }
 
 #content main ul li, #content main ol li {
-    @apply relative leading-7;
+    @apply relative leading-8;
 }
 
 #content main ol li {
