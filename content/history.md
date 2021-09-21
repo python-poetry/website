@@ -4,6 +4,13 @@ layout: single
 title: History
 ---
 
+## [1.1.10] - 2021-09-21
+
+### Fixed
+
+- Fixed an issue where non-sha256 hashes were not checked. ([#4529](https://github.com/python-poetry/poetry/pull/4529))
+
+
 ## [1.1.9] - 2021-09-18
 
 ### Fixed
@@ -1201,6 +1208,7 @@ Initial release
 
 
 [Unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0a2...master
+[1.1.10]: https://github.com/python-poetry/poetry/releases/tag/1.1.10
 [1.1.9]: https://github.com/python-poetry/poetry/releases/tag/1.1.9
 [1.1.8]: https://github.com/python-poetry/poetry/releases/tag/1.1.8
 [1.2.0a2]: https://github.com/python-poetry/poetry/releases/tag/1.2.0a2
