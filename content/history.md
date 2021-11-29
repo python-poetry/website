@@ -4,6 +4,15 @@ layout: single
 title: History
 ---
 
+## [1.1.12] - 2021-11-27
+
+### Fixed
+
+- Fixed broken caches on Windows due to `Path` starting with a slash ([#4549](https://github.com/python-poetry/poetry/pull/4549))
+- Fixed `JSONDecodeError` when installing packages by updating `cachecontrol` version ([#4831](https://github.com/python-poetry/poetry/pull/4831))
+- Fixed dropped markers in dependency walk ([#4686](https://github.com/python-poetry/poetry/pull/4686))
+
+
 ## [1.1.11] - 2021-10-04
 
 ### Fixed
@@ -1217,6 +1226,7 @@ Initial release
 
 
 [Unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0a2...master
+[1.1.12]: https://github.com/python-poetry/poetry/releases/tag/1.1.12
 [1.1.11]: https://github.com/python-poetry/poetry/releases/tag/1.1.11
 [1.1.10]: https://github.com/python-poetry/poetry/releases/tag/1.1.10
 [1.1.9]: https://github.com/python-poetry/poetry/releases/tag/1.1.9
