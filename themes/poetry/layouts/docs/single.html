@@ -35,12 +35,12 @@
             <div class="search-container w-full relative mb-8 lg:hidden" data-version="{{ $version }}">
             </div>
             <button type="button"
-                    class="bg-light-note relative flex items-center w-full max-w-full border border-gray-300 rounded-md shadow-sm pl-8 pr-6 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:bg-opacity-50 dark:focus:ring-indigo-300 dark:focus:border-indigo-300"
+                    class="bg-light-primary relative flex items-center gap-3 w-full max-w-full border border-secondary-300 rounded-md shadow-sm pl-4 pr-6 py-2 text-left cursor-default transition-all focus:outline-none focus:border-secondary-500 focus:bg-secondary-100 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:bg-opacity-50 dark:focus:ring-indigo-300 dark:focus:border-indigo-300"
                     aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
                     data-select-target="button" data-action="click->select#toggle">
                     <span
                             aria-label="Selected"
-                            class="absolute left-3.5 bg-indigo-400 flex-shrink-0 inline-block h-2 w-2 rounded-full dark:bg-indigo-300"
+                            class="bg-secondary-400 flex-shrink-0 inline-block h-2 w-2 rounded-full dark:bg-indigo-300"
                     ></span>
                 <span class="block truncate font-medium">
                     {{ index (split .Name "|") 0 -}}
@@ -55,7 +55,7 @@
                         </svg>
                     </span>
             </button>
-            <ul class="hidden absolute z-10 mt-1 w-full max-w-full bg-white shadow-lg max-h-80 rounded-md py-1 px-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto transition transform focus:outline-none sm:text-sm dark:bg-gray-700"
+            <ul class="hidden absolute z-10 mt-1 w-full max-w-full bg-white shadow-lg max-h-80 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto transition transform focus:outline-none sm:text-sm dark:bg-gray-700"
                 data-select-target="menu" tabindex="-1" role="listbox" aria-labelledby="listbox-label"
                 data-transition-enter-active=""
                 data-transition-enter-from="" data-transition-enter-to=""
@@ -66,10 +66,10 @@
                 {{ if (eq $dir .Page.File.Dir) }}
                 <li class="cursor-default select-none relative"
                     id="listbox-option-0" role="option">
-                    <a href="{{ .Page.RelPermalink }}" class="relative flex justify-end items-center content-center transition py-4 px-7 rounded duration-300 hover:bg-light-note dark:hover:bg-gray-900">
+                    <a href="{{ .Page.RelPermalink }}" class="relative flex gap-3 justify-end items-center content-center transition py-4 {{ if $currentPage.IsMenuCurrent "docs" . }}px-4{{ else }}px-9{{ end }} rounded duration-300 hover:bg-light-note dark:hover:bg-gray-900">
                         {{ if $currentPage.IsMenuCurrent "docs" . }}
                         <span aria-label="Selected"
-                              class="absolute left-2.5 bg-indigo-400 flex-shrink-0 inline-block h-2 w-2 rounded-full dark:bg-indigo-300"></span>
+                              class="bg-secondary-400 flex-shrink-0 inline-block h-2 w-2 rounded-full dark:bg-indigo-300"></span>
                         {{ end }}
 
                         <span class="flex-grow font-medium inline-block truncate">

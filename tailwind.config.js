@@ -1,4 +1,6 @@
+const _ = require('lodash')
 const colors = require('tailwindcss/colors')
+const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default
 
 module.exports = {
   mode: 'jit',
@@ -19,9 +21,32 @@ module.exports = {
         red: colors.rose,
         yellow: colors.amber,
         orange: colors.orange,
-        primary: '#093D8D',
+        primary: {
+          '50': '#f3f5f9',
+          '100': '#e6ecf4',
+          '200': '#c2cfe3',
+          '300': '#9db1d1',
+          '400': '#5377af',
+          '500': '#093D8D',
+          '600': '#08377f',
+          '700': '#072e6a',
+          '800': '#052555',
+          '900': '#041e45'
+        },
+        secondary: {
+          '50': '#f5f5fc',
+          '100': '#ecebfa',
+          '200': '#cfcdf2',
+          '300': '#b2afe9',
+          '400': '#7973d9',
+          '500': '#3f37c9',
+          '600': '#3932b5',
+          '700': '#2f2997',
+          '800': '#262179',
+          '900': '#1f1b62'
+        },
         code: '#4474CC',
-        'light-primary': '#F0F4FC',
+        'light-primary': '#FBFBFF',
         'light-note': '#F7F9FF',
         'light-note-darker': '#F2F6FF',
         'dark-note-darker': '#28394D',
@@ -55,5 +80,26 @@ module.exports = {
       borderColor: ["active"]
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities, e, theme, variants }) => {
+      let colors = flattenColorPalette(theme('borderColor'))
+      delete colors['default']
+
+      // Replace or Add custom colors
+      if(this.theme?.extend?.colors !== undefined){
+        colors = Object.assign(colors, this.theme.extend.colors)
+      }
+
+      const colorMap = Object.keys(colors)
+        .map(color => ({
+          [`.border-t-${color}`]: {borderTopColor: colors[color]},
+          [`.border-r-${color}`]: {borderRightColor: colors[color]},
+          [`.border-b-${color}`]: {borderBottomColor: colors[color]},
+          [`.border-l-${color}`]: {borderLeftColor: colors[color]},
+        }));
+      const utilities = Object.assign({}, ...colorMap)
+
+      addUtilities(utilities, variants('borderColor'))
+    },
+  ],
 }

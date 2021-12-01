@@ -3,7 +3,7 @@
 }
 
 body {
-    @apply bg-light-primary text-base text-primary font-sans antialiased;
+    @apply bg-light-primary text-base text-primary-500 font-sans antialiased;
 }
 
 code {
@@ -33,5 +33,5 @@ html.dark strong {
 }
 
 html.dark .vercel-footer-link {
-    @apply text-white;
+    @apply text-secondary-200;
 }
