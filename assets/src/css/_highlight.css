@@ -1,6 +1,5 @@
 .highlight pre {
-    @apply p-7 rounded-md overflow-auto font-mono leading-6;
-    background-color: #E2E8FF40;
+    @apply px-8 py-6 overflow-auto font-mono leading-6 border-l border-dashed border-primary-100;
 }
 
 .highlight pre code {
@@ -9,7 +8,7 @@
 
 /* Highlight */
 .highlight pre code .hl {
-    @apply bg-blue-100 -ml-7 pl-7 w-full block;
+    @apply bg-light-note-darker -ml-7 pl-7 w-full block;
 }
 
 /* Builtin (Pseudo */
@@ -145,7 +144,7 @@
 }
 
 html.dark .highlight pre {
-    @apply bg-gray-900;
+    @apply bg-gray-900 rounded-md border-0;
 }
 
 html.dark .highlight pre code, .browser-window.dark .highlight pre code {

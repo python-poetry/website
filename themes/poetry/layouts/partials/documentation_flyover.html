@@ -14,10 +14,10 @@
             data-transition-leave-to="opacity-0 scale-95"
     >
         <div class="rounded-lg shadow-lg ring-1 ring-indigo-200 ring-opacity-50 overflow-hidden">
-            <div class="relative grid auto-cols-fr gap-6 bg-light-note px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-3 dark:bg-gray-700">
+            <div class="relative grid auto-cols-fr gap-6 bg-light-primary px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-3 dark:bg-gray-700">
                 {{ range sort .Site.Menus.docs "Weight" }}
                 {{ if (eq .Page.File.Dir "docs/") }}
-                <a href="{{ .Page.RelPermalink }}" class="-m-3 p-3 flex items-start rounded-lg whitespace-nowrap hover:bg-light-note-darker transition ease-in-out duration-150 dark:hover:bg-dark-note-darker">
+                <a href="{{ .Page.RelPermalink }}" class="-m-3 p-3 flex items-start rounded-lg whitespace-nowrap hover:bg-light-note transition ease-in-out duration-150 dark:hover:bg-dark-note-darker">
                     <div class="max-w-full">
                         <p class="text-base font-medium">
                             {{ .Name }}
@@ -30,7 +30,7 @@
                 {{ end }}
                 {{ end }}
             </div>
-            <div class="p-5 bg-light-note-darker sm:p-8 dark:bg-dark-note-darker">
+            <div class="p-5 bg-light-note sm:p-8 dark:bg-dark-note-darker">
                 <div class="relative grid gap-6 sm:gap-8 lg:grid-cols-2">
                     {{ $latestVersion := index ( .Site.Params.documentation.versions ) 0 -}}
                     {{ $stableVersion := index ( .Site.Params.documentation.versions ) 1 -}}

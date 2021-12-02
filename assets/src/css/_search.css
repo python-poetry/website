@@ -3,7 +3,11 @@
 }
 
 .aa-Autocomplete .aa-DetachedSearchButton {
-    @apply flex items-center justify-start w-full text-sm p-2 rounded-md border border-indigo-100 text-gray-400 bg-light-note active:ring-indigo-500 active:border-indigo-500;
+    @apply flex items-center justify-start w-full text-sm p-2 rounded-md border border-secondary-200 bg-secondary-50 transition-all;
+}
+
+.aa-Autocomplete .aa-DetachedSearchButton:active {
+    @apply ring-indigo-500 border-indigo-500;
 }
 
 .aa-Autocomplete .aa-DetachedSearchButton:focus {

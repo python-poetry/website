@@ -16,27 +16,15 @@
             </div>
             <div class="self-end mr-8 w-28 relative md:mr-0" data-controller="select" data-action="select:click:outside->select#close">
                 <button type="button"
-                        class="bg-light-note flex items-center w-full border border-indigo-200 rounded-md shadow-sm pl-2.5 pr-2 py-2 text-left cursor-default focus:outline-none focus:border-indigo-500 focus:bg-indigo-50 sm:text-sm transition-all dark:bg-gray-700 dark:border-gray-600 dark:bg-opacity-50 dark:focus:border-blue-400 dark:focus:border-opacity-50 dark:focus:bg-blue-900 dark:focus:bg-opacity-20"
+                        class="flex items-center w-full border border-secondary-300 rounded-md shadow pl-2.5 pr-2 py-2 text-left cursor-pointer focus:outline-none focus:border-secondary-500 focus:bg-secondary-100 focus:shadow-none sm:text-sm transition-all dark:bg-gray-700 dark:border-gray-600 dark:bg-opacity-50 dark:focus:border-blue-400 dark:focus:border-opacity-50 dark:focus:bg-blue-900 dark:focus:bg-opacity-20"
                         aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
                         data-select-target="button" data-action="click->select#toggle">
-                    <span class="flex-none w-3 h-3 text-indigo-700 dark:text-blue-300">
-                        <svg
-                           aria-hidden="true"
-                           focusable="false"
-                           role="img"
-                           xmlns="http://www.w3.org/2000/svg"
-                           viewBox="0 0 512 512"
-                        >
-                            <g>
-                                <path fill="currentColor" fill-opacity="30%" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM352 256c0 52.95-43.05 96-96 96S160 308.1 160 256s43.05-96 96-96S352 203.1 352 256z"></path>
-                                <path fill="currentColor" d="M352 256c0 52.95-43.05 96-96 96S160 308.1 160 256s43.05-96 96-96S352 203.1 352 256z"></path>
-                            </g>
-                        </svg>
-                    </span>
+                    <span aria-label="Selected" class="bg-secondary-400 flex-shrink-0 inline-block h-2 w-2 rounded-full dark:bg-indigo-300"
+                    ></span>
                     <span class="flex-grow ml-2 truncate font-medium">
                         {{ $version }}
                     </span>
-                    <span class="flex-none inset-y-0 text-indigo-800 pointer-events-none dark:text-indigo-200">
+                    <span class="flex-none inset-y-0 text-secondary-800 pointer-events-none dark:text-indigo-200">
                         <!-- Heroicon name: solid/selector -->
                         <svg class="h-5 w-5 opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                              fill="currentColor" aria-hidden="true">
@@ -47,7 +35,7 @@
                     </span>
                 </button>
 
-                <ul class="hidden absolute z-10 mt-1 w-full bg-light-note shadow-lg max-h-60 rounded-md py-1 px-1 text-base ring-1 ring-indigo-300 ring-opacity-20 overflow-auto transition transform focus:outline-none sm:text-sm dark:bg-gray-700"
+                <ul class="hidden absolute z-10 mt-1 w-full shadow-lg max-h-60 rounded-md py-1 px-1 text-base ring-1 ring-indigo-300 ring-opacity-20 overflow-auto transition transform focus:outline-none sm:text-sm dark:bg-gray-700"
                     data-select-target="menu" tabindex="-1" role="listbox" aria-labelledby="listbox-label"
                     data-transition-enter-active=""
                     data-transition-enter-from="" data-transition-enter-to=""
@@ -63,21 +51,7 @@
                         {{ end }}
                         <a href="{{ $url | relURL }}" class="flex justify-end items-center content-center transition py-2 px-1.5 rounded duration-300 hover:bg-light-note-darker dark:hover:bg-dark-note-darker">
                             {{ if eq $version . }}
-                            <span class="flex-none w-3 h-3 text-indigo-700 dark:text-blue-300">
-                                <svg
-                                   aria-hidden="true"
-                                   focusable="false"
-                                   data-icon="circle-dot"
-                                   role="img"
-                                   xmlns="http://www.w3.org/2000/svg"
-                                   viewBox="0 0 512 512"
-                                >
-                                    <g>
-                                        <path fill="currentColor" fill-opacity="30%" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM352 256c0 52.95-43.05 96-96 96S160 308.1 160 256s43.05-96 96-96S352 203.1 352 256z"></path>
-                                        <path fill="currentColor" d="M352 256c0 52.95-43.05 96-96 96S160 308.1 160 256s43.05-96 96-96S352 203.1 352 256z"></path>
-                                    </g>
-                                </svg>
-                            </span>
+                            <span aria-label="Selected" class="bg-secondary-400 flex-shrink-0 inline-block h-2 w-2 rounded-full dark:bg-indigo-300"></span>
                             {{ end }}
 
                             <span class="flex-grow self-center ml-2 {{ if ne $version .}}ml-5 font-normal{{ else }}font-medium{{ end }} inline-block truncate">
