@@ -1,14 +1,28 @@
 .highlight pre {
-    @apply px-8 py-6 overflow-auto font-mono leading-6 border-l border-dashed border-primary-100;
+    @apply px-8 py-7 overflow-auto rounded-lg font-mono leading-6 bg-code-200 bg-opacity-10 border border-dashed border-code-100;
 }
 
 .highlight pre code {
-    @apply text-code !important;
+    @apply w-full text-code-600 inline-block !important;
+}
+
+.highlight pre code::selection, .highlight pre code span::selection {
+    @apply bg-blue-200;
+}
+
+/* Line number */
+.highlight pre code .lnt {
+    color: #4474CC70;
 }
 
 /* Highlight */
 .highlight pre code .hl {
-    @apply bg-light-note-darker -ml-7 pl-7 w-full block;
+    @apply relative bg-blue-100 -ml-8 -mr-8 pl-8 w-full block;
+}
+.highlight pre code .hl:before {
+    @apply absolute w-1.5 h-1.5 left-3 bg-blue-400 rounded-full;
+    top: 0.625rem;
+    content: " ";
 }
 
 /* Builtin (Pseudo */
@@ -144,11 +158,20 @@
 }
 
 html.dark .highlight pre {
-    @apply bg-gray-900 rounded-md border-0;
+    @apply rounded-lg border-0 bg-gray-900 ;
 }
 
-html.dark .highlight pre code, .browser-window.dark .highlight pre code {
-    @apply text-dark-primary !important;
+html.dark .highlight pre code, html.dark .browser-window.dark .highlight pre code {
+    @apply bg-transparent text-dark-primary !important;
+}
+
+html.dark .highlight pre code::selection, html.dark .highlight pre code span::selection {
+    @apply bg-gray-600;
+}
+
+/* Line number */
+html.dark .highlight pre code .lnt {
+    color: #777EA5;
 }
 
 /* Highlight */

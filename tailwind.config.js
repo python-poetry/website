@@ -15,7 +15,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        blue: colors.lightBlue,
+        blue: colors.blue,
         gray: colors.blueGray,
         cyan: colors.cyan,
         red: colors.rose,
@@ -45,7 +45,7 @@ module.exports = {
           '800': '#262179',
           '900': '#1f1b62'
         },
-        code: '#4474CC',
+        code: colors.lightBlue,
         'light-primary': '#FBFBFF',
         'light-note': '#F7F9FF',
         'light-note-darker': '#F2F6FF',
@@ -69,6 +69,16 @@ module.exports = {
       },
       border: {
         primary: "#093D8D"
+      },
+      boxShadow: {
+        'clean-sm': '0 1px 2px 0 hsl(240deg, 20%, 90%)',
+        'clean': '0 1px 3px 0 hsl(240deg, 20%, 90%), 0 1px 2px 0 hsl(240deg, 20%, 90%)',
+        'clean-md': '0 4px 6px -1px hsl(220deg, 20%, 90%), 0 2px 4px -1px hsl(220deg, 20%, 90%)',
+        'clean-lg': '0 10px 15px -3px hsl(220deg, 20%, 90%), 0 4px 6px -2px hsl(220deg, 20%, 90%)',
+        'clean-dark-sm': '0 1px 2px 0 hsl(217deg, 32%, 12%)',
+        'clean-dark': '0 1px 3px 0 hsl(217deg, 32%, 12%), 0 1px 2px 0 hsl(217deg, 32%, 12%)',
+        'clean-dark-md': '0 4px 6px -1px hsl(217deg, 32%, 12%), 0 2px 4px -1px hsl(217deg, 32%, 12%)',
+        'clean-dark-lg': '0 10px 15px -3px hsl(217deg, 32%, 12%), 0 4px 6px -2px hsl(217deg, 32%, 12%)',
       }
     },
   },

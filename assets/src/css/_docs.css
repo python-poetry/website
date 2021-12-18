@@ -31,7 +31,7 @@ main#docs h1:not(.doc-title) {
 }
 
 #documentation-menu nav#TableOfContents ul > li > a > code {
-    @apply text-xs text-code font-mono font-semibold bg-blue-200 border border-dashed border-code border-opacity-40 bg-opacity-10 rounded p-1;
+    @apply text-xs text-code-600 font-mono font-medium bg-code-200 border border-dashed border-code-500 border-opacity-40 bg-opacity-10 rounded p-1;
 }
 
 /* Main table of contents */

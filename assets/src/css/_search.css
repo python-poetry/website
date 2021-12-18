@@ -3,7 +3,7 @@
 }
 
 .aa-Autocomplete .aa-DetachedSearchButton {
-    @apply flex items-center justify-start w-full text-sm p-2 rounded-md border border-secondary-200 bg-secondary-50 transition-all;
+    @apply flex items-center justify-start w-full text-sm p-2 rounded-md border border-secondary-200 bg-secondary-50 bg-opacity-50;
 }
 
 .aa-Autocomplete .aa-DetachedSearchButton:active {

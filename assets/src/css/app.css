@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 @import "./_fonts";
 @import "./_base";
+@import "./_components";
 @import "./_content";
 @import "./_docs.css";
 @import "./_windows.css";

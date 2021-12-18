@@ -1,0 +1,31 @@
+.btn {
+    @apply flex items-center w-full border border-secondary-300 rounded-md shadow-clean-sm pl-2.5 pr-2 py-2 text-left cursor-pointer;
+}
+
+.btn:focus {
+    @apply outline-none border-secondary-500 bg-secondary-100 shadow-none;
+}
+
+.btn.btn-flat {
+    @apply shadow-none bg-transparent border-transparent;
+}
+
+.btn.btn-flat:focus {
+    @apply border-secondary-500;
+}
+
+html.dark .btn {
+    @apply bg-gray-700 border-gray-600 bg-opacity-50 shadow-clean-dark-sm;
+}
+
+html.dark .btn:focus {
+    @apply border-blue-400 border-opacity-50 bg-blue-900 bg-opacity-20;
+}
+
+html.dark .btn.btn-flat {
+    @apply shadow-none bg-transparent border-transparent;
+}
+
+html.dark .btn.btn-flat:focus {
+    @apply border-blue-400 border-opacity-50;
+}

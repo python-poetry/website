@@ -54,15 +54,15 @@
 }
 
 #content main code {
-    @apply text-code font-mono;
+    @apply text-code-600 font-mono;
 }
 
 #content main p {
     @apply mb-4 leading-7;
 }
 
-#content main p code {
-    @apply text-xs text-code font-mono font-medium bg-blue-200 border border-dashed border-code border-opacity-40 bg-opacity-10 rounded p-1;
+#content main p code, #content main li code, #content main table:not(.lntable) td code, #content main .admonition .content>code, #content main .admonition .content p>code {
+    @apply text-xs text-code-600 font-mono font-medium bg-code-200 border border-dashed border-code-500 border-opacity-40 bg-opacity-10 rounded p-1;
 }
 
 /* CLI options */
@@ -91,22 +91,18 @@
 }
 
 #content main ul li:before {
-    @apply absolute w-1.5 h-1.5 -left-4 bg-blue-500 rounded-full;
-    top: 0.675rem;
+    @apply absolute w-1.5 h-1.5 -left-4 bg-blue-400 rounded-full;
+    top: 0.825rem;
     content: " ";
 }
 
 #content main ol li:before {
-    @apply absolute w-1.5 h-1.5 -left-5 text-blue-500 font-medium;
+    @apply absolute w-1.5 h-1.5 -left-5 text-blue-400 font-medium;
     content: counter(count) ". ";
 }
 
 #content main ul li ul, #content main ul li ol #content main ol li ul, #content main ol li ol {
     @apply mt-0 mb-4;
-}
-
-#content main li code {
-    @apply text-xs text-code font-mono font-semibold bg-blue-200 border border-dashed border-code border-opacity-40 bg-opacity-10 rounded p-1;
 }
 
 /* Summary */
@@ -122,74 +118,94 @@
 /* Tables */
 
 #content main .table-wrapper {
-    @apply min-w-full my-8;
+    @apply min-w-full my-8 rounded-lg;
 }
 
-#content main table {
+#content main table:not(.lntable) {
     @apply min-w-full divide-y border-separate;
     border-spacing: 0;
 }
 
-#content main table thead {
+#content main table:not(.lntable) thead {
     @apply bg-none;
 }
 
-#content main table thead th {
+#content main table:not(.lntable) thead th {
     @apply px-6 py-4 border-indigo-100 text-left text-xs font-semibold uppercase tracking-wider;
 }
 
-#content main table tbody tr:first-child > td:first-child {
+#content main table:not(.lntable) tbody tr:first-child > td:first-child {
     @apply rounded-tl-md;
 }
 
-#content main table tbody tr:nth-child(2n) td {
+#content main table:not(.lntable) tbody tr:nth-child(2n) td {
     @apply bg-none;
 }
 
-#content main table tbody tr:nth-child(2n+1) td {
+#content main table:not(.lntable) tbody tr:nth-child(2n+1) td {
     @apply bg-secondary-50 bg-opacity-60;
 }
 
-#content main table tbody tr td {
+#content main table:not(.lntable) tbody tr td {
     @apply px-6 py-4 text-sm border-b border-b-primary-100;
 }
 
-#content main table tbody tr:first-child > td:last-child {
+#content main table:not(.lntable) tbody tr:first-child > td:last-child {
     @apply rounded-tr-md;
 }
 
-#content main table tbody tr:first-child > td {
+#content main table:not(.lntable) tbody tr:first-child > td {
     @apply border-t border-t-primary-100;
 }
 
-#content main table tbody tr > td:first-child {
+#content main table:not(.lntable) tbody tr > td:first-child {
     @apply border-l border-l-primary-100;
 }
 
-#content main table tbody tr > td:last-child {
+#content main table:not(.lntable) tbody tr > td:last-child {
     @apply border-r border-r-primary-100;
 }
 
-#content main table tbody tr:last-child > td:first-child {
+#content main table:not(.lntable) tbody tr:last-child > td:first-child {
     @apply rounded-bl-md;
 }
 
-#content main table tbody tr:last-child > td:last-child {
+#content main table:not(.lntable) tbody tr:last-child > td:last-child {
     @apply rounded-br-md;
 }
 
-#content main table tbody tr:last-child > td {
+#content main table:not(.lntable) tbody tr:last-child > td {
     @apply border-b border-b-primary-100;
 }
 
-#content main table td code {
-    @apply text-xs p-1 leading-7 shadow-none bg-blue-200 font-medium border border-dashed border-code border-opacity-40 bg-opacity-10 rounded;
+#content main table:not(.lntable) td code {
+    @apply leading-7;
 }
 
 /* Highlight */
 
 #content main .highlight {
-    @apply relative w-full rounded-md text-sm mx-auto my-8;
+    @apply relative w-full rounded-lg text-sm mx-auto my-8;
+}
+
+#content main .highlight table.lntable {
+    @apply w-full bg-code-200 bg-opacity-10 rounded-lg;
+}
+
+#content main .highlight table.lntable tr {
+    @apply rounded-lg;
+}
+
+#content main .highlight table.lntable tr td pre {
+    @apply bg-transparent;
+}
+
+#content main .highlight table.lntable tr td:first-child pre {
+    @apply border-r-0 pl-7 pr-0 rounded-r-none;
+}
+
+#content main .highlight table.lntable tr td:last-child pre {
+    @apply border-l-0 rounded-l-none pl-4;
 }
 
 /* Admonitions */
@@ -236,10 +252,6 @@
     @apply mb-0;
 }
 
-#content main .admonition .content>code, #content main .admonition .content p>code {
-    @apply text-xs p-1 shadow-none bg-blue-200 font-medium border border-dashed border-code border-opacity-40 bg-opacity-10 rounded;
-}
-
 /* Heading Permanent links */
 
 #content main .header-link {
@@ -261,7 +273,7 @@
         top: 50%;
         transform: translateY(-50%);
         left: -3.5rem;
-        content: url('data:image/svg+xml; utf8, <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><g><path fill="%234474CC" fill-opacity="10%" d="M576 256c0-8.188-3.125-16.38-9.375-22.62l-160-160C400.4 67.13 392.2 64 384 64c-17.05 0-32 13.73-32 32c0 8.188 3.125 16.38 9.375 22.62L498.8 256l-137.4 137.4C355.1 399.6 352 407.8 352 416c0 18.28 14.95 32 32 32c8.188 0 16.38-3.125 22.62-9.375l160-160C572.9 272.4 576 264.2 576 256z"></path><path fill="%234474CC" fill-opacity="5%" d="M224 96c0-18.28-14.95-32-32-32C183.8 64 175.6 67.13 169.4 73.38l-160 160C3.125 239.6 0 247.8 0 256s3.125 16.38 9.375 22.62l160 160C175.6 444.9 183.8 448 192 448c17.05 0 32-13.73 32-32c0-8.188-3.125-16.38-9.375-22.62L77.25 256l137.4-137.4C220.9 112.4 224 104.2 224 96z"></path></g></svg>');
+        content: url('data:image/svg+xml; utf8, <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><g><path fill="%23e0f2fe" d="M576 256c0-8.188-3.125-16.38-9.375-22.62l-160-160C400.4 67.13 392.2 64 384 64c-17.05 0-32 13.73-32 32c0 8.188 3.125 16.38 9.375 22.62L498.8 256l-137.4 137.4C355.1 399.6 352 407.8 352 416c0 18.28 14.95 32 32 32c8.188 0 16.38-3.125 22.62-9.375l160-160C572.9 272.4 576 264.2 576 256z"></path><path fill="%23f0f9ff" d="M224 96c0-18.28-14.95-32-32-32C183.8 64 175.6 67.13 169.4 73.38l-160 160C3.125 239.6 0 247.8 0 256s3.125 16.38 9.375 22.62l160 160C175.6 444.9 183.8 448 192 448c17.05 0 32-13.73 32-32c0-8.188-3.125-16.38-9.375-22.62L77.25 256l137.4-137.4C220.9 112.4 224 104.2 224 96z"></path></g></svg>');
     }
 
 
@@ -278,7 +290,7 @@
     }
 
     #content main .admonition .highlight {
-        @apply w-11/12;
+        @apply w-full;
     }
 
     #content main .admonition .highlight:before {
@@ -339,7 +351,7 @@ html.dark #content main a:hover>code {
 }
 
 html.dark #content main code {
-    @apply text-blue-200;
+    @apply text-indigo-300;
 }
 
 html.dark #content main p code,
@@ -369,7 +381,7 @@ html.dark #content main ol li:before {
 
 /* Admonitions */
 html.dark #content main .admonition {
-    @apply bg-gray-700 bg-opacity-50;
+    @apply bg-gray-700 bg-opacity-50 shadow-clean-dark;
 }
 
 html.dark #content main .admonition.note {
@@ -390,26 +402,23 @@ html.dark #content main .admonition.warning {
     border: 1px dashed #FECDD380;
 }
 
-
-html.dark #content main .admonition .highlight {
-    @apply mx-8;
-}
-
 /* Tables */
-html.dark #content main table tbody {
-    @apply bg-gray-700 bg-opacity-10 divide-gray-800 border-gray-800;
-}
 
-html.dark #content main table tbody tr td {
+html.dark #content main table:not(.lntable) tbody tr td {
     @apply border-b border-gray-600 border-opacity-20 rounded-none;
 }
 
-html.dark #content main table tbody tr:last-child td {
+html.dark #content main table:not(.lntable) tbody tr:last-child td {
     @apply border-0;
 }
 
-html.dark #content main table tbody tr:nth-child(2n+1) td {
-    @apply bg-dark-note-darker;
+html.dark #content main table:not(.lntable) tbody tr:nth-child(2n+1) td {
+    @apply bg-dark-note-darker bg-opacity-40;
+}
+
+/* Highlight */
+html.dark #content main .highlight table.lntable {
+    @apply bg-gray-900 bg-opacity-100;
 }
 
 /* Heading Permanent links */
