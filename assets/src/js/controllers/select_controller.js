@@ -25,6 +25,8 @@ export default class extends Controller {
     this.toggleTransition();
     if (this.transitioned) {
       // Focus on first element
+    } else {
+      this.buttonTarget.blur()
     }
   }
 }
