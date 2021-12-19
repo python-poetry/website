@@ -1,5 +1,5 @@
 .highlight pre {
-    @apply px-8 py-7 overflow-auto rounded-lg font-mono leading-6 bg-code-200 bg-opacity-10 border border-dashed border-code-100;
+    @apply px-8 py-7 overflow-auto rounded-lg font-mono leading-6 bg-highlight;
 }
 
 .highlight pre code {
@@ -158,155 +158,155 @@
 }
 
 html.dark .highlight pre {
-    @apply rounded-lg border-0 bg-gray-900 ;
+    @apply bg-gray-900 ;
 }
 
-html.dark .highlight pre code, html.dark .browser-window.dark .highlight pre code {
+.highlight pre code, .browser-window.dark .highlight pre code {
     @apply bg-transparent text-dark-primary !important;
 }
 
-html.dark .highlight pre code::selection, html.dark .highlight pre code span::selection {
+ html.dark .highlight pre code::selection,  .highlight pre code span::selection {
     @apply bg-gray-600;
 }
 
 /* Line number */
-html.dark .highlight pre code .lnt {
-    color: #777EA5;
+ .highlight pre code .lnt {
+    color: #777EA580;
 }
 
 /* Highlight */
-html.dark .highlight pre code .hl {
+ .highlight pre code .hl {
     @apply bg-blue-900;
 }
 
 /* Builtin (Pseudo */
 
-html.dark .highlight pre code .bp {
+ .highlight pre code .bp {
     color: #60A5FA;
 }
 
 /* Comment */
 
-html.dark .highlight pre code .c {
+ .highlight pre code .c {
     color: #777EA5;
 }
 
 /* Comment (Single) */
 
-html.dark .highlight pre code .c1 {
+ .highlight pre code .c1 {
     color: #777EA5;
 }
 
 /* Error */
 
-html.dark .highlight pre code .err {
+ .highlight pre code .err {
     color: #C2CAFD;
 }
 
 /* Generic */
 
-html.dark .highlight pre code .g {
+ .highlight pre code .g {
     color: #93A1A1;
 }
 
 /* Keyword */
 
-html.dark .highlight pre code .k {
+ .highlight pre code .k {
     color: #A5B4FC;
 }
 
 /* Keyword (Constant) */
 
-html.dark .highlight pre code .kc {
+ .highlight pre code .kc {
     color: #7DD3FC;
 }
 
 /* Keyword (Namespace) */
 
-html.dark .highlight pre code .kn {
+ .highlight pre code .kn {
     color: #A5B4FC;
 }
 
 /* Literal */
 
-html.dark .highlight pre code .l {
+ .highlight pre code .l {
     color: #B7A21A;
 }
 
 /* Number */
 
-html.dark .highlight pre code .m {
+ .highlight pre code .m {
     color: #6EE7B7;
 }
 
 /* Name */
 
-html.dark .highlight pre code .n {
+ .highlight pre code .n {
     color: inherit;
 }
 
 /* Name (Attribute) */
 
-html.dark .highlight pre code .na {
+ .highlight pre code .na {
     color: #A7ACFC;
 }
 
 /* Name (Builtin) */
 
-html.dark .highlight pre code .nb {
+ .highlight pre code .nb {
     color: #F0ABFC;
 }
 
 /* Name (Class) */
 
-html.dark .highlight pre code .nc {
+ .highlight pre code .nc {
     color: #60A5FA;
 }
 
 /* Name (Function) */
 
-html.dark .highlight pre code .nf {
+ .highlight pre code .nf {
     color: #A78BFA;
 }
 
 /* Name (Other) */
 
-html.dark .highlight pre code .nx {
+ .highlight pre code .nx {
     color: #A5B4FC;
 }
 
 /* Name (Variable) */
 
-html.dark .highlight pre code .nv {
+ .highlight pre code .nv {
     color: #7AB9F8;
 }
 
 /* Operator */
 
-html.dark .highlight pre code .o {
+ .highlight pre code .o {
     color: #727AAD;
 }
 
 /* Punctuation */
 
-html.dark .highlight pre code .p {
+ .highlight pre code .p {
     color: #727AAD;
 }
 
 /* String (Literal) */
 
-html.dark .highlight pre code .s {
+ .highlight pre code .s {
     color: #FDBA74;
 }
 
 /* String (Single) */
 
-html.dark .highlight pre code .s1 {
+ .highlight pre code .s1 {
     color: #FDBA74;
 }
 
 /* String (Double) */
 
-html.dark .highlight pre code .s2 {
+ .highlight pre code .s2 {
     color: #FDBA74;
 }

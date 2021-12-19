@@ -54,7 +54,8 @@ module.exports = {
         'link-hover': '#32325D',
         'dark-primary': '#D0D4FC',
         'dark-secondary': '#1E293B',
-        'table-header': '#EAEFFF'
+        'table-header': '#EAEFFF',
+        highlight: '#012a4a'
       },
       fontSize: {
         'base': '0.9rem',
