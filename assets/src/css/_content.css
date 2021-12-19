@@ -143,11 +143,11 @@
 }
 
 #content main table:not(.lntable) tbody tr:nth-child(2n+1) td {
-    @apply bg-secondary-50 bg-opacity-60;
+    @apply bg-secondary-100 bg-opacity-30;
 }
 
 #content main table:not(.lntable) tbody tr td {
-    @apply px-6 py-4 text-sm border-b border-b-primary-100;
+    @apply px-6 py-4 text-sm border-b border-b-secondary-100;
 }
 
 #content main table:not(.lntable) tbody tr:first-child > td:last-child {
@@ -155,15 +155,15 @@
 }
 
 #content main table:not(.lntable) tbody tr:first-child > td {
-    @apply border-t border-t-primary-100;
+    @apply border-t border-t-secondary-100;
 }
 
 #content main table:not(.lntable) tbody tr > td:first-child {
-    @apply border-l border-l-primary-100;
+    @apply border-l border-l-secondary-100;
 }
 
 #content main table:not(.lntable) tbody tr > td:last-child {
-    @apply border-r border-r-primary-100;
+    @apply border-r border-r-secondary-100;
 }
 
 #content main table:not(.lntable) tbody tr:last-child > td:first-child {
@@ -175,7 +175,7 @@
 }
 
 #content main table:not(.lntable) tbody tr:last-child > td {
-    @apply border-b border-b-primary-100;
+    @apply border-b border-b-secondary-100;
 }
 
 #content main table:not(.lntable) td code {
