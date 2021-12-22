@@ -10,7 +10,7 @@ import path from "path"
 
 
 const dev = {
-    input: "assets/src/app.js",
+    input: "src/app.js",
     output: {
         file: "assets/assets/app.js",
         format: "umd"
@@ -44,7 +44,7 @@ const dev = {
 
 
 const prod = {
-    input: "assets/src/app.js",
+    input: "src/app.js",
     output: {
         file: "assets/assets/app.js",
         format: "esm"
