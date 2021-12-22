@@ -8,6 +8,7 @@ import MenuController from './js/controllers/menu_controller'
 import SelectController from './js/controllers/select_controller'
 import ModeSwitchController from './js/controllers/mode_switch_controller'
 import FlyoverController from './js/controllers/flyover_controller'
+import TabsController from './js/controllers/tabs_controller'
 
 const application = Application.start()
 application.register("transition", TransitionController)
@@ -16,6 +17,7 @@ application.register("menu", MenuController)
 application.register("select", SelectController)
 application.register("mode-switch", ModeSwitchController)
 application.register("flyover", FlyoverController)
+application.register("tabs", TabsController)
 
 // Search
 const searchClient = algoliasearch(

@@ -61,7 +61,7 @@
     @apply mb-4 leading-7;
 }
 
-#content main p code, #content main li code, #content main table:not(.lntable) td code, #content main .admonition .content>code, #content main .admonition .content p>code {
+#content main p > code, #content main p > a > code, #content main li > code, #content main table:not(.lntable) td code, #content main .admonition .content>code, #content main .admonition .content p>code {
     @apply text-xs text-code-600 font-mono font-medium bg-code-200 border border-dashed border-code-500 border-opacity-40 bg-opacity-10 rounded p-1;
 }
 
@@ -73,7 +73,7 @@
     @apply text-indigo-700 border-indigo-300 bg-indigo-100 bg-opacity-30;
 }
 
-#content main ul {
+#content main ul:not(.select-menu) {
     @apply list-inside my-8 pl-8;
 }
 
@@ -82,21 +82,21 @@
     counter-reset: count;
 }
 
-#content main ul li, #content main ol li {
+#content main ul > li, #content main ol > li {
     @apply relative leading-8;
 }
 
-#content main ol li {
+#content main ol > li {
     counter-increment: count;
 }
 
-#content main ul li:before {
+#content main ul:not(.select-menu) > li:before {
     @apply absolute w-1.5 h-1.5 -left-4 bg-blue-400 rounded-full;
     top: 0.825rem;
     content: " ";
 }
 
-#content main ol li:before {
+#content main ol > li:before {
     @apply absolute w-1.5 h-1.5 -left-5 text-blue-400 font-medium;
     content: counter(count) ". ";
 }
@@ -211,7 +211,7 @@
 /* Admonitions */
 
 #content main .admonition {
-    @apply relative w-full mx-auto my-8 leading-7 bg-secondary-50 rounded-md px-8 py-6 shadow-sm;
+    @apply relative w-full mx-auto my-8 leading-7 bg-secondary-50 rounded-lg px-8 py-6 shadow-sm;
 }
 
 #content main .admonition:before, #content main .admonition:after {
@@ -250,6 +250,57 @@
 
 #content main .admonition p:last-child, #content main .admonition .highlight:last-child {
     @apply mb-0;
+}
+
+/* Selects/Dropdowns */
+#content main ul.select-menu > li > a {
+    @apply text-primary-500;
+}
+
+/* Tabs */
+#content main a.tab {
+    @apply border-transparent text-primary-400 hover:text-primary-700 hover:border-primary-300 whitespace-nowrap py-4 px-1 border-b;
+}
+
+#content main a.tab.active {
+    @apply text-link border-link;
+}
+
+/* Steps */
+#content main ol.steps {
+    @apply relative space-y-2 mb-16 pl-0;
+}
+
+#content main ol.steps li.step {
+    @apply relative pl-10 pb-8 leading-6 mb-0;
+}
+
+#content main ol.steps li.step:last-child {
+    @apply pb-0;
+}
+
+#content main ol.steps li.step p {
+    @apply leading-6;
+}
+
+#content main ol.steps li.step:before {
+    @apply absolute left-0 flex items-center justify-center rounded-md shadow-clean-sm ring-1 ring-primary-200 font-semibold text-xs text-primary-500;
+    content: counter(count);
+    width: calc(1.375rem + 1px);
+    height: calc(1.375rem + 1px);
+}
+
+#content main ol.steps li.step:after {
+    @apply absolute bg-primary-100;
+    content: "";
+    width: 1px;
+    left: .6875rem;
+    bottom: 0;
+    top: calc(1.875rem + 1px);
+}
+
+#content main ol.steps li.step:last-child:after {
+    @apply hidden;
 }
 
 /* Heading Permanent links */
@@ -407,6 +458,28 @@ html.dark #content main table:not(.lntable) tbody tr:nth-child(2n+1) td {
 /* Highlight */
 html.dark #content main .highlight table.lntable {
     @apply bg-gray-900 bg-opacity-100;
+}
+
+/* Selects/Dropdowns */
+html.dark #content main ul.select-menu > li > a {
+    @apply text-dark-primary;
+}
+
+/* Tabs */
+html.dark #content main a.tab {
+    @apply text-dark-primary text-opacity-60 hover:border-gray-300 hover:text-opacity-100;
+}
+
+html.dark #content main a.tab.active {
+    @apply text-blue-300 border-blue-300 text-opacity-100;
+}
+
+/* Steps */
+html.dark #content main ol.steps li.step:before {
+    @apply shadow-clean-dark-sm ring-gray-600 text-dark-primary bg-gray-700 bg-opacity-50;
+}
+html.dark #content main ol.steps li.step:after {
+    @apply bg-gray-700;
 }
 
 /* Heading Permanent links */
