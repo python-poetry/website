@@ -1,0 +1,22 @@
+{{ $firstTabID := .Parent.Get "tabID1" }}
+{{ $tab := .Get "tabID" }}
+{{ $tabID := print "tab-pane-" $tab }}
+{{ $tabName := (print "tabName" $tab) }}
+
+{{ if eq $tab $firstTabID }}
+
+<div class="tab-pane" id="{{ $tabID }}" role="tabpanel" aria-labelledby="{{ $tab }}" data-tabs-target="panel">
+
+	{{ $.Inner | markdownify }}
+
+</div>
+
+{{ else }}
+
+<div class="tab-pane hidden" id="{{ $tabID }}" role="tabpanel" aria-labelledby="{{ $tab }}" data-tabs-target="panel">
+
+	{{ $.Inner | markdownify }}
+
+</div>
+
+{{ end }}

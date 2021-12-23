@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import { useClickOutside, useTransition } from "stimulus-use";
 
 export default class extends Controller {
-  static targets = ["button", "menu"];
+  static targets = ["button", "menu", "buttonTitle"];
   static values = { originStyle: String, targetStyle: String };
 
   connect() {
@@ -19,6 +19,19 @@ export default class extends Controller {
       return;
     }
     this.leave();
+  }
+
+  select(event) {
+    event.preventDefault();
+
+    const title = event.currentTarget.dataset.selectTitle;
+    if (!title || !this.hasButtonTitleTarget) {
+      return
+    }
+
+    this.buttonTitleTarget.textContent = title;
+
+    this.close(event);
   }
 
   toggle() {
