@@ -4,9 +4,7 @@ const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').
 
 module.exports = {
   mode: 'jit',
-  purge: {
-    content: ["./themes/**/*.html", "./assets/src/js/**/*.js"]
-  },
+  content: ["./themes/**/*.html", "./assets/src/js/**/*.js"],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -16,7 +14,7 @@ module.exports = {
     extend: {
       colors: {
         blue: colors.blue,
-        gray: colors.blueGray,
+        gray: colors.slate,
         cyan: colors.cyan,
         red: colors.rose,
         yellow: colors.amber,
@@ -45,7 +43,7 @@ module.exports = {
           '800': '#262179',
           '900': '#1f1b62'
         },
-        code: colors.lightBlue,
+        code: colors.sky,
         'light-primary': '#FBFBFF',
         'light-note': '#F7F9FF',
         'light-note-darker': '#F2F6FF',
@@ -54,7 +52,6 @@ module.exports = {
         'link-hover': '#32325D',
         'dark-primary': '#D0D4FC',
         'dark-secondary': '#1E293B',
-        'table-header': '#EAEFFF',
         highlight: '#012a4a'
       },
       fontSize: {
@@ -91,26 +88,4 @@ module.exports = {
       borderColor: ["active"]
     },
   },
-  plugins: [
-    ({ addUtilities, e, theme, variants }) => {
-      let colors = flattenColorPalette(theme('borderColor'))
-      delete colors['default']
-
-      // Replace or Add custom colors
-      if(this.theme?.extend?.colors !== undefined){
-        colors = Object.assign(colors, this.theme.extend.colors)
-      }
-
-      const colorMap = Object.keys(colors)
-        .map(color => ({
-          [`.border-t-${color}`]: {borderTopColor: colors[color]},
-          [`.border-r-${color}`]: {borderRightColor: colors[color]},
-          [`.border-b-${color}`]: {borderBottomColor: colors[color]},
-          [`.border-l-${color}`]: {borderLeftColor: colors[color]},
-        }));
-      const utilities = Object.assign({}, ...colorMap)
-
-      addUtilities(utilities, variants('borderColor'))
-    },
-  ],
 }
