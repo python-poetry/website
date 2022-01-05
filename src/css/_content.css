@@ -143,7 +143,7 @@
 }
 
 #content main table:not(.lntable) tbody tr:nth-child(2n+1) td {
-    @apply bg-secondary-100 bg-opacity-30;
+    @apply bg-primary-100 bg-opacity-30;
 }
 
 #content main table:not(.lntable) tbody tr td {
