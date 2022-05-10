@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import annotations
 
 import os
 import shutil
@@ -7,11 +8,18 @@ import subprocess
 import tempfile
 from contextlib import contextmanager
 from pathlib import Path
+from typing import Any
 
+import httpx
 import tomli
+import tomli_w
 import yaml
 from cleo.application import Application
 from cleo.commands.command import Command
+
+
+API_BASE_URL = "https://api.github.com/repos/python-poetry/poetry"
+BRANCHES_URL = f"{API_BASE_URL}/branches"
 
 
 def _del_ro(action, name, exc) -> None:
@@ -28,15 +36,55 @@ def temporary_directory(*args, **kwargs):
     shutil.rmtree(name, onerror=_del_ro)
 
 
-class DocsPullCommand(Command):
+def get_branches() -> list[str]:
+    return [
+        branch["name"]
+        for branch in httpx.get(BRANCHES_URL).json()
+        if branch["name"] in {"master", "main"}
+    ]
 
-    CONFIGURATION = tomli.loads(
-        Path(__file__).parent.parent.joinpath("config.toml").read_text()
-    )["params"]["documentation"]
 
-    VERSIONS = CONFIGURATION["versions"]
-    DEFAULT_VERSION = CONFIGURATION["defaultVersion"]
-    DESTINATION = Path(__file__).parent.parent.joinpath("content/docs")
+class ConfigureCommand(Command):
+    name = "configure"
+    description = "Generate website config.toml file."
+
+    @staticmethod
+    def get_configuration(file: Path | None = None) -> dict[str, Any]:
+        if file is None:
+            file = Path(__file__).parent.parent.joinpath("pyproject.toml")
+
+        return tomli.loads(file.read_text())["tool"]["website"]
+
+    @classmethod
+    def render(cls, file: Path | None = None) -> None:
+        if file is None:
+            file = Path(__file__).parent.parent.joinpath("config.toml")
+
+        content = cls.get_configuration()
+
+        versions = content["versions"]
+        branches = get_branches()
+
+        config = content["config"]
+        config["params"]["documentation"]["versions"] = [
+            *branches,
+            *versions.keys(),
+        ]
+
+        if file.exists():
+            file.unlink()
+
+        file.write_text(tomli_w.dumps(config))
+        return config
+
+    def handle(self) -> int:
+        self.render()
+        return 0
+
+
+class DocsPullCommand(ConfigureCommand):
+
+    DESTINATION: Path = Path(__file__).parent.parent.joinpath("content/docs")
     REPOSITORY = "https://github.com/python-poetry/poetry.git"
 
     name = "docs pull"
@@ -44,21 +92,44 @@ class DocsPullCommand(Command):
     description = "Pull the latest version of the documentation."
 
     def handle(self) -> int:
-        with temporary_directory() as tmp_dir:
-            for version in self.VERSIONS:
-                self._pull_version(version, tmp_dir)
+        content = self.get_configuration()
 
-            if self.DESTINATION.exists():
-                shutil.rmtree(self.DESTINATION)
+        versions = content["versions"]
+        branches = get_branches()
+        default_version = content["config"]["params"]["documentation"]["defaultVersion"]
 
-            shutil.copytree(tmp_dir, self.DESTINATION)
+        if self.DESTINATION.exists():
+            shutil.rmtree(self.DESTINATION)
 
-    def _pull_version(self, version: str, dest: str) -> None:
+        self.DESTINATION.mkdir(parents=True)
+
+        for name, version in versions.items():
+            is_default = default_version == name
+            self._pull_version(
+                version, dest=self.DESTINATION, name=name, is_default=is_default
+            )
+
+        for branch in branches:
+            is_default = default_version == branch
+            self._pull_version(branch, dest=self.DESTINATION, is_default=is_default)
+
+        return 0
+
+    def _pull_version(
+        self,
+        version: str,
+        dest: Path,
+        name: str | None = None,
+        is_default: bool = False,
+    ) -> None:
         self.line("")
-        self.line(f"  Pulling documentation for version <b>{version}</b>")
+
+        suffix = f" as <b>{name}</b>" if name else ""
+        self.line(f"  Pulling documentation for version <b>{version}</b>{suffix}")
+
         cwd = Path.cwd()
-        dest = Path(dest)
-        path = dest.joinpath(version)
+        path = dest.joinpath(name if name else version)
+
         try:
             if path.exists():
                 shutil.rmtree(path.as_posix())
@@ -83,13 +154,14 @@ class DocsPullCommand(Command):
                 )
                 subprocess.run(["git", "sparse-checkout", "init", "--cone"])
                 subprocess.run(["git", "sparse-checkout", "set", "docs"])
-                path.mkdir()
 
-                if version == self.DEFAULT_VERSION:
+                if is_default:
                     # Copy files at the root of the destination
                     for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
                         shutil.copyfile(filepath, dest.joinpath(filepath.name))
                 else:
+                    path.mkdir()
+
                     for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
                         with filepath.open() as f:
                             content = f.read()
@@ -109,8 +181,19 @@ class DocsPullCommand(Command):
             os.chdir(cwd.as_posix())
 
 
+class BuildCommand(DocsPullCommand):
+    name = "build"
+    description = "Render website configuration and generate assets"
+
+    def handle(self) -> int:
+        self.render()
+        return super(BuildCommand, self).handle()
+
+
 app = Application()
+app.add(ConfigureCommand())
 app.add(DocsPullCommand())
+app.add(BuildCommand())
 
 
 if __name__ == "__main__":

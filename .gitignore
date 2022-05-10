@@ -10,3 +10,6 @@ assets/assets
 .vercel
 .env
 algolia.json
+
+# this is not generated with docs pull
+config.toml

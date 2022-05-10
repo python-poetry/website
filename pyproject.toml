@@ -7,12 +7,44 @@ authors = ["Sébastien Eustace <sebastien@eustace.io>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 cleo = "^1.0.0a3"
-PyYAML = "^5.4.1"
-tomli = "^0.2.9"
+PyYAML = "^5.4"
+tomli = "^1.0"
+httpx = "^0.22"
+tomli-w = "^1.0"
 
 [tool.poetry.dev-dependencies]
-black = {version = "^21.5b2", allow-prereleases = true}
-isort = "^5.8.0"
+black = "^22.3.0"
+isort = "^5.8"
+
+[tool.website.config]
+baseURL = "https://python-poetry.org/"
+languageCode = "en-us"
+title = "Poetry - Python dependency management and packaging made easy"
+
+theme = "poetry"
+
+ignoreFiles = ["^assets/src"]
+pygmentsUseClasses = true
+
+[tool.website.config.permalinks]
+blog = "/blog/:title/"
+categories = "/blog/category/:title/"
+tags = "/blog/tag/:title/"
+
+[tool.website.config.params]
+description = "Python dependency management and packaging made easy"
+
+[tool.website.config.params.documentation]
+defaultVersion = "1.1"
+
+[tool.website.config.markup.goldmark.renderer]
+unsafe = true
+
+[tool.website.config.minify.tdewolff.html]
+keepWhitespace = true
+
+[tool.website.versions]
+"1.1" = "1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
