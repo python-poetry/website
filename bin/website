@@ -16,7 +16,7 @@ import tomli_w
 import yaml
 from cleo.application import Application
 from cleo.commands.command import Command
-
+from cleo.helpers import option
 
 API_BASE_URL = "https://api.github.com/repos/python-poetry/poetry"
 BRANCHES_URL = f"{API_BASE_URL}/branches"
@@ -47,6 +47,7 @@ def get_branches() -> list[str]:
 class ConfigureCommand(Command):
     name = "configure"
     description = "Generate website config.toml file."
+    options = [option("local", None, "Build from local Poetry source.", flag=False)]
 
     @staticmethod
     def get_configuration(file: Path | None = None) -> dict[str, Any]:
@@ -55,21 +56,23 @@ class ConfigureCommand(Command):
 
         return tomli.loads(file.read_text())["tool"]["website"]
 
-    @classmethod
-    def render(cls, file: Path | None = None) -> None:
+    def render(self, file: Path | None = None) -> None:
         if file is None:
             file = Path(__file__).parent.parent.joinpath("config.toml")
 
-        content = cls.get_configuration()
-
-        versions = content["versions"]
-        branches = get_branches()
-
+        content = self.get_configuration()
         config = content["config"]
-        config["params"]["documentation"]["versions"] = [
-            *branches,
-            *versions.keys(),
-        ]
+
+        if self.option("local"):
+            config["params"]["documentation"]["defaultVersion"] = "development"
+            config["params"]["documentation"]["versions"] = ["development"]
+        else:
+            versions = content["versions"]
+            branches = get_branches()
+            config["params"]["documentation"]["versions"] = [
+                *branches,
+                *versions.keys(),
+            ]
 
         if file.exists():
             file.unlink()
@@ -103,6 +106,10 @@ class DocsPullCommand(ConfigureCommand):
 
         self.DESTINATION.mkdir(parents=True)
 
+        if self.option("local"):
+            self._pull_local_version(Path(self.option("local")), self.DESTINATION)
+            return 0
+
         for name, version in versions.items():
             is_default = default_version == name
             self._pull_version(
@@ -114,6 +121,12 @@ class DocsPullCommand(ConfigureCommand):
             self._pull_version(branch, dest=self.DESTINATION, is_default=is_default)
 
         return 0
+
+    @staticmethod
+    def _pull_local_version(src: Path, dest: Path) -> None:
+        # Copy files at the root of the destination
+        for filepath in Path(src).joinpath("docs").glob("*.md"):
+            shutil.copyfile(filepath, dest.joinpath(filepath.name))
 
     def _pull_version(
         self,
@@ -156,9 +169,7 @@ class DocsPullCommand(ConfigureCommand):
                 subprocess.run(["git", "sparse-checkout", "set", "docs"])
 
                 if is_default:
-                    # Copy files at the root of the destination
-                    for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
-                        shutil.copyfile(filepath, dest.joinpath(filepath.name))
+                    self._pull_local_version(tmp_dir, dest)
                 else:
                     path.mkdir()
 
