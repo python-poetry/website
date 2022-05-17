@@ -4,12 +4,20 @@ on:
   push:
     branches-ignore:
       - main
+  pull_request_target:
+    # enable runs for this workflow when labeled as safe only
+    # prevent execution when the workflow itself is modified from a fork
+    types:
+      - labeled
+      - synchronize
 
 jobs:
   deploy-preview:
     name: Build & Deploy
     runs-on: ubuntu-latest
-
+    if: |
+      (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
+      || (github.event_name != 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
     steps:
 
     - name: Checkout
