@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
-      || (github.event_name == 'push' && github.event.pull_request.head.repo.full_name == github.repository)
+      || (github.event_name == 'push' && github.event.push.repository.full_name == github.repository)
     steps:
 
     - name: Checkout
