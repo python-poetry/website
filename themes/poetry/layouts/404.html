@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html>
-{{- partial "head.html" . -}}
+  {{- partial "head.html" . -}}
 
-<body>
+
+  <body>
     {{- partial "dark_mode.html" . -}}
     {{- partial "header.html" . -}}
-    <div class="flex flex-wrap p-16 mx-auto max-w-7xl h-screen relative px-4 sm:p-24">
-        <div class="flex-grow self-center text-center">
-            <p
-                class="mt-3 mb-3 max-w-md mx-auto text-sm font-medium tracking-wide uppercase opacity-70 md:mt-5 md:max-w-3xl">
-                Page not found!
-            </p>
-            <h1 class="flex items-center justify-center text-8xl tracking-tight">
-                <span class="text-blue-500 dark:text-blue-400">4</span>
-                <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-28 h-28">
-                    <g>
-                        <path fill="#38BDF8" fill-opacity="40%" d="M157.4 89.88A191.85 191.85 0 0 1 320 0c106 0 192 86 192 192 0 46.83-9.88 73.25-49.83 133.43zM300.8 502.4a24 24 0 0 0 38.4 0c18.6-26.69 35.23-50.32 50.14-71.47L131.47 231.62c10.71 52.55 50.15 99.78 169.33 270.78z"></path>
-                        <path fill="currentColor" fill-opacity="80%" d="M3.37 31.45L23 6.18a16 16 0 0 1 22.47-2.81L633.82 458.1a16 16 0 0 1 2.82 22.45L617 505.82a16 16 0 0 1-22.46 2.81L6.18 53.9a16 16 0 0 1-2.81-22.45z"></path>
-                    </g>
-                </svg>
-                <span>4</span>
-            </h1>
-        </div>
+    <div
+      class="flex flex-wrap p-16 mx-auto max-w-7xl h-screen relative px-4 sm:p-24"
+    >
+      <div class="flex-grow self-center text-center">
+        <p
+          class="mt-3 mb-3 max-w-md mx-auto text-sm font-medium tracking-wide uppercase opacity-70 md:mt-5 md:max-w-3xl"
+        >
+          Page not found!
+        </p>
+        <h1 class="flex items-center justify-center text-8xl tracking-tight">
+          <span class="text-blue-500 dark:text-blue-400">4</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"
+            class="w-28 h-28"
+          >
+            <g>
+              <path
+                fill="#38BDF8"
+                fill-opacity="40%"
+                d="M157.4 89.88A191.85 191.85 0 0 1 320 0c106 0 192 86 192 192 0 46.83-9.88 73.25-49.83 133.43zM300.8 502.4a24 24 0 0 0 38.4 0c18.6-26.69 35.23-50.32 50.14-71.47L131.47 231.62c10.71 52.55 50.15 99.78 169.33 270.78z"
+              ></path>
+              <path
+                fill="currentColor"
+                fill-opacity="80%"
+                d="M3.37 31.45L23 6.18a16 16 0 0 1 22.47-2.81L633.82 458.1a16 16 0 0 1 2.82 22.45L617 505.82a16 16 0 0 1-22.46 2.81L6.18 53.9a16 16 0 0 1-2.81-22.45z"
+              ></path>
+            </g>
+          </svg>
+          <span>4</span>
+        </h1>
+      </div>
     </div>
     {{- partial "footer.html" . -}}
     {{- partial "scripts.html" . -}}
-</body>
-
+  </body>
 </html>
