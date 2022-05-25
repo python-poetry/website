@@ -1,9 +1,10 @@
 {{ define "main" }}
-<main class="mt-36 max-w-5xl mx-auto pb-16 px-12 md:mt-36 md:px-24">
+  <main class="mt-36 max-w-5xl mx-auto pb-16 px-12 md:mt-36 md:px-24">
     <h1>{{ .Title }}</h1>
     {{- with .Content -}}
-    {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1} <a href="#${2}" class="header-link"
-            aria-label="Permanent link">#</a> ${3}` | safeHTML }}
-        {{- end -}}
-</main>
+      {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1} <a href="#${2}" class="header-link"
+        aria-label="Permanent link">#</a> ${3}` | safeHTML
+      }}
+    {{- end -}}
+  </main>
 {{ end }}

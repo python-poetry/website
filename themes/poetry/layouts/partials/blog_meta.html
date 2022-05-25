@@ -1,33 +1,57 @@
-<div class="flex flex-col justify-start items-start mt-3 mb-12 text-xs tracking-wider uppercase md:flex-row">
-    <span class="self-start mb-2 md:self-center md:mb-0">
-        Published on <strong>{{ .Date.Format "January 2, 2006" }}</strong>
+<div
+  class="flex flex-col justify-start items-start mt-3 mb-12 text-xs tracking-wider uppercase md:flex-row"
+>
+  <span class="self-start mb-2 md:self-center md:mb-0">
+    Published on <strong>{{ .Date.Format "January 2, 2006" }}</strong>
+  </span>
+  <span class="self-start mb-2 md:self-center md:ml-1 md:mb-0">
+    in
+    <span class="w-4 h-4 inline-block align-middle">
+      <svg
+        class="w-4 h-4"
+        aria-hidden="true"
+        focusable="false"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+      >
+        <g>
+          <path
+            fill="currentColor"
+            fill-opacity="40%"
+            d="M497.94 225.94L286.06 14.06A48 48 0 0 0 252.12 0H48A48 48 0 0 0 0 48v204.12a48 48 0 0 0 14.06 33.94l211.88 211.88a48 48 0 0 0 67.88 0l204.12-204.12a48 48 0 0 0 0-67.88zM112 160a48 48 0 1 1 48-48 48 48 0 0 1-48 48z"
+          ></path>
+          <path
+            fill="currentColor"
+            d="M625.94 293.82L421.82 497.94a48 48 0 0 1-67.88 0l-.36-.36 174.06-174.06a90 90 0 0 0 0-127.28L331.4 0h48.72a48 48 0 0 1 33.94 14.06l211.88 211.88a48 48 0 0 1 0 67.88z"
+          ></path>
+        </g>
+      </svg>
     </span>
-    <span class="self-start mb-2 md:self-center md:ml-1 md:mb-0">
-            in
-            <span class="w-4 h-4 inline-block align-middle">
-                <svg class="w-4 h-4" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 640 512"><g><path fill="currentColor" fill-opacity="40%"
-                                                    d="M497.94 225.94L286.06 14.06A48 48 0 0 0 252.12 0H48A48 48 0 0 0 0 48v204.12a48 48 0 0 0 14.06 33.94l211.88 211.88a48 48 0 0 0 67.88 0l204.12-204.12a48 48 0 0 0 0-67.88zM112 160a48 48 0 1 1 48-48 48 48 0 0 1-48 48z"></path><path
-                        fill="currentColor"
-                        d="M625.94 293.82L421.82 497.94a48 48 0 0 1-67.88 0l-.36-.36 174.06-174.06a90 90 0 0 0 0-127.28L331.4 0h48.72a48 48 0 0 1 33.94 14.06l211.88 211.88a48 48 0 0 1 0 67.88z"></path></g></svg>
-            </span>
-            {{ range $i, $e := .Params.categories }}
-            {{ if $i }}, {{ end }}
-            <a href='{{ "blog/category/" | relURL }}{{ . | urlize }}/'>{{ $e | humanize }}</a>
-            {{ end }}
-    </span>
-    <span class="tags self-start md:self-center md:ml-1">
-            <span class="mr-1">with tags</span>
-            {{ range $i, $e := .Params.tags }}
-            <a href='{{ "blog/tag/" | relURL }}{{ . | urlize }}/' class="border-0">
-                <span
-                        class="inline-flex items-center self-center px-2 py-1 rounded text-xs font-medium transition duration-300 bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-900 dark:hover:bg-opacity-50">
-                    <svg class="mr-1.5 h-2 w-2 text-blue-400" fill="currentColor" viewBox="0 0 8 8">
-                        <circle cx="4" cy="4" r="3"/>
-                    </svg>
-                    {{ $e | humanize }}
-                </span>
-            </a>
-            {{ end }}
-    </span>
+    {{ range $i, $e := .Params.categories }}
+      {{ if $i }},{{ end }}
+      <a href="{{ "blog/category/" | relURL }}{{ . | urlize }}/"
+        >{{ $e | humanize }}</a
+      >
+    {{ end }}
+  </span>
+  <span class="tags self-start md:self-center md:ml-1">
+    <span class="mr-1">with tags</span>
+    {{ range $i, $e := .Params.tags }}
+      <a href="{{ "blog/tag/" | relURL }}{{ . | urlize }}/" class="border-0">
+        <span
+          class="inline-flex items-center self-center px-2 py-1 rounded text-xs font-medium transition duration-300 bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-900 dark:hover:bg-opacity-50"
+        >
+          <svg
+            class="mr-1.5 h-2 w-2 text-blue-400"
+            fill="currentColor"
+            viewBox="0 0 8 8"
+          >
+            <circle cx="4" cy="4" r="3" />
+          </svg>
+          {{ $e | humanize }}
+        </span>
+      </a>
+    {{ end }}
+  </span>
 </div>

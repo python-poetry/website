@@ -4,19 +4,25 @@
 {{ $tabName := (print "tabName" $tab) }}
 
 {{ if eq $tab $firstTabID }}
+  <div
+    class="tab-pane"
+    id="{{ $tabID }}"
+    role="tabpanel"
+    aria-labelledby="{{ $tab }}"
+    data-tabs-target="panel"
+  >
+    {{ $.Inner | markdownify }}
 
-<div class="tab-pane" id="{{ $tabID }}" role="tabpanel" aria-labelledby="{{ $tab }}" data-tabs-target="panel">
-
-	{{ $.Inner | markdownify }}
-
-</div>
-
+  </div>
 {{ else }}
+  <div
+    class="tab-pane hidden"
+    id="{{ $tabID }}"
+    role="tabpanel"
+    aria-labelledby="{{ $tab }}"
+    data-tabs-target="panel"
+  >
+    {{ $.Inner | markdownify }}
 
-<div class="tab-pane hidden" id="{{ $tabID }}" role="tabpanel" aria-labelledby="{{ $tab }}" data-tabs-target="panel">
-
-	{{ $.Inner | markdownify }}
-
-</div>
-
+  </div>
 {{ end }}

@@ -1,12 +1,24 @@
 {{ $deprecated := isset .Params "deprecated" }}
 {{ $new := isset .Params "new" }}
 <span>
-    <code class="option{{ if $deprecated }} deprecated{{ else if $new }} new{{end}}">--{{ .Get "name" }}{{ if isset .Params "shortcut" }} (-){{end}}</code>{{ if gt (len .Inner) 0 }}: {{ printf "%s" .Inner | markdownify }}{{ end }}
-    {{ if $deprecated }}
-    <span class="inline-flex items-center px-1.5 py-0.5 rounded-md text-xs font-medium leading-5 border border-red-300 border-opacity-40 bg-red-100 bg-opacity-30 text-red-700 dark:bg-transparent dark:text-red-300 dark:border dark:border-red-300 dark:border-opacity-60">Deprecated</span>
+  <code
+    class="option{{ if $deprecated }}
+      deprecated
     {{ else if $new }}
-    <span class="inline-flex items-center px-1.5 py-0.5 rounded-md text-xs font-medium leading-5 border border-teal-300 border-opacity-40 bg-indigo-100 bg-opacity-30 text-indigo-700 dark:bg-transparent dark:text-blue-300 dark:border dark:border-blue-300 dark:border-opacity-60">
-        New
+      new
+    {{ end }}"
+    >--{{ .Get "name" }}{{ if isset .Params "shortcut" }}(-){{ end }}</code
+  >{{ if gt (len .Inner) 0 }}: {{ printf "%s" .Inner | markdownify }}{{ end }}
+  {{ if $deprecated }}
+    <span
+      class="inline-flex items-center px-1.5 py-0.5 rounded-md text-xs font-medium leading-5 border border-red-300 border-opacity-40 bg-red-100 bg-opacity-30 text-red-700 dark:bg-transparent dark:text-red-300 dark:border dark:border-red-300 dark:border-opacity-60"
+      >Deprecated</span
+    >
+  {{ else if $new }}
+    <span
+      class="inline-flex items-center px-1.5 py-0.5 rounded-md text-xs font-medium leading-5 border border-teal-300 border-opacity-40 bg-indigo-100 bg-opacity-30 text-indigo-700 dark:bg-transparent dark:text-blue-300 dark:border dark:border-blue-300 dark:border-opacity-60"
+    >
+      New
     </span>
-    {{end}}
+  {{ end }}
 </span>

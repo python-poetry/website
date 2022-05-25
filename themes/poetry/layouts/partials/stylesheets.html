@@ -1,8 +1,12 @@
 {{ $style := resources.Get "assets/app.css" }}
 
 {{ if .Site.IsServer }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 {{ else }}
-{{ $style := $style | fingerprint }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+  {{ $style := $style | fingerprint }}
+  <link
+    rel="stylesheet"
+    href="{{ $style.RelPermalink }}"
+    integrity="{{ $style.Data.Integrity }}"
+  />
 {{ end }}
