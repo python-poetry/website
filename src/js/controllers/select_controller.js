@@ -1,41 +1,41 @@
-import { Controller } from "stimulus";
-import { useClickOutside, useTransition } from "stimulus-use";
+import { Controller } from "stimulus"
+import { useClickOutside, useTransition } from "stimulus-use"
 
 export default class extends Controller {
-  static targets = ["button", "menu", "buttonTitle"];
-  static values = { originStyle: String, targetStyle: String };
+  static targets = ["button", "menu", "buttonTitle"]
+  static values = { originStyle: String, targetStyle: String }
 
   connect() {
-    useTransition(this, { element: this.menuTarget });
-    useClickOutside(this);
+    useTransition(this, { element: this.menuTarget })
+    useClickOutside(this)
   }
 
   open() {
-    this.enter();
+    this.enter()
   }
 
   close(event) {
     if (event.keyCode && event.keyCode != 27) {
-      return;
+      return
     }
-    this.leave();
+    this.leave()
   }
 
   select(event) {
-    event.preventDefault();
+    event.preventDefault()
 
-    const title = event.currentTarget.dataset.selectTitle;
+    const title = event.currentTarget.dataset.selectTitle
     if (!title || !this.hasButtonTitleTarget) {
       return
     }
 
-    this.buttonTitleTarget.textContent = title;
+    this.buttonTitleTarget.textContent = title
 
-    this.close(event);
+    this.close(event)
   }
 
   toggle() {
-    this.toggleTransition();
+    this.toggleTransition()
     if (this.transitioned) {
       // Focus on first element
     } else {

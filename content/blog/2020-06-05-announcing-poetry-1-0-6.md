@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.0.6"
-date:   2020-06-05 10:12:35
+title: "Announcing Poetry 1.0.6"
+date: 2020-06-05 10:12:35
 categories: [releases]
-tags: ['1.x']
+tags: ["1.x"]
 
 aliases:
   - announcing-poetry-1-0-6.html
@@ -16,6 +16,7 @@ The Poetry team is pleased to announce the immediate availability of Poetry 1.0.
 This release is a bugfix release with some small changes to make the upgrade to future releases easier.
 
 {{% note %}}
+
 <p>It is heavily recommended to upgrade to this version before upgrading to any other version.</p>
 {{% /note %}}
 
@@ -29,7 +30,6 @@ $ poetry self update
 ### Changes
 
 - The `self update` command has been updated in order to handle future releases of Poetry ([#2429](https://github.com/python-poetry/poetry/pull/2429)).
-
 
 ### Fixes
 

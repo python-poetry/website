@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.1.5"
-date:   2021-03-03 00:00:00
+title: "Announcing Poetry 1.1.5"
+date: 2021-03-03 00:00:00
 categories: [releases]
-tags: ['1.x', '1.1']
+tags: ["1.x", "1.1"]
 
 aliases:
   - announcing-poetry-1-1-5.html

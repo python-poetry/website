@@ -6,29 +6,33 @@ import shutil
 import stat
 import subprocess
 import tempfile
+
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
+from typing import Iterator
 
 import httpx
 import tomli
 import tomli_w
 import yaml
+
 from cleo.application import Application
 from cleo.commands.command import Command
 from cleo.helpers import option
+
 
 API_BASE_URL = "https://api.github.com/repos/python-poetry/poetry"
 BRANCHES_URL = f"{API_BASE_URL}/branches"
 
 
-def _del_ro(action, name, exc) -> None:
+def _del_ro(action: Any, name: str, exc: Any) -> None:
     os.chmod(name, stat.S_IWRITE)
     os.remove(name)
 
 
 @contextmanager
-def temporary_directory(*args, **kwargs):
+def temporary_directory(*args: Any, **kwargs: Any) -> Iterator[str]:
     name = tempfile.mkdtemp(*args, **kwargs)
 
     yield name
@@ -182,9 +186,7 @@ class DocsPullCommand(ConfigureCommand):
                             frontmatter["title"] += f" | {version}"
                             new_frontmatter = yaml.dump(frontmatter).strip()
 
-                        new_content = "---\n{}\n---\n{}".format(
-                            new_frontmatter, content
-                        )
+                        new_content = f"---\n{new_frontmatter}\n---\n{content}"
 
                         with path.joinpath(filepath.name).open("w") as f:
                             f.write(new_content)
@@ -198,7 +200,7 @@ class BuildCommand(DocsPullCommand):
 
     def handle(self) -> int:
         self.render()
-        return super(BuildCommand, self).handle()
+        return super().handle()
 
 
 app = Application()

@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.0.8"
-date:   2020-06-05 12:12:35
+title: "Announcing Poetry 1.0.8"
+date: 2020-06-05 12:12:35
 categories: [releases]
-tags: ['1.x']
+tags: ["1.x"]
 
 aliases:
   - announcing-poetry-1-0-8.html
