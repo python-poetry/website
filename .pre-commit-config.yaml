@@ -79,7 +79,9 @@ repos:
     rev: v2.6.2
     hooks:
       - id: prettier
-        additional_dependencies: [prettier-plugin-go-template]
+        additional_dependencies:
+          - prettier@2.6.2
+          - prettier-plugin-go-template@0.0.13
 
   - repo: https://github.com/pre-commit/pre-commit
     rev: v2.19.0
