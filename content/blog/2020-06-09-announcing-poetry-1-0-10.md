@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.0.10"
-date:   2020-07-21 10:12:35
+title: "Announcing Poetry 1.0.10"
+date: 2020-07-21 10:12:35
 categories: [releases]
-tags: ['1.x']
+tags: ["1.x"]
 
 aliases:
   - announcing-poetry-1-0-10.html
@@ -26,7 +26,6 @@ $ poetry self update
 
 - The lock files are now versioned to ease transitions for lock file format changes, with warnings being displayed on incompatibility detection ([#2695](https://github.com/python-poetry/poetry/pull/2695)).
 - The `init` and `new` commands will now provide hints on invalid given licenses ([#1634](https://github.com/python-poetry/poetry/pull/1634)).
-
 
 ### Fixes
 

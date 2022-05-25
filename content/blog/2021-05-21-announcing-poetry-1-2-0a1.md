@@ -1,12 +1,12 @@
 ---
 layout: single
 title: "Announcing Poetry 1.2.0a1"
-date:   2021-05-21 00:00:00
-categories: ['releases']
-tags: ['1.x', '1.2']
+date: 2021-05-21 00:00:00
+categories: ["releases"]
+tags: ["1.x", "1.2"]
 
 aliases:
-    - announcing-poetry-1-2-0a1.html
+  - announcing-poetry-1-2-0a1.html
 ---
 
 The Poetry team is pleased to announce the immediate availability of Poetry **1.2.0a1**.
@@ -35,7 +35,6 @@ If you encounter any issue with the new features, please report it to the [issue
 
 For a complete list of changes, you can refer to the [change log](/history).
 
-
 ## Deprecation of the `get-poetry.py` script
 
 The usage of the `get-poetry.py` script is now deprecated and is replaced by the `install-poetry.py` script:
@@ -46,12 +45,11 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-
 
 The reasons for this change are the following:
 
-
-* It no longer relies on the prebuilt release packages of Poetry (see https://github.com/python-poetry/poetry/releases/tag/1.1.5 for an example) which had the issues of having frozen dependencies which made upgrading dependencies much harder without releasing a new bug fix release of Poetry. This will eventually make our release process easier.
-* It relies on standards for the install locations of both Poetry and the `poetry` script.
-* It supports installing from a git repository or a file/directory.
-* It no longer tries to modify the `PATH` but instead will simply provide guidance on how to do it if necessary.
-* It will use the correct Python interpreter, i.e. the one used to invoke the script, when calling the poetry script.
+- It no longer relies on the prebuilt release packages of Poetry (see https://github.com/python-poetry/poetry/releases/tag/1.1.5 for an example) which had the issues of having frozen dependencies which made upgrading dependencies much harder without releasing a new bug fix release of Poetry. This will eventually make our release process easier.
+- It relies on standards for the install locations of both Poetry and the `poetry` script.
+- It supports installing from a git repository or a file/directory.
+- It no longer tries to modify the `PATH` but instead will simply provide guidance on how to do it if necessary.
+- It will use the correct Python interpreter, i.e. the one used to invoke the script, when calling the poetry script.
 
 It also ensures that the plugin system, detailed below, works properly.
 
@@ -66,7 +64,6 @@ on the behaviour of Poetry which do not apply to the majority of its users
 or if you wish to accomplish something with Poetry in a way that is not desired by most users.
 
 In these cases you could consider creating a plugin to handle your specific logic.
-
 
 ### Creating a plugin
 
@@ -180,7 +177,6 @@ foo-command = "poetry_demo_plugin.plugin:MyApplicationPlugin"
 A plugin **must not** remove or modify in any way the core commands of Poetry.
 {{% /warning %}}
 
-
 #### Event handler
 
 Plugins can also listen to specific events and act on them if necessary.
@@ -196,7 +192,6 @@ and are accessible from the `cleo.events.console_events` module.
 Let's see how to implement an application event handler. For this example
 we will see how to load environment variables from a `.env` file before executing
 a command.
-
 
 ```python
 from cleo.events.console_events import COMMAND
@@ -229,7 +224,6 @@ class MyApplicationPlugin(ApplicationPlugin):
 
         load_dotenv()
 ```
-
 
 ### Using plugins
 

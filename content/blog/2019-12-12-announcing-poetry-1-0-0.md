@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.0.0"
-date:   2019-12-12 10:12:35
+title: "Announcing Poetry 1.0.0"
+date: 2019-12-12 10:12:35
 categories: [releases]
-tags: ['1.x']
+tags: ["1.x"]
 
 aliases:
   - announcing-poetry-1-0-0.html
@@ -118,7 +118,6 @@ poetry env remove test-O3eWbxRl-py3.7
 
 If you remove the currently activated virtualenv, it will be automatically deactivated.
 
-
 ## Improved support for private indices
 
 While Poetry already supported private indices, it was not possible to control
@@ -192,7 +191,6 @@ This will create a `poetry.toml` file that holds the local configuration settin
 
 The settings are now stored differently and no longer needs to be prefixed by `settings.`.
 If you have already configured settings you will need to configure them again.
-
 
 ## Improved `add` command
 

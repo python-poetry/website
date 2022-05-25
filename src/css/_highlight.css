@@ -1,312 +1,315 @@
 .highlight pre {
-    @apply px-8 py-7 overflow-auto rounded-lg font-mono leading-6 bg-highlight;
+  @apply px-8 py-7 overflow-auto rounded-lg font-mono leading-6 bg-highlight;
 }
 
 .highlight pre code {
-    @apply w-full text-code-600 inline-block !important;
+  @apply w-full text-code-600 inline-block !important;
 }
 
-.highlight pre code::selection, .highlight pre code span::selection {
-    @apply bg-blue-200;
+.highlight pre code::selection,
+.highlight pre code span::selection {
+  @apply bg-blue-200;
 }
 
 /* Line number */
 .highlight pre code .lnt {
-    color: #4474CC70;
+  color: #4474cc70;
 }
 
 /* Highlight */
 .highlight pre code .hl {
-    @apply relative bg-blue-100 -ml-8 -mr-8 pl-8 w-full block;
+  @apply relative bg-blue-100 -ml-8 -mr-8 pl-8 w-full block;
 }
 .highlight pre code .hl:before {
-    @apply absolute w-1.5 h-1.5 left-3 bg-blue-400 rounded-full;
-    top: 0.625rem;
-    content: " ";
+  @apply absolute w-1.5 h-1.5 left-3 bg-blue-400 rounded-full;
+  top: 0.625rem;
+  content: " ";
 }
 
 /* Builtin (Pseudo */
 
 .highlight pre code .bp {
-    color: #3B82F6;
+  color: #3b82f6;
 }
 
 /* Comment */
 
 .highlight pre code .c {
-    color: #4474CC70;
+  color: #4474cc70;
 }
 
 /* Comment (Single) */
 
 .highlight pre code .c1 {
-    color: #4474CC70;
+  color: #4474cc70;
 }
 
 /* Error */
 
 .highlight pre code .err {
-    color: #C2CAFD;
+  color: #c2cafd;
 }
 
 /* Generic */
 
 .highlight pre code .g {
-    color: #93A1A1;
+  color: #93a1a1;
 }
 
 /* Keyword */
 
 .highlight pre code .k {
-    color: #A855F7;
+  color: #a855f7;
 }
 
 /* Keyword (Constant) */
 
 .highlight pre code .kc {
-    color: #0EA5E9;
+  color: #0ea5e9;
 }
 
 /* Keyword (Namespace) */
 
 .highlight pre code .kn {
-    color: #A855F7;
+  color: #a855f7;
 }
 
 /* Literal */
 
 .highlight pre code .l {
-    color: #34D399;
+  color: #34d399;
 }
 
 /* Number */
 
 .highlight pre code .m {
-    color: #14B8A6;
+  color: #14b8a6;
 }
 
 /* Name */
 
 .highlight pre code .n {
-    color: inherit;
+  color: inherit;
 }
 
 /* Name (Attribute) */
 
 .highlight pre code .na {
-    color: #6366F1;
+  color: #6366f1;
 }
 
 /* Name (Builtin) */
 
 .highlight pre code .nb {
-    color: #06B6D4;
+  color: #06b6d4;
 }
 
 /* Name (Class) */
 
 .highlight pre code .nc {
-    color: #3B82F6;
+  color: #3b82f6;
 }
 
 /* Name (Function) */
 
 .highlight pre code .nf {
-    color: #6366F1;
+  color: #6366f1;
 }
 
 /* Name (Other) */
 
 .highlight pre code .nx {
-    color: #6366F1;
+  color: #6366f1;
 }
 
 /* Name (Variable) */
 
 .highlight pre code .nv {
-    color: #3B82F6;
+  color: #3b82f6;
 }
 
 /* Operator */
 
 .highlight pre code .o {
-    color: #4474CC80;
+  color: #4474cc80;
 }
 
 /* Punctuation */
 
 .highlight pre code .p {
-    color: #4474CC80;
+  color: #4474cc80;
 }
 
 /* String (Literal) */
 
 .highlight pre code .s {
-    color: #F97316;
+  color: #f97316;
 }
 
 /* String (Single) */
 
 .highlight pre code .s1 {
-    color: #F97316;
+  color: #f97316;
 }
 
 /* String (Double) */
 
 .highlight pre code .s2 {
-    color: #F97316;
+  color: #f97316;
 }
 
 html.dark .highlight pre {
-    @apply bg-gray-900 ;
+  @apply bg-gray-900;
 }
 
-.highlight pre code, .browser-window.dark .highlight pre code {
-    @apply bg-transparent text-dark-primary !important;
+.highlight pre code,
+.browser-window.dark .highlight pre code {
+  @apply bg-transparent text-dark-primary !important;
 }
 
- html.dark .highlight pre code::selection,  .highlight pre code span::selection {
-    @apply bg-gray-600;
+html.dark .highlight pre code::selection,
+.highlight pre code span::selection {
+  @apply bg-gray-600;
 }
 
 /* Line number */
- .highlight pre code .lnt {
-    color: #777EA580;
+.highlight pre code .lnt {
+  color: #777ea580;
 }
 
 /* Highlight */
- .highlight pre code .hl {
-    @apply bg-blue-900;
+.highlight pre code .hl {
+  @apply bg-blue-900;
 }
 
 /* Builtin (Pseudo */
 
- .highlight pre code .bp {
-    color: #60A5FA;
+.highlight pre code .bp {
+  color: #60a5fa;
 }
 
 /* Comment */
 
- .highlight pre code .c {
-    color: #777EA5;
+.highlight pre code .c {
+  color: #777ea5;
 }
 
 /* Comment (Single) */
 
- .highlight pre code .c1 {
-    color: #777EA5;
+.highlight pre code .c1 {
+  color: #777ea5;
 }
 
 /* Error */
 
- .highlight pre code .err {
-    color: #C2CAFD;
+.highlight pre code .err {
+  color: #c2cafd;
 }
 
 /* Generic */
 
- .highlight pre code .g {
-    color: #93A1A1;
+.highlight pre code .g {
+  color: #93a1a1;
 }
 
 /* Keyword */
 
- .highlight pre code .k {
-    color: #A5B4FC;
+.highlight pre code .k {
+  color: #a5b4fc;
 }
 
 /* Keyword (Constant) */
 
- .highlight pre code .kc {
-    color: #7DD3FC;
+.highlight pre code .kc {
+  color: #7dd3fc;
 }
 
 /* Keyword (Namespace) */
 
- .highlight pre code .kn {
-    color: #A5B4FC;
+.highlight pre code .kn {
+  color: #a5b4fc;
 }
 
 /* Literal */
 
- .highlight pre code .l {
-    color: #5EEAD4;
+.highlight pre code .l {
+  color: #5eead4;
 }
 
 /* Number */
 
- .highlight pre code .m {
-    color: #6EE7B7;
+.highlight pre code .m {
+  color: #6ee7b7;
 }
 
 /* Name */
 
- .highlight pre code .n {
-    color: inherit;
+.highlight pre code .n {
+  color: inherit;
 }
 
 /* Name (Attribute) */
 
- .highlight pre code .na {
-    color: #A7ACFC;
+.highlight pre code .na {
+  color: #a7acfc;
 }
 
 /* Name (Builtin) */
 
- .highlight pre code .nb {
-    color: #F0ABFC;
+.highlight pre code .nb {
+  color: #f0abfc;
 }
 
 /* Name (Class) */
 
- .highlight pre code .nc {
-    color: #60A5FA;
+.highlight pre code .nc {
+  color: #60a5fa;
 }
 
 /* Name (Function) */
 
- .highlight pre code .nf {
-    color: #A78BFA;
+.highlight pre code .nf {
+  color: #a78bfa;
 }
 
 /* Name (Other) */
 
- .highlight pre code .nx {
-    color: #A5B4FC;
+.highlight pre code .nx {
+  color: #a5b4fc;
 }
 
 /* Name (Variable) */
 
- .highlight pre code .nv {
-    color: #7AB9F8;
+.highlight pre code .nv {
+  color: #7ab9f8;
 }
 
 /* Operator */
 
- .highlight pre code .o {
-    color: #727AAD;
+.highlight pre code .o {
+  color: #727aad;
 }
 
 /* Punctuation */
 
- .highlight pre code .p {
-    color: #727AAD;
+.highlight pre code .p {
+  color: #727aad;
 }
 
 /* String (Literal) */
 
- .highlight pre code .s {
-    color: #FDBA74;
+.highlight pre code .s {
+  color: #fdba74;
 }
 
 /* String (Single) */
 
- .highlight pre code .s1 {
-    color: #FDBA74;
+.highlight pre code .s1 {
+  color: #fdba74;
 }
 
 /* String (Double) */
 
- .highlight pre code .s2 {
-    color: #FDBA74;
+.highlight pre code .s2 {
+  color: #fdba74;
 }

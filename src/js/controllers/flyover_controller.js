@@ -1,19 +1,18 @@
-import { Controller } from 'stimulus'
-import { useTransition } from 'stimulus-use'
-
+import { Controller } from "stimulus"
+import { useTransition } from "stimulus-use"
 
 export default class extends Controller {
-    static targets = ['button', 'menu']
+  static targets = ["button", "menu"]
 
-    connect() {
-        useTransition(this, { element: this.menuTarget })
-    }
+  connect() {
+    useTransition(this, { element: this.menuTarget })
+  }
 
-    open() {
-        this.enter()
-    }
+  open() {
+    this.enter()
+  }
 
-    close() {
-        this.leave()
-    }
+  close() {
+    this.leave()
+  }
 }
