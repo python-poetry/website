@@ -84,7 +84,7 @@
         <!-- /Sidebar -->
 
         <!-- Content -->
-        <main id="docs" class="min-w-0 w-full lg:px-12 lg:flex-auto lg:static lg:max-h-full lg:overflow-visible">
+        <main id="docs" class="min-w-0 w-full lg:px-12 lg:flex-auto lg:static lg:max-h-full lg:overflow-visible"  data-controller="clipboard">
             <h1 class="doc-title">{{ index (split .Name "|") 0 -}}</h1>
             {{ .TableOfContents }}
 
