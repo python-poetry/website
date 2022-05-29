@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.1.12"
+title: "Announcing Poetry 1.1.12"
 date: 2021-11-27 00:00:00
 categories: [releases]
-tags: ['1.x', '1.1']
+tags: ["1.x", "1.1"]
 ---
 
 The Poetry team is pleased to announce the immediate availability of Poetry **1.1.12**.

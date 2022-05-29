@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Announcing Poetry 1.0.7"
-date:   2020-06-05 11:12:35
+title: "Announcing Poetry 1.0.7"
+date: 2020-06-05 11:12:35
 categories: [releases]
-tags: ['1.x']
+tags: ["1.x"]
 
 aliases:
   - announcing-poetry-1-0-7.html
@@ -25,4 +25,3 @@ $ poetry self update
 ### Fixes
 
 - Fixed an error when trying to execute some packages `setup.py` file ([#2349](https://github.com/python-poetry/poetry/pull/2349)).
-
