@@ -15,7 +15,7 @@
   transition: 0.1s;
 }
 .clipboard-button > svg {
-  fill: #767676;
+  fill: rgb(208 212 252 / var(--tw-text-opacity));
 }
 .clipboard-button:hover {
   cursor: pointer;
