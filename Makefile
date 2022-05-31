@@ -15,5 +15,6 @@ node_modules: package.json package-lock.json
 	@touch node_modules
 
 content/docs: pyproject.toml
+	poetry install
 	poetry run ./bin/website configure
 	poetry run ./bin/website docs pull
