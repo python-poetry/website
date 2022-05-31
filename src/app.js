@@ -2,7 +2,7 @@ import "./css/app.css"
 
 import algoliasearch from "algoliasearch/dist/algoliasearch.esm.browser"
 import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js"
-import { Application } from "stimulus"
+import { Application } from "@hotwired/stimulus"
 import { TransitionController, ClickOutsideController } from "stimulus-use"
 import MenuController from "./js/controllers/menu_controller"
 import SelectController from "./js/controllers/select_controller"
