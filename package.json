@@ -30,6 +30,7 @@
     "concurrently": "^7.2.1",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
+    "hugo-bin": "^0.87.1",
     "lodash": "^4.17.21",
     "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
