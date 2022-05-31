@@ -8,7 +8,7 @@
     "npm": "6.*"
   },
   "scripts": {
-    "dev": "rollup --config --watch",
+    "dev": "concurrently --names=assets,server --prefix-colors=cyan.bold,magenta.bold 'rollup --config --watch' 'hugo server --watch'",
     "prod": "rollup --config --environment NODE_ENV:production",
     "algolia": "atomic-algolia"
   },
@@ -27,6 +27,7 @@
     "algoliasearch": "^4.9.1",
     "atomic-algolia": "^0.3.19",
     "autoprefixer": "^10.2.5",
+    "concurrently": "^7.2.1",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "lodash": "^4.17.21",
