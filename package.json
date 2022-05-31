@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "14.*",
+    "npm": "6.*"
+  },
   "scripts": {
     "dev": "rollup --config --watch",
     "prod": "rollup --config --environment NODE_ENV:production",
