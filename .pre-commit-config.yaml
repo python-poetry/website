@@ -91,4 +91,4 @@ repos:
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v8.16.0
     hooks:
-    -   id: eslint
+      - id: eslint
