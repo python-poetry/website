@@ -87,3 +87,8 @@ repos:
     rev: v2.19.0
     hooks:
       - id: validate_manifest
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.16.0
+    hooks:
+    -   id: eslint
