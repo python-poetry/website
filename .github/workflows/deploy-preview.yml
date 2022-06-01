@@ -28,9 +28,9 @@ jobs:
           python-version: "3.9"
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "16"
 
       - name: Build Assets
         run: npm ci && npm run prod

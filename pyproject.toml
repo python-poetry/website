@@ -7,9 +7,9 @@ authors = ["Sébastien Eustace <sebastien@eustace.io>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 cleo = "^1.0.0a3"
-PyYAML = "^5.4"
-tomli = "^1.0"
-httpx = "^0.22"
+PyYAML = "^6.0"
+tomli = "^2.0"
+httpx = "^0.23"
 tomli-w = "^1.0"
 
 [tool.poetry.dev-dependencies]

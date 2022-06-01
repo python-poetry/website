@@ -1,7 +1,6 @@
 node_modules
 public
 assets/assets
-assets/assets
 /content/docs
 /resources
 .python-version
@@ -11,6 +10,7 @@ assets/assets
 .vercel
 .env
 algolia.json
+.hugo_build.lock
 
 # this is not generated with docs pull
 config.toml
