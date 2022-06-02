@@ -5,7 +5,6 @@ assets/assets
 /resources
 .python-version
 .vscode
-.idea
 
 .vercel
 .env

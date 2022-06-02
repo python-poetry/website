@@ -5,7 +5,6 @@ import eslint from "@rollup/plugin-eslint"
 import { terser } from "rollup-plugin-terser"
 import postcss from "rollup-plugin-postcss"
 import replace from "@rollup/plugin-replace"
-import svg from "rollup-plugin-svg-import"
 
 import path from "path"
 
@@ -38,9 +37,6 @@ const dev = {
       exclude: "node_modules/**",
       configFile: path.resolve(__dirname, "babel.config.json"),
       babelHelpers: "bundled",
-    }),
-    svg({
-      stringify: true,
     }),
   ],
 }
@@ -76,9 +72,6 @@ const prod = {
       babelHelpers: "bundled",
     }),
     terser(),
-    svg({
-      stringify: true,
-    }),
   ],
 }
 

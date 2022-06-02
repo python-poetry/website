@@ -117,6 +117,8 @@
                       class="bg-secondary-400 flex-shrink-0 inline-block h-2 w-2 mr-2 rounded-full dark:bg-indigo-300"
                     ></span>
                   {{ end }}
+
+
                   <span class="flex-grow font-medium inline-block truncate">
                     {{ index (split .Name "|") 0 -}}
                   </span>
@@ -132,7 +134,6 @@
       <main
         id="docs"
         class="min-w-0 w-full lg:px-12 lg:flex-auto lg:static lg:max-h-full lg:overflow-visible"
-        data-controller="clipboard"
       >
         <h1 class="doc-title">{{ index (split .Name "|") 0 -}}</h1>
         {{ .TableOfContents }}

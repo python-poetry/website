@@ -1,12 +1,11 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "./_fonts.css";
-@import "./_base.css";
-@import "./_components.css";
-@import "./_content.css";
+@import "./_fonts";
+@import "./_base";
+@import "./_components";
+@import "./_content";
 @import "./_docs.css";
 @import "./_windows.css";
-@import "./_highlight.css";
+@import "./_highlight";
 @import "./_search.css";
-@import "./_clipboard.css";

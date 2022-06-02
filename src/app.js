@@ -9,10 +9,8 @@ import SelectController from "./js/controllers/select_controller"
 import ModeSwitchController from "./js/controllers/mode_switch_controller"
 import FlyoverController from "./js/controllers/flyover_controller"
 import TabsController from "./js/controllers/tabs_controller"
-import ClipboardController from "./js/controllers/clipboard_controller"
 
 const application = Application.start()
-application.register("clipboard", ClipboardController)
 application.register("transition", TransitionController)
 application.register("click-outside", ClickOutsideController)
 application.register("menu", MenuController)
