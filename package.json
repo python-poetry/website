@@ -25,6 +25,7 @@
     "@rollup/plugin-eslint": "^8.0.1",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-replace": "^4.0.0",
+    "rollup-plugin-svg-import": "^1.6.0",
     "algoliasearch": "^4.9.1",
     "atomic-algolia": "^0.3.19",
     "autoprefixer": "^10.2.5",
