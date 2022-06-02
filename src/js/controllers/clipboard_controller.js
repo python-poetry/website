@@ -1,6 +1,6 @@
 import checkmark from "../../../static/images/checkmark.svg"
 import copyIcon from "../../../static/images/content_copy.svg"
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   initialize() {
