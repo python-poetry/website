@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "concurrently --names=assets,server --prefix-colors=cyan.bold,magenta.bold 'rollup --config --watch' 'hugo server --watch'",
-    "prod": "rollup --config --environment NODE_ENV:production",
+    "prod": "rollup --config --failAfterWarnings --environment NODE_ENV:production",
     "algolia": "atomic-algolia"
   },
   "author": "",
