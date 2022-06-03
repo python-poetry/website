@@ -8,6 +8,7 @@ clean: ## Clean generated files
 
 .PHONY: site
 site: node_modules content/docs ## Build and serve site
+	@test -f assets/assets/app.js || npx rollup --config
 	@npm run dev
 
 node_modules: package.json package-lock.json
