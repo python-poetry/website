@@ -4,6 +4,12 @@ layout: single
 title: History
 ---
 
+## [1.1.14] - 2022-07-08
+
+## Fixed
+
+- Fixed an issue where dependencies hashes could not be retrieved when locking due to a breaking change on PyPI JSON API ([#5973](https://github.com/python-poetry/poetry/pull/5973))
+
 ## [1.2.0b1] - 2022-03-17
 
 ### Fixed
@@ -1201,6 +1207,7 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 Initial release
 
 [unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0b1...master
+[1.1.14]: https://github.com/python-poetry/poetry/releases/tag/1.1.14
 [1.2.0b1]: https://github.com/python-poetry/poetry/releases/tag/1.2.0b1
 [1.1.13]: https://github.com/python-poetry/poetry/releases/tag/1.1.13
 [1.1.12]: https://github.com/python-poetry/poetry/releases/tag/1.1.12
