@@ -57,5 +57,8 @@
         }
       }
     ]
+  },
+  "dependencies": {
+    "vercel": "^27.0.2"
   }
 }
