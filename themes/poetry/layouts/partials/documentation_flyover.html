@@ -1,3 +1,8 @@
+{{ $currentPage := . }}
+{{ $docsDir := "docs/" }}
+{{ if eq $currentPage.Type "docs" }}
+  {{ $docsDir = $currentPage.File.Dir }}
+{{ end }}
 <li
   class="relative flex items-center h-full"
   data-controller="flyover"
@@ -39,14 +44,14 @@
         class="relative grid auto-cols-fr gap-6 bg-light-primary px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-3 dark:bg-gray-700"
       >
         {{ range sort .Site.Menus.docs "Weight" }}
-          {{ if (eq .Page.File.Dir "docs/") }}
+          {{ if (eq $docsDir .Page.File.Dir) }}
             <a
               href="{{ .Page.RelPermalink }}"
               class="-m-3 p-3 flex items-start rounded-lg whitespace-nowrap hover:bg-light-note transition ease-in-out duration-150 dark:hover:bg-dark-note-darker"
             >
               <div class="max-w-full">
                 <p class="text-base font-medium">
-                  {{ .Name }}
+                  {{ index (split .Name "|") 0 -}}
                 </p>
                 <p
                   class="mt-1 text-sm overflow-hidden overflow-ellipsis opacity-60"
