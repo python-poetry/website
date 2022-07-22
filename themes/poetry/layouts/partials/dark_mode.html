@@ -19,5 +19,7 @@
     return "light"
   }
 
-  document.documentElement.classList.add(getInitialColorMode())
+  const initialColorMode = getInitialColorMode()
+  document.documentElement.classList.add(initialColorMode)
+  document.documentElement.style.setProperty("color-scheme", initialColorMode)
 </script>

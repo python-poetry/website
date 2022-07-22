@@ -11,6 +11,8 @@ export default class extends Controller {
 
     document.documentElement.classList.add(newMode)
     document.documentElement.classList.remove(oldMode)
+    document.documentElement.style.setProperty("color-scheme", newMode)
+
     this.isDarkMode = !this.isDarkMode
 
     window.localStorage.setItem("color-mode", newMode)
