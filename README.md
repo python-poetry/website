@@ -16,7 +16,7 @@ If you want to work on this project locally, follow the instructions below:
 1. Fork this repository
 1. Clone your fork locally
 1. Run `make site`, which will:
-   - Perform a [sparse checkout](https://git-scm.com/docs/git-sparse-checkout) of the `poetry` repo into `content/docs`
+   - Fetch `docs/*.md` from `poetry` repo into `content/docs`
    - Concurrently run `rollup` to compile assets and `hugo` to serve content
 
 The website will now be accessible at <http://localhost:1313> and reload on any changes.
