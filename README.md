@@ -7,16 +7,25 @@ It's built using the static site generator [Hugo](https://gohugo.io) and the Mar
 ## Requirements
 
 - [Poetry](https://python-poetry.org/docs/master/#installing-with-the-official-installer)
-- [Node.js 14](https://nodejs.org/en/download/) (and `npm`)
+- [Node.js 16](https://nodejs.org/en/download/) (and `npm`)
 
 ## Local development
 
-If you want to work on this project locally, follow the instructions below:
+To work on this project locally, first fork and clone this repo. Then:
 
-1. Fork this repository
-1. Clone your fork locally
-1. Run `make site`, which will:
-   - Fetch `docs/*.md` from `poetry` repo into `content/docs`
-   - Concurrently run `rollup` to compile assets and `hugo` to serve content
+```sh
+make site
+```
+
+or, to instead use docs from a local `poetry` repo:
+
+```sh
+make site POETRY_REPO=../path/to/local/poetry/repo
+```
+
+This will
+
+- Either fetch or symlink `docs/*.md` from the `poetry` repo into `content/docs`
+- Concurrently run `rollup` to compile assets and `hugo` to serve content
 
 The website will now be accessible at <http://localhost:1313> and reload on any changes.

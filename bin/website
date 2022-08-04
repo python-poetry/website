@@ -51,7 +51,10 @@ def get_branches() -> list[str]:
 class ConfigureCommand(Command):
     name = "configure"
     description = "Generate website config.toml file."
-    options = [option("local", None, "Build from local Poetry source.", flag=False)]
+    options = [
+        option("local", None, "Build from local Poetry source.", flag=False),
+        option("editable", None, "Symlink local Poetry source rather than copying."),
+    ]
 
     @staticmethod
     def get_configuration(file: Path | None = None) -> dict[str, Any]:
@@ -105,13 +108,19 @@ class DocsPullCommand(ConfigureCommand):
         branches = get_branches()
         default_version = content["config"]["params"]["documentation"]["defaultVersion"]
 
-        if self.DESTINATION.exists():
+        if self.DESTINATION.is_symlink():
+            self.DESTINATION.unlink()
+        elif self.DESTINATION.exists():
             shutil.rmtree(self.DESTINATION)
 
         self.DESTINATION.mkdir(parents=True)
 
         if self.option("local"):
-            self._pull_local_version(Path(self.option("local")), self.DESTINATION)
+            self._pull_local_version(
+                src=Path(self.option("local")),
+                dest=self.DESTINATION,
+                editable=self.option("editable"),
+            )
             return 0
 
         for name, version in versions.items():
@@ -127,10 +136,16 @@ class DocsPullCommand(ConfigureCommand):
         return 0
 
     @staticmethod
-    def _pull_local_version(src: Path, dest: Path) -> None:
-        # Copy files at the root of the destination
-        for filepath in Path(src).joinpath("docs").glob("*.md"):
-            shutil.copyfile(filepath, dest.joinpath(filepath.name))
+    def _pull_local_version(src: Path, dest: Path, editable: bool = False) -> None:
+        src = Path(src).joinpath("docs")
+        if editable:
+            # Symlink directory to destination
+            dest.rmdir()
+            dest.symlink_to(src.resolve(), target_is_directory=True)
+        else:
+            # Copy files at the root of the destination
+            for filepath in src.glob("*.md"):
+                shutil.copyfile(filepath, dest.joinpath(filepath.name))
 
     def _pull_version(
         self,
