@@ -30,9 +30,7 @@
     "autoprefixer": "^10.2.5",
     "concurrently": "^7.2.1",
     "eslint": "^8.16.0",
-    "eslint-config-prettier": "^8.3.0",
-    "hugo-bin": "^0.87.1",
-    "lodash": "^4.17.21",
+    "hugo-bin": "^0.89.0",
     "postcss": "^8.2.10",
     "postcss-import": "^14.0.2",
     "postcss-nested": "^5.0.5",
@@ -40,7 +38,6 @@
     "prettier-plugin-go-template": "^0.0.13",
     "rollup": "^2.50.2",
     "rollup-plugin-postcss": "^4.0.0",
-    "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "stimulus-use": "^0.50.0",
     "tailwindcss": "^3.0.11"
