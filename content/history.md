@@ -4,6 +4,13 @@ layout: single
 title: History
 ---
 
+## [1.1.15] - 2022-08-22
+
+### Changed
+
+- Poetry now fallback to gather metadata for dependencies via pep517 if parsing pyproject.toml fail ([#6206](https://github.com/python-poetry/poetry/pull/6206))
+- Extras and extras dependencies are now sorted in lock file ([#6207](https://github.com/python-poetry/poetry/pull/6207))
+
 ## [1.1.14] - 2022-07-08
 
 ## Fixed
@@ -1207,6 +1214,7 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 Initial release
 
 [unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0b1...master
+[1.1.15]: https://github.com/python-poetry/poetry/releases/tag/1.1.15
 [1.1.14]: https://github.com/python-poetry/poetry/releases/tag/1.1.14
 [1.2.0b1]: https://github.com/python-poetry/poetry/releases/tag/1.2.0b1
 [1.1.13]: https://github.com/python-poetry/poetry/releases/tag/1.1.13
