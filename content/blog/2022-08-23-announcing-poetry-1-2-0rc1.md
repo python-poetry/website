@@ -63,7 +63,9 @@ Warning: The file chosen for install of cryptography 37.0.3 (cryptography-37.0.3
 It is now possible to define a subdirectory for Poetry to look for when adding a git dependency, which is useful when a
 git dependency stores its build definition in a subdirectory in the repository.
 
-To specify a subdirectory to look for, you can use `subdirectory`:
+To specify a subdirectory to look for, you can use `subdirectory`
+(see [documentation](https://python-poetry.org/docs/1.2/dependency-specification/#git-dependencies) for usage
+in `pyproject.toml`):
 
 ```shell
 $ poetry add git+https://github.com/myorg/mypackage_with_subdirs.git#subdirectory=subdir
