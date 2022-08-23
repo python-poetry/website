@@ -17,9 +17,9 @@ getting Poetry **1.2.0rc1** is as easy as:
 $ poetry self update --preview
 ```
 
-With this release, Poetry `1.2` branch now enters a bugfixes-only stage, where no new feature will be merged.
+With this release, Poetry 1.2 now enters a stabilization phase, where no new feature will be merged.
 
-Since `1.2.0rc1` mostly represents what the final `1.2.0` version will be, we invite users to test this release and
+Since 1.2.0rc1 is a near-exact representation of 1.2.0, we invite users to test this release and
 report issues using the [issue tracker](https://github.com/python-poetry/poetry/issues "Poetry's issue tracker").
 
 Documentation for Poetry `1.2` is available [here](https://python-poetry.org/docs/1.2/). We also invite users to report
@@ -31,7 +31,7 @@ For a complete list of changes, you can refer to the [change log](/history).
 
 During the development of Poetry `1.2`, some new commands and arguments for supporting plugins and dependencies groups
 were added, then deprecated and replaced. If you were using them on Poetry `1.2` pre-releases, the following
-commands/arguments have been removed, with their replacements:
+commands/arguments have been removed/replaced:
 
 - `poetry plugin [add|remove|show]` -> use `poetry self [add|remove|show]` instead
 - `poetry [export|install|show|update] --default` -> use `poetry [export|install|show|update] --with main` instead
@@ -41,14 +41,14 @@ commands/arguments have been removed, with their replacements:
 When a new minor or major Poetry release occurs, some projects may use new features that are only available in this new
 version.
 
-Poetry will now gracefully handle that, so users of older Poetry versions will be able to install dependencies that
+Poetry 1.1 will now gracefully handle dependencies that require future releases, so users of older Poetry versions will be able to install dependencies that
 depend on newer versions of Poetry as their build system, facilitating the migration for users.
 See [this PR](https://github.com/python-poetry/poetry/pull/5834) for details.
 
 ## Support for yanked releases (PEP 592)
 
 Poetry now supports yanked releases, as defined by [PEP 592](https://peps.python.org/pep-0592/), for both PyPI
-repository and repositories that follow [PEP 503](https://peps.python.org/pep-0503/) specification.
+and [PEP 503](https://peps.python.org/pep-0503/)-compatible repositories.
 
 Adding a dependency version that is yanked, or installing a project that depends on yanked releases, will now raise a
 warning:

@@ -20,7 +20,7 @@ getting Poetry **1.1.15** is as easy as:
 $ poetry self update
 ```
 
-## Compatibility between Poetry `1.1` and `1.2`
+## Compatibility between Poetry 1.1 and 1.2
 
 Once Poetry `1.2.0` final release will be out, several projects will use new features that are only in `1.2` in their
 `pyproject.toml`, like dependency groups.
