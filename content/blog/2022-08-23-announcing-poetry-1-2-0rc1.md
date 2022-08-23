@@ -36,15 +36,6 @@ commands/arguments have been removed/replaced:
 - `poetry plugin [add|remove|show]` -> use `poetry self [add|remove|show]` instead
 - `poetry [export|install|show|update] --default` -> use `poetry [export|install|show|update] --with main` instead
 
-## Compatibility between Poetry `1.2` and future releases
-
-When a new minor or major Poetry release occurs, some projects may use new features that are only available in this new
-version.
-
-Poetry 1.1 will now gracefully handle dependencies that require future releases, so users of older Poetry versions will be able to install dependencies that
-depend on newer versions of Poetry as their build system, facilitating the migration for users.
-See [this PR](https://github.com/python-poetry/poetry/pull/5834) for details.
-
 ## Support for yanked releases (PEP 592)
 
 Poetry now supports yanked releases, as defined by [PEP 592](https://peps.python.org/pep-0592/), for both PyPI
