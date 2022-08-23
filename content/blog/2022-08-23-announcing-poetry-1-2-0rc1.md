@@ -65,8 +65,6 @@ git dependency stores its build definition in a subdirectory in the repository.
 
 To specify a subdirectory to look for, you can use `subdirectory`:
 
-```toml
-[tool.poetry.dependencies]
-# Install a package named `subdir_package` from a folder called `subdir` within the repository
-subdir_package = { git = "https://github.com/myorg/mypackage_with_subdirs.git", subdirectory = "subdir" }
+```shell
+$ poetry add git+https://github.com/myorg/mypackage_with_subdirs.git#subdirectory=subdir
 ```
