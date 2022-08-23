@@ -20,7 +20,16 @@ getting Poetry **1.1.15** is as easy as:
 $ poetry self update
 ```
 
-### Changed
+## Compatibility between Poetry `1.1` and `1.2`
+
+Once Poetry `1.2.0` final release will be out, several projects will use new features that are only in `1.2` in their
+`pyproject.toml`, like dependency groups.
+
+Poetry will now gracefully handle that, so users of Poetry `1.1` will be able to install dependencies that use Poetry
+`>= 1.2` as their build system, facilitating the migration for users.
+See [this PR](https://github.com/python-poetry/poetry/pull/5834) for details.
+
+## Changed
 
 - Poetry now fallback to gather metadata for dependencies via pep517 if parsing pyproject.toml fail ([#6206](https://github.com/python-poetry/poetry/pull/6206))
 - Extras and extras dependencies are now sorted in lock file ([#6207](https://github.com/python-poetry/poetry/pull/6207))
