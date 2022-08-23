@@ -4,6 +4,7 @@
 
 
   <body>
+    {{- partial "dark_mode.html" . -}}
     {{- partial "header.html" . -}}
     <div id="content">
       {{ block "main" . }}{{ end }}
