@@ -22,15 +22,15 @@ With this release, Poetry 1.2 now enters a stabilization phase, where no new fea
 Since 1.2.0rc1 is a near-exact representation of 1.2.0, we invite users to test this release and
 report issues using the [issue tracker](https://github.com/python-poetry/poetry/issues "Poetry's issue tracker").
 
-Documentation for Poetry `1.2` is available [here](https://python-poetry.org/docs/1.2/). We also invite users to report
+Documentation for Poetry 1.2 is available [here](https://python-poetry.org/docs/1.2/). We also invite users to report
 any issue found in the documentation, whether it's typos, unclear definitions or missing things.
 
 For a complete list of changes, you can refer to the [change log](/history).
 
-## Removal of some deprecated `1.2`-only CLI options
+## Removal of some deprecated 1.2-only CLI options
 
-During the development of Poetry `1.2`, some new commands and arguments for supporting plugins and dependencies groups
-were added, then deprecated and replaced. If you were using them on Poetry `1.2` pre-releases, the following
+During the development of Poetry 1.2, some new commands and arguments for supporting plugins and dependencies groups
+were added, then deprecated and replaced. If you were using them on Poetry 1.2 pre-releases, the following
 commands/arguments have been removed/replaced:
 
 - `poetry plugin [add|remove|show]` -> use `poetry self [add|remove|show]` instead
