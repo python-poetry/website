@@ -22,12 +22,11 @@ $ poetry self update
 
 ## Compatibility between Poetry 1.1 and 1.2
 
-Once Poetry `1.2.0` final release will be out, several projects will use new features that are only in `1.2` in their
-`pyproject.toml`, like dependency groups.
+Once Poetry 1.2.0 is out in the wild, projects will start depending on 1.2-only features like dependency groups.
 
-Poetry will now gracefully handle that, so users of Poetry `1.1` will be able to install dependencies that use Poetry
-`>= 1.2` as their build system, facilitating the migration for users.
-See [this PR](https://github.com/python-poetry/poetry/pull/5834) for details.
+Poetry 1.1 will now gracefully handle dependencies that require newer versions of Poetry by treating them as a foreign build system.
+
+See [python-poetry/poetry#5834](https://github.com/python-poetry/poetry/pull/5834) for details.
 
 ## Changed
 
