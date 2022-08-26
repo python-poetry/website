@@ -4,6 +4,22 @@ layout: single
 title: History
 ---
 
+## [1.2.0rc2] - 2022-08-26
+
+### Fixed
+
+- Fixed an issue where virtual environments were created unnecessarily when running `poetry self` commands ([#6226](https://github.com/python-poetry/poetry/pull/6226))
+- Ensure that packages' `pretty_name` are written to the lock file ([#6243](https://github.com/python-poetry/poetry/pull/6243))
+
+### Improvements
+
+- Improved the consistency of `Pool().remove_repository()` to make it easier to write poetry plugins ([#6231](https://github.com/python-poetry/poetry/pull/6231))
+
+### Docs
+
+- Removed mentions of Python 2.7 from docs ([#6235](https://github.com/python-poetry/poetry/pull/6235))
+- Added note about the difference between groups and extras ([#6232](https://github.com/python-poetry/poetry/pull/6232))
+
 ## [1.2.0rc1] - 2022-08-22
 
 ### Added
@@ -1421,9 +1437,13 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0b1...master
+[unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0rc2...master
+[1.2.0rc2]: https://github.com/python-poetry/poetry/releases/tag/1.2.0rc2
+[1.2.0rc1]: https://github.com/python-poetry/poetry/releases/tag/1.2.0rc1
 [1.1.15]: https://github.com/python-poetry/poetry/releases/tag/1.1.15
+[1.2.0b3]: https://github.com/python-poetry/poetry/releases/tag/1.2.0b3
 [1.1.14]: https://github.com/python-poetry/poetry/releases/tag/1.1.14
+[1.2.0b2]: https://github.com/python-poetry/poetry/releases/tag/1.2.0b2
 [1.2.0b1]: https://github.com/python-poetry/poetry/releases/tag/1.2.0b1
 [1.1.13]: https://github.com/python-poetry/poetry/releases/tag/1.1.13
 [1.1.12]: https://github.com/python-poetry/poetry/releases/tag/1.1.12
