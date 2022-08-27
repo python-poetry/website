@@ -37,7 +37,11 @@ Because of a regression in Poetry 1.2 pre-releases, in some conditions, lock fil
 Running `poetry self` was creating a virtual environment, which was unnecessary and could lead to issues. This is not
 the case anymore with [#6226](https://github.com/python-poetry/poetry/pull/6226).
 
-## Improve consistency of `Pool().remove_repository()`
+## Better support for plugins
 
-`Pool().remove_repository()` had some inconsistencies that made it hard to create plugins. This is now fixed
+`ProjectPackage.set_version()` has been removed in poetry 1.2.0b2 due to hashing issues. That broke plugins setting the
+project's version dynamically. In order to cover this use case again, hashing issues have been resolved and
+`ProjectPackage.version` can be set now with [#447](https://github.com/python-poetry/poetry-core/pull/447).
+
+`Pool.remove_repository()` had some inconsistencies that made it hard to create plugins. This is now fixed
 with [#6231](https://github.com/python-poetry/poetry/pull/6231).
