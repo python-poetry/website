@@ -20,7 +20,7 @@ getting Poetry 1.2.0 is as easy as:
 $ poetry self update
 ```
 
-[installation docs]: {{< relref "docs/1.2#installation" >}}
+[installation docs]: {{< relref "docs#installation" >}}
 
 {{% warning %}}
 If you installed Poetry using the deprecated `get-poetry.py`, you will need to migrate to the new installer.
@@ -46,7 +46,7 @@ Since there are many changes in Poetry 1.2.0, this post details the changes over
 For a complete list of changes, you can refer to the project [history]. Full documentation for Poetry 1.2 is available
 [here][docs]. Any bugs or regressions should be reported to the [issue tracker] after checking for duplicates.
 
-[docs]: {{< relref "docs/1.2" >}}
+[docs]: {{< relref "docs" >}}
 [history]: /history
 [issue tracker]: https://github.com/python-poetry/poetry/issues
 
@@ -157,7 +157,7 @@ If your project has additional dependencies meant to add additional functionalit
 using the ecosystem-standard [extras][extras docs] instead. Extras are supported by
 package build and install tools such as `pip`.
 
-[extras docs]: {{< relref "docs/1.2/pyproject#extras" >}}
+[extras docs]: {{< relref "docs/pyproject#extras" >}}
 
 {{% note %}}
 **A note about the `dev-dependencies` section**
@@ -257,9 +257,9 @@ specific group:
 $ poetry remove mkdocs --group docs
 ```
 
-[add docs]: {{< relref "docs/1.2/cli#add" >}}
-[remove docs]: {{< relref "docs/1.2/cli#remove" >}}
-[install docs]: {{< relref "docs/1.2/cli#install" >}}
+[add docs]: {{< relref "docs/cli#add" >}}
+[remove docs]: {{< relref "docs/cli#remove" >}}
+[install docs]: {{< relref "docs/cli#install" >}}
 
 ### Plugin support
 
@@ -305,8 +305,8 @@ Full documentation for installing and using plugins (including with other instal
 
 Early documentation for creating a plugin is available [here][creating plugins docs].
 
-[using plugins docs]: {{< relref "docs/1.2/plugins#using-plugins" >}}
-[creating plugins docs]:{{< relref "docs/1.2/plugins#creating-a-plugin" >}}
+[using plugins docs]: {{< relref "docs/plugins#using-plugins" >}}
+[creating plugins docs]:{{< relref "docs/plugins#creating-a-plugin" >}}
 
 ### Migration of the `poetry export` command
 
@@ -321,7 +321,7 @@ now considered a separate project with its own issue tracker and release cycle.
 To ease the transition, **the plugin is installed by default for the 1.2 release**. Future releases of Poetry will
 **deprecate this automatic install**, and require the user to explicitly install the plugin.
 
-[export docs]: {{< relref "docs/1.2/cli#export" >}}
+[export docs]: {{< relref "docs/cli#export" >}}
 [export repo]: https://github.com/python-poetry/poetry-plugin-export
 [export package]: https://pypi.org/project/poetry-plugin-export/
 
@@ -379,7 +379,7 @@ Manual editing of the `pyproject.toml` is supported as well. Full documentation,
 
 [pep 508]: https://peps.python.org/pep-0508/
 
-[git dep docs]: {{< relref "docs/1.2/dependency-specification#git-dependencies" >}}
+[git dep docs]: {{< relref "docs/dependency-specification#git-dependencies" >}}
 
 ### Single page repository support
 
@@ -398,7 +398,7 @@ $ poetry source add jax https://storage.googleapis.com/jax-releases/jax_releases
 
 Full documentation is available [here][single page repo docs].
 
-[single page repo docs]: {{< relref "docs/1.2/repositories#single-page-link-source" >}}
+[single page repo docs]: {{< relref "docs/repositories#single-page-link-source" >}}
 
 ### Synchronizing the environment with the lock file
 
@@ -509,7 +509,7 @@ against custom repos using certificate-based authentication.
 Poetry 1.2 has significantly refactored both the repository access and HTTP request components, ensuring that
 certificates are uniformly applied to all relevant requests.
 
-[repo cert docs]: {{< relref "docs/1.2/repositories#certificates" >}}
+[repo cert docs]: {{< relref "docs/repositories#certificates" >}}
 
 ### Non-verbose error handling
 
@@ -592,13 +592,13 @@ The [`self show plugins`][self show plugins docs] command lists all discovered p
 $ poetry self show plugins
 ```
 
-[self docs]: {{< relref "docs/1.2/cli#self" >}}
-[self add docs]: {{< relref "docs/1.2/cli#self-add" >}}
-[self remove docs]: {{< relref "docs/1.2/cli#self-remove" >}}
-[self install docs]: {{< relref "docs/1.2/cli#self-install" >}}
-[self lock docs]: {{< relref "docs/1.2/cli#self-lock" >}}
-[self show docs]: {{< relref "docs/1.2/cli#self-show" >}}
-[self show plugins docs]: {{< relref "docs/1.2/cli#self-show-plugins" >}}
+[self docs]: {{< relref "docs/cli#self" >}}
+[self add docs]: {{< relref "docs/cli#self-add" >}}
+[self remove docs]: {{< relref "docs/cli#self-remove" >}}
+[self install docs]: {{< relref "docs/cli#self-install" >}}
+[self lock docs]: {{< relref "docs/cli#self-lock" >}}
+[self show docs]: {{< relref "docs/cli#self-show" >}}
+[self show plugins docs]: {{< relref "docs/cli#self-show-plugins" >}}
 
 ### `source`
 
@@ -636,10 +636,10 @@ The [`source remove`][source remove docs] command removes a configured source fr
 $ poetry source remove pypi-test
 ```
 
-[source docs]: {{< relref "docs/1.2/cli#source" >}}
-[source add docs]: {{< relref "docs/1.2/cli#source-add" >}}
-[source show docs]: {{< relref "docs/1.2/cli#source-show" >}}
-[source remove docs]: {{< relref "docs/1.2/cli#source-remove" >}}
+[source docs]: {{< relref "docs/cli#source" >}}
+[source add docs]: {{< relref "docs/cli#source-add" >}}
+[source show docs]: {{< relref "docs/cli#source-show" >}}
+[source remove docs]: {{< relref "docs/cli#source-remove" >}}
 
 ## Changes to existing commands
 
@@ -760,15 +760,15 @@ currently active `python3` binary, and use it as the interpreter for creation of
 [`virtualenvs.prompt`][virtualenvs.prompt docs] allows for customization of the prompt used by Poetry-managed
 environments. Two template variables, `{{project_name}}` and `{{python_version}}` are available.
 
-[experimental.system-git-client docs]: {{<relref "docs/1.2/configuration#experimentalsystem-git-client">}}
-[installer.max-workers docs]: {{<relref "docs/1.2/configuration#installermax-workers">}}
-[installer.no-binary docs]: {{<relref "docs/1.2/configuration#installerno-binary">}}
-[virtualenvs.options.always-copy docs]: {{<relref "docs/1.2/configuration#virtualenvsoptionsalways-copy">}}
-[virtualenvs.options.no-pip docs]: {{< relref "docs/1.2/configuration#virtualenvsoptionsno-pip" >}}
-[virtualenvs.options.no-setuptools docs]: {{< relref "docs/1.2/configuration#virtualenvsoptionsno-setuptools" >}}
-[virtualenvs.options.system-site-packages docs]: {{< relref "docs/1.2/configuration#virtualenvsoptionssystem-site-packages" >}}
-[virtualenvs.prefer-active-python docs]: {{<relref "docs/1.2/configuration#virtualenvsprefer-active-python-experimental">}}
-[virtualenvs.prompt docs]: {{< relref "docs/1.2/configuration#virtualenvsprompt" >}}
+[experimental.system-git-client docs]: {{<relref "docs/configuration#experimentalsystem-git-client">}}
+[installer.max-workers docs]: {{<relref "docs/configuration#installermax-workers">}}
+[installer.no-binary docs]: {{<relref "docs/configuration#installerno-binary">}}
+[virtualenvs.options.always-copy docs]: {{<relref "docs/configuration#virtualenvsoptionsalways-copy">}}
+[virtualenvs.options.no-pip docs]: {{< relref "docs/configuration#virtualenvsoptionsno-pip" >}}
+[virtualenvs.options.no-setuptools docs]: {{< relref "docs/configuration#virtualenvsoptionsno-setuptools" >}}
+[virtualenvs.options.system-site-packages docs]: {{< relref "docs/configuration#virtualenvsoptionssystem-site-packages" >}}
+[virtualenvs.prefer-active-python docs]: {{<relref "docs/configuration#virtualenvsprefer-active-python-experimental">}}
+[virtualenvs.prompt docs]: {{< relref "docs/configuration#virtualenvsprompt" >}}
 
 ## FAQ
 
