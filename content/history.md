@@ -4,6 +4,18 @@ layout: single
 title: History
 ---
 
+## [1.2.0] - 2022-08-31
+
+Please find Poetry 1.2.0 blog post announcement [here][1.2.0 announcement].
+
+[1.2.0 announcement]: {{< relref "blog/2022-08-31-announcing-poetry-1-2-0" >}}
+
+### Docs
+
+- Added note about how to add a git dependency with a subdirectory ([#6218](https://github.com/python-poetry/poetry/pull/6218))
+- Fixed several style issues in the docs ([#6255](https://github.com/python-poetry/poetry/pull/6255))
+- Fixed outdated info about `--only` parameter ([#6264](https://github.com/python-poetry/poetry/pull/6264))
+
 ## [1.2.0rc2] - 2022-08-26
 
 ### Fixed
@@ -1437,7 +1449,8 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0rc2...master
+[unreleased]: https://github.com/python-poetry/poetry/compare/1.2.0...master
+[1.2.0]: https://github.com/python-poetry/poetry/releases/tag/1.2.0
 [1.2.0rc2]: https://github.com/python-poetry/poetry/releases/tag/1.2.0rc2
 [1.2.0rc1]: https://github.com/python-poetry/poetry/releases/tag/1.2.0rc1
 [1.1.15]: https://github.com/python-poetry/poetry/releases/tag/1.1.15
