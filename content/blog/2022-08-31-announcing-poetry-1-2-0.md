@@ -384,7 +384,7 @@ Manual editing of the `pyproject.toml` is supported as well. Full documentation,
 ### Single page repository support
 
 Poetry now supports discovering and installing dependencies from the 'single page' style of repository. Some
-widely-consumed package are not hosted in a [PEP 503]-complaint repository, but are instead listed on a single HTML
+widely-consumed package are not hosted in a [PEP 503]-compliant repository, but are instead listed on a single HTML
 page.
 
 To add a single page repository as a source add it like any other repository:
