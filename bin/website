@@ -189,21 +189,22 @@ class DocsPullCommand(ConfigureCommand):
 
                 if is_default:
                     self._pull_local_version(tmp_dir, dest)
+                else:
+                    path.mkdir()
 
-                path.mkdir()
-                for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
-                    with filepath.open() as f:
-                        content = f.read()
-                        # Load front matter data
-                        _, frontmatter, content = content.split("---", maxsplit=2)
-                        frontmatter = yaml.safe_load(frontmatter)
-                        frontmatter["title"] += f" | {version}"
-                        new_frontmatter = yaml.dump(frontmatter).strip()
+                    for filepath in Path(tmp_dir).joinpath("docs").glob("*.md"):
+                        with filepath.open() as f:
+                            content = f.read()
+                            # Load front matter data
+                            _, frontmatter, content = content.split("---", maxsplit=2)
+                            frontmatter = yaml.safe_load(frontmatter)
+                            frontmatter["title"] += f" | {version}"
+                            new_frontmatter = yaml.dump(frontmatter).strip()
 
-                    new_content = f"---\n{new_frontmatter}\n---\n{content}"
+                        new_content = f"---\n{new_frontmatter}\n---\n{content}"
 
-                    with path.joinpath(filepath.name).open("w") as f:
-                        f.write(new_content)
+                        with path.joinpath(filepath.name).open("w") as f:
+                            f.write(new_content)
         finally:
             os.chdir(cwd.as_posix())
 
