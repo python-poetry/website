@@ -78,9 +78,9 @@ $ curl -sSL https://install.python-poetry.org | python3 -
 The new installer brings the following improvements:
 
 - Releases are installed from standard wheels instead of special platform-specific archives. This allows for support of
-  pipx and manual installs, and prevents a release being necessary to make use of newer dependency versions.
+  `pipx` and manual installs, and prevents a release being necessary to make use of newer dependency versions.
 - Standard install locations are used for both Poetry itself, and the `poetry` CLI wrapper.
-- Installations can be performed from a local path, or from a git repository (including refs like branches or commits).
+- Installations can be performed from a local path, or from a Git repository (including refs like branches or commits).
 - Guidance on modifying `$PATH` is provided, but the user's configuration is not altered by automated tools.
 - Poetry will be installed using the Python interpreter the installer is invoked with.
 
@@ -179,7 +179,7 @@ pytest-mock = "*"
 
 As the `dev-dependencies` is now deprecated, projects should migrate to the new `group` syntax as soon as possible. Keep
 in mind that the `group` syntax is a new feature of Poetry 1.2, and your project will not be buildable with Poetry 1.1
-after migrataing.
+after migrating.
 {{% /note %}}
 
 #### Optional groups
@@ -782,7 +782,7 @@ commit lock files from one version.
 If you notice any hard incompatibilities, please report them to the [issue tracker].
 
 {{% note %}}
-If a project uses ]dependency groups](#dependency-groups), it will not be possible to use 1.1, as this is a new feature
+If a project uses [dependency groups](#dependency-groups), it will not be possible to use 1.1, as they are a new feature
 introduced by 1.2.
 {{% /note %}}
 
