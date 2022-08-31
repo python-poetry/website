@@ -6,9 +6,9 @@ title: History
 
 ## [1.2.0] - 2022-08-31
 
-Please find Poetry 1.2.0 blog post announcement [here][1.2.0 announcement].
+For a detailed breakdown of user-facing changes, refer to the [1.2.0 release announcement].
 
-[1.2.0 announcement]: {{< relref "blog/2022-08-31-announcing-poetry-1-2-0" >}}
+  [1.2.0 release announcement]: {{< relref "blog/2022-08-31-announcing-poetry-1-2-0" >}}
 
 ### Docs
 
