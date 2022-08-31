@@ -443,7 +443,7 @@ $ poetry config --local installer.no-binary :none:
 ```
 
 Full documentation of this feature (including configuration using environment variables for CI or containers) is
-available [here][no-binary docs].
+available [here][installer.no-binary docs].
 
 [bdist docs]: https://packaging.python.org/en/latest/specifications/binary-distribution-format/
 
