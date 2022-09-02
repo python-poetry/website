@@ -263,7 +263,7 @@ $ poetry remove mkdocs --group docs
 
 ### Plugin support
 
-Poetry now supports a plugin system to alter or expand functionality.
+Poetry now supports a experimental plugin system to alter or expand functionality.
 
 Example use cases include functionality not desirable to the majority of Poetry users, features out of scope to the main
 Poetry project, or specialized functionality specific to a project.
@@ -527,6 +527,55 @@ For debugging and development work, different levels of verbosity are now availa
 - `--verbose (-v)` to display the last stack frame (similar to Poetry 1.1)
 - `-vv` to display a reduced stack trace, highlighting the exact error and the calls that led to it
 - `-vvv` for maximum verbosity, printing a full stack trace and enabling debug logging
+
+### Management of pip and setuptools
+
+Poetry 1.2 will properly lock and manipulate the versions of setuptools, pip, and wheel in the target environment. This
+is to support projects which depend on pip, which up to this point could not rely on Poetry to do so. However, this does
+lead to a sharp edge for users who use both Poetry 1.2 and 1.1.
+
+As Poetry 1.1 will remove optional dependencies that are not requested, and as it considers setuptools, pip, and wheel
+to always be optional, they will be removed when a lockfile that contains these packages is encountered. This is
+generally a rare edge case (and if you need to lock pip or setuptools you likely have fully migrated to 1.2), but some
+packages incorrectly declare a build-time dependency on pip or setuptools as a runtime dependency, and may trigger this
+edge case.
+
+If setuptools, pip, or wheel end are present in your lockfile, you should fully migrate to 1.2, or at least lock with
+1.1 until you can perform a full migration. For more information and discussion, see [issue 4242].
+
+[issue 4242]: https://github.com/python-poetry/poetry/issues/4242
+
+### Keyring backend issues
+
+Poetry 1.2's support for keyring is nascent, and while extensive manual testing and CI have proven the base
+functionality, the diversity of possible backends and system configurations has proven to require more robust error
+handling and invocation in Poetry.
+
+If Keyring is unable to automatically determine that the backend is locked/unavailable and fall back to the null
+backend, you can opt out yourself with the environment variable `PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring`.
+
+We don't expect this to become mandatory for environments in which the Keyring is not actively being used, but it serves
+as both a useful troubleshooting step and a good bailout for environments in which Keyring is not working, and you do
+not wish to troubleshoot Keyring so it can successfully communicate with your backend. For more information and
+discussion, see [issue 1917].
+
+[issue 1917]: https://github.com/python-poetry/poetry/issues/1917
+
+### Usefulness of `experimental.new-installer false`
+
+Due to bugs in older versions of pip, the parallel installer may sometimes experience race conditions. Modern pip
+versions should be highly reliable, but either due to edge cases in pip, Poetry, or simply having to use an older
+version, these race conditions can rarely occur.
+
+When troubleshooting or working around them, please use the configuration setting `installer.max-workers 1` where prior
+documentation and issues may have suggested `experimental.new-installer false` in the past. The old installer is
+deprecated and has not received more than basic maintenance work, and may not interact perfectly with some new features
+in Poetry. Likewise, fixing any bugs in the new installer is preferred to depending on the old installer code, which
+is to be removed in the near future.
+
+For more information and discussion, see [issue 3336].
+
+[issue 3336]: https://github.com/python-poetry/poetry/issues/3336
 
 ## New commands
 
