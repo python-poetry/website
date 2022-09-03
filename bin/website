@@ -97,7 +97,6 @@ class ConfigureCommand(Command):
 
 
 class DocsPullCommand(ConfigureCommand):
-
     DESTINATION: Path = Path(__file__).parent.parent.joinpath("content/docs")
     REPOSITORY = "https://github.com/python-poetry/poetry.git"
 
