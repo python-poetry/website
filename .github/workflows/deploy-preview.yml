@@ -48,7 +48,7 @@ jobs:
           poetry run python bin/website build
 
       - name: Start Deployment
-        uses: bobheadxi/deployments@v0.5.2
+        uses: bobheadxi/deployments@v1
         id: deployment
         with:
           step: start
@@ -64,7 +64,7 @@ jobs:
         run: hugo --buildDrafts --buildFuture -v
 
       - name: Deploy
-        uses: amondnet/vercel-action@v20
+        uses: amondnet/vercel-action@v25
         id: vercel-action
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
           working-directory: public
 
       - name: Update Deployment Status
-        uses: bobheadxi/deployments@v0.5.2
+        uses: bobheadxi/deployments@v1
         if: always()
         with:
           step: finish
@@ -84,3 +84,4 @@ jobs:
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
           env_url: ${{ steps.vercel-action.outputs.preview-url }}
+          env: ${{ steps.deployment.outputs.env }}
