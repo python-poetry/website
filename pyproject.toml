@@ -17,6 +17,7 @@ pre-commit = "^2.13.0"
 
 [tool.black]
 target-version = ["py310"]
+preview = true
 
 [tool.isort]
 profile = "black"
