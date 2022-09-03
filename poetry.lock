@@ -29,7 +29,6 @@ mypy-extensions = ">=0.4.3"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
 tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
-typing-extensions = {version = ">=3.10.0.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
@@ -314,14 +313,6 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "typing-extensions"
-version = "4.2.0"
-description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
-optional = false
-python-versions = ">=3.7"
-
-[[package]]
 name = "virtualenv"
 version = "20.14.1"
 description = "Virtual Python Environment builder"
@@ -341,8 +332,8 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "00724d54b92aee92be5dd6e6e50916e89f3d6aaa8a9f1f15b136265368f53625"
+python-versions = "^3.10"
+content-hash = "2abe27ae5ed52611ef6cd0b8dfe7cdc55582bd78f6e034c680dcf1b069979357"
 
 [metadata.files]
 anyio = [
@@ -512,10 +503,6 @@ tomli = [
 tomli-w = [
     {file = "tomli_w-1.0.0-py3-none-any.whl", hash = "sha256:9f2a07e8be30a0729e533ec968016807069991ae2fd921a78d42f429ae5f4463"},
     {file = "tomli_w-1.0.0.tar.gz", hash = "sha256:f463434305e0336248cac9c2dc8076b707d8a12d019dd349f5c1e382dd1ae1b9"},
-]
-typing-extensions = [
-    {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
-    {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},
 ]
 virtualenv = [
     {file = "virtualenv-20.14.1-py2.py3-none-any.whl", hash = "sha256:e617f16e25b42eb4f6e74096b9c9e37713cf10bf30168fb4a739f3fa8f898a3a"},

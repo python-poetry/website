@@ -9,8 +9,8 @@ import tempfile
 
 from contextlib import contextmanager
 from pathlib import Path
+from typing import TYPE_CHECKING
 from typing import Any
-from typing import Iterator
 
 import httpx
 import tomli
@@ -20,6 +20,10 @@ import yaml
 from cleo.application import Application
 from cleo.commands.command import Command
 from cleo.helpers import option
+
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 
 API_BASE_URL = "https://api.github.com/repos/python-poetry/poetry"
