@@ -453,16 +453,22 @@ Poetry has robust (and improving) support for Git dependencies, which has always
 command. However, not all environments in which you want to use Poetry have a Git client available.
 
 Poetry 1.2 introduces Git support based on [Dulwich], a native Python implementation of the Git protocol, format, and
-client. Dulwich supports all operations Poetry requires, and should be a drop-in replacement for Poetry's previous usage
-of the `git` CLI.
+client. Dulwich supports all operations Poetry requires, and should mostly be a drop-in replacement for Poetry's
+previous usage of the `git` CLI.
 
 However, as this is a major change, there is an escape hatch in the form of the
 [`experimental.system-git-client`][experimental.system-git-client docs] setting. When this is set to `true`, Poetry will
 revert to using your system's `git` command.
 
+This option may be necessary for users with lock files that contained an abbreviated Git commit sha, as the current
+Dulwich usage is unable to expand abbreviated hashes that are not directly pointed to by a ref (tag or branch). You can
+also simply update your lock file to use the unabbreviated form of the hash instead. For more information and
+discussion, see [issue 6455].
+
 Note that this option is experimental, and will be removed in a future release of Poetry.
 
 [dulwich]: https://www.dulwich.io/
+[issue 6455]: https://github.com/python-poetry/poetry/issues/6455
 
 ### Detection of the currently active Python (experimental)
 
@@ -735,6 +741,17 @@ Poetry 1.2 brings changes to several commands, primarily related to [dependency 
 ### `publish`
 
 - Added `--skip-existing` to ignore errors from files already existing in the repository
+
+### `run`
+
+`poetry run` now parses arguments correctly, using the same logic as other Poetry commands. This means that the argument
+terminator `--` is now consumed by `poetry run`, where before it was passed through.
+
+For example, `poetry run tox -- arg1 arg2` would previously have invoked been interpreted as `["tox", "--", "arg1", "arg2"]`. It will now result in `["tox", "arg1", "arg2"]` as the `--` was interpreted as an argument to `poetry run`. If
+you need to express a `--` in your command line, you will have to express it twice -- one for Poetry, and one for the
+command being run, e.g. `poetry run -- tox -- arg1 arg2`. For more information and discussion, see [issue 6440].
+
+[issue 6440]: https://github.com/python-poetry/poetry/issues/6440
 
 ### `show`
 
