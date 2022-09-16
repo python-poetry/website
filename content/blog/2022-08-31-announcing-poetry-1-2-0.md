@@ -6,7 +6,7 @@ categories: [releases]
 tags: ["1.x", "1.2"]
 ---
 
-The Poetry team is pleased to announce the immediate availability of Poetry 1.2.0.
+The Poetry team is pleased to announce the immediate availability of Poetry **1.2.0**.
 
 <!--more-->
 
