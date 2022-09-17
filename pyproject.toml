@@ -5,17 +5,19 @@ description = ""
 authors = ["Sébastien Eustace <sebastien@eustace.io>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-cleo = "^1.0.0a3"
+python = "^3.10"
+cleo = "^1.0.0a5"
 PyYAML = "^6.0"
 tomli = "^2.0"
 httpx = "^0.23"
 tomli-w = "^1.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^22.3.0"
-isort = "^5.8"
 pre-commit = "^2.13.0"
+
+[tool.black]
+target-version = ["py310"]
+preview = true
 
 [tool.isort]
 profile = "black"
