@@ -34,8 +34,6 @@ baseURL = "https://python-poetry.org/"
 languageCode = "en-us"
 title = "Poetry - Python dependency management and packaging made easy"
 
-theme = "poetry"
-
 ignoreFiles = ["^assets/src"]
 pygmentsUseClasses = true
 
