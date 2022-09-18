@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <main class="mt-36 max-w-5xl mx-auto pb-16 px-12 md:mt-36 md:px-24">
+    {{ if .Pages }}
+      {{ range .Paginator.Pages }}
+        <section class="mb-32">
+          <a href="{{ .RelPermalink }}">
+            <h1 class="with-meta">{{ .Title }}</h1>
+          </a>
+          {{- partial "blog_meta.html" . -}}
+          <div class="summary">
+            {{ .Summary }}
+          </div>
+        </section>
+      {{ end }}
+
+      {{ template "_internal/pagination.html" . }}
+    {{ end }}
+  </main>
+{{ end }}
