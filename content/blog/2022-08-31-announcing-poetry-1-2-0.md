@@ -534,20 +534,20 @@ For debugging and development work, different levels of verbosity are now availa
 - `-vv` to display a reduced stack trace, highlighting the exact error and the calls that led to it
 - `-vvv` for maximum verbosity, printing a full stack trace and enabling debug logging
 
-### Management of pip and setuptools
+### Management of setuptools and pip
 
 Poetry 1.2 will properly lock and manipulate the versions of setuptools, pip, and wheel in the target environment. This
-is to support projects which depend on pip, which up to this point could not rely on Poetry to do so. However, this does
-lead to a sharp edge for users who use both Poetry 1.2 and 1.1.
+is to support projects which depend on pip, which up to this point could be managed by Poetry. However, this does lead
+to a sharp edge for users who use both Poetry 1.2 and 1.1.
 
 As Poetry 1.1 will remove optional dependencies that are not requested, and as it considers setuptools, pip, and wheel
-to always be optional, they will be removed when a lockfile that contains these packages is encountered. This is
+to always be optional, they will be removed when a lock file that contains these packages is encountered. This is
 generally a rare edge case (and if you need to lock pip or setuptools you likely have fully migrated to 1.2), but some
 packages incorrectly declare a build-time dependency on pip or setuptools as a runtime dependency, and may trigger this
 edge case.
 
-If setuptools, pip, or wheel end are present in your lockfile, you should fully migrate to 1.2, or at least lock with
-1.1 until you can perform a full migration. For more information and discussion, see [issue 4242].
+If setuptools, pip, or wheel are present in your lock file, you should fully migrate to 1.2, or at least lock with 1.1
+until you can perform a full migration. For more information and discussion, see [issue 4242].
 
 [issue 4242]: https://github.com/python-poetry/poetry/issues/4242
 
@@ -574,9 +574,9 @@ versions should be highly reliable, but either due to edge cases in pip, Poetry,
 version, these race conditions can rarely occur.
 
 When troubleshooting or working around them, please use the configuration setting `installer.max-workers 1` where prior
-documentation and issues may have suggested `experimental.new-installer false` in the past. The old installer is
-deprecated and has not received more than basic maintenance work, and may not interact perfectly with some new features
-in Poetry. Likewise, fixing any bugs in the new installer is preferred to depending on the old installer code, which
+documentation and issues may have suggested `experimental.new-installer false`. The old installer is deprecated and has
+not received more than basic maintenance work, and may not interact perfectly with some new features in Poetry.
+Likewise, fixing any bugs in the new installer is preferred to depending on the old installer code, which
 is to be removed in the near future.
 
 For more information and discussion, see [issue 3336].
@@ -745,11 +745,13 @@ Poetry 1.2 brings changes to several commands, primarily related to [dependency 
 ### `run`
 
 `poetry run` now parses arguments correctly, using the same logic as other Poetry commands. This means that the argument
-terminator `--` is now consumed by `poetry run`, where before it was passed through.
+terminator `--` is now consumed by `poetry run` instead of being passed through.
 
-For example, `poetry run tox -- arg1 arg2` would previously have invoked been interpreted as `["tox", "--", "arg1", "arg2"]`. It will now result in `["tox", "arg1", "arg2"]` as the `--` was interpreted as an argument to `poetry run`. If
-you need to express a `--` in your command line, you will have to express it twice -- one for Poetry, and one for the
-command being run, e.g. `poetry run -- tox -- arg1 arg2`. For more information and discussion, see [issue 6440].
+For example, `poetry run tox -- arg1 arg2` would previously have been interpreted as
+`["tox", "--", "arg1", "arg2"]`. It will now result in `["tox", "arg1", "arg2"]` as the `--` was interpreted as an
+argument to `poetry run`. If you need to express a `--` in your command line, you will have to express it twice -- once
+for Poetry, and once for the command being run, e.g. `poetry run -- tox -- arg1 arg2`. For more information and
+discussion, see [issue 6440].
 
 [issue 6440]: https://github.com/python-poetry/poetry/issues/6440
 
