@@ -59,6 +59,7 @@ jobs:
         run: hugo -v --minify
 
       - name: Build search index
+        continue-on-error: true
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
