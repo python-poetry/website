@@ -46,7 +46,7 @@ tags = "/blog/tag/:title/"
 description = "Python dependency management and packaging made easy"
 
 [tool.website.config.params.documentation]
-defaultVersion = "1.3"
+defaultVersion = "1.4"
 
 [tool.website.config.markup.goldmark.renderer]
 unsafe = true
@@ -55,8 +55,8 @@ unsafe = true
 keepWhitespace = true
 
 [tool.website.versions]
+"1.4" = "1.4"
 "1.3" = "1.3"
-"1.2" = "1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
