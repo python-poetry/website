@@ -15,17 +15,19 @@ export default class extends Controller {
         const _checkmarkIcon = checkmarkIcon.cloneNode()
         button.appendChild(_copyIcon)
         button.addEventListener("click", () => {
-          navigator.clipboard.writeText(codeBlock.innerText).then(
-            () => {
-              button.blur()
-              button.replaceChild(_checkmarkIcon, _copyIcon)
-              setTimeout(
-                () => button.replaceChild(_copyIcon, _checkmarkIcon),
-                2000
-              )
-            },
-            () => (button.innerHTML = "Error")
-          )
+          navigator.clipboard
+            .writeText((codeBlock.innerText || "").trim())
+            .then(
+              () => {
+                button.blur()
+                button.replaceChild(_checkmarkIcon, _copyIcon)
+                setTimeout(
+                  () => button.replaceChild(_copyIcon, _checkmarkIcon),
+                  2000
+                )
+              },
+              () => (button.innerHTML = "Error")
+            )
         })
         const pre = codeBlock.parentNode
         pre.parentNode.insertBefore(button, pre)
