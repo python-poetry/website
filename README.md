@@ -1,12 +1,12 @@
 # Poetry Website
 
-[![Poetry](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/python-poetry/website/main/static/badge/v0.json)][Official Website]
+[![Poetry](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/python-poetry/website/main/static/badge/v0.json)][official website]
 
-This is the source of the official [Poetry website][Official Website].
+This is the source of the official [Poetry website][official website].
 
 It's built using the static site generator [Hugo](https://gohugo.io) and the Markdown docs from the [Poetry repo](https://github.com/python-poetry/poetry/tree/master/docs).
 
-[Official Website]: https://python-poetry.org
+[official website]: https://python-poetry.org
 
 ## Requirements
 
