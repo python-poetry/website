@@ -1,6 +1,6 @@
 # Poetry Website
 
-[![Poetry](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/python-poetry/website/main/static/badge/v0.json)][official website]
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)][official website]
 
 This is the source of the official [Poetry website][official website].
 
