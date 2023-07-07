@@ -119,6 +119,14 @@
   @apply text-blue-600 font-medium not-italic rounded;
 }
 
+.aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-light {
+  @apply inline-block;
+}
+
+.aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-dark {
+  @apply hidden;
+}
+
 @screen md {
   .aa-DetachedOverlay {
     padding: 14vh;
@@ -184,4 +192,12 @@ html.dark .aa-DetachedOverlay .aa-Panel .search-result:hover h4 {
 
 html.dark .aa-DetachedOverlay .aa-Panel p em.highlight {
   @apply text-blue-300;
+}
+
+html.dark .aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-light {
+  @apply hidden;
+}
+
+html.dark .aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-dark {
+  @apply inline-block;
 }
