@@ -83,8 +83,10 @@ if (searchContainer) {
                 dangerouslySetInnerHTML: {
                   __html: `<div class="search-result">
                       <a href="${item.relpermalink}" title="${snippetTitle}">
-                          <h4>${snippetTitle}</h4>
-                          <p class="snippet">${snippetContent}</p>
+                          <div>
+                            <h4>${snippetTitle}</h4>
+                            <p class="snippet">${snippetContent}</p>
+                          </div>
                       </a>
                       </div>`,
                 },
@@ -98,7 +100,8 @@ if (searchContainer) {
                     "<span>" +
                     "Search by " +
                     '<a href="https://www.algolia.com" title="Algolia">' +
-                    '<img class="h-6 inline-block" src="/images/logo-algolia-nebula-blue-full.svg" alt="Algolia logo" />' +
+                    '<img class="h-6 inline-block logo-light" src="/images/Algolia-logo-blue.svg" alt="Algolia logo" />' +
+                    '<img class="hidden h-6 logo-dark" src="/images/Algolia-logo-white.svg" alt="Algolia logo" />' +
                     "</a>" +
                     "</span>" +
                     "</div>",

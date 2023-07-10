@@ -31,7 +31,7 @@
 }
 
 .aa-DetachedOverlay .aa-DetachedContainer {
-  @apply flex flex-col w-full max-w-3xl min-h-0 my-0 mx-auto py-4 px-8 shadow-xl bg-light-note rounded-md;
+  @apply flex flex-col w-full max-w-3xl min-h-0 my-0 px-8 py-4 mx-auto shadow-xl bg-light-note rounded-md;
 }
 
 .aa-DetachedOverlay .aa-DetachedContainer .aa-DetachedFormContainer {
@@ -88,19 +88,27 @@
 }
 
 .aa-DetachedOverlay .aa-Panel {
-  @apply relative overflow-y-scroll mb-4 pt-8;
+  @apply relative overflow-y-scroll;
 }
 
 .aa-DetachedOverlay .aa-Panel .search-result {
-  @apply p-4 rounded-md bg-gray-100 bg-opacity-50 mb-8 transition duration-300;
+  @apply p-4 rounded-md bg-gray-100 bg-opacity-50 transition duration-300 mb-4;
+}
+
+.aa-DetachedOverlay .aa-Panel .search-result .snippet {
+  @apply whitespace-nowrap overflow-x-hidden text-ellipsis;
 }
 
 .aa-DetachedOverlay .aa-Panel .search-result:hover {
-  @apply bg-opacity-75;
+  @apply bg-secondary-100;
 }
 
-.aa-DetachedOverlay .aa-Panel h4 {
-  @apply text-link text-xl;
+.aa-DetachedOverlay .aa-Panel .search-result h4 {
+  @apply inline-flex items-center rounded-full bg-secondary-100/50 px-2 py-1 text-xs font-medium text-secondary-600 ring-1 ring-inset ring-secondary-500/10 transition duration-300;
+}
+
+.aa-DetachedOverlay .aa-Panel .search-result:hover h4 {
+  @apply bg-secondary-200/50;
 }
 
 .aa-DetachedOverlay .aa-Panel p.snippet {
@@ -108,7 +116,15 @@
 }
 
 .aa-DetachedOverlay .aa-Panel p em.highlight {
-  @apply p-0.5 bg-indigo-50 text-blue-600 border border-indigo-200 border-opacity-75 font-medium not-italic rounded;
+  @apply text-blue-600 font-medium not-italic rounded;
+}
+
+.aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-light {
+  @apply inline-block;
+}
+
+.aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-dark {
+  @apply hidden;
 }
 
 @screen md {
@@ -147,7 +163,7 @@ html.dark
   .aa-DetachedFormContainer
   .aa-DetachedCancelButton {
   @apply flex-none text-blue-400;
-  font-size: 0px;
+  font-size: 0;
 }
 
 html.dark
@@ -166,10 +182,22 @@ html.dark .aa-DetachedOverlay .aa-Panel .search-result:hover {
   @apply bg-opacity-25;
 }
 
-html.dark .aa-DetachedOverlay .aa-Panel h4 {
-  @apply text-blue-300;
+html.dark .aa-DetachedOverlay .aa-Panel .search-result h4 {
+  @apply bg-blue-950/50 text-blue-300 ring-blue-200/10;
+}
+
+html.dark .aa-DetachedOverlay .aa-Panel .search-result:hover h4 {
+  @apply bg-blue-950/80;
 }
 
 html.dark .aa-DetachedOverlay .aa-Panel p em.highlight {
-  @apply border bg-gray-900 bg-opacity-50 border-opacity-30 border-indigo-300 p-0.5 text-indigo-300;
+  @apply text-blue-300;
+}
+
+html.dark .aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-light {
+  @apply hidden;
+}
+
+html.dark .aa-DetachedOverlay .aa-Panel .aa-SourceFooter .logo-dark {
+  @apply inline-block;
 }
