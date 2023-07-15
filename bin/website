@@ -24,7 +24,9 @@ from cleo.helpers import option
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
+    from typing import ClassVar
 
+    from cleo.io.inputs.option import Option
 
 API_BASE_URL = "https://api.github.com/repos/python-poetry/poetry"
 BRANCHES_URL = f"{API_BASE_URL}/branches"
@@ -55,7 +57,7 @@ def get_branches() -> list[str]:
 class ConfigureCommand(Command):
     name = "configure"
     description = "Generate website config.toml file."
-    options = [
+    options: ClassVar[list[Option]] = [
         option("local", None, "Build from local Poetry source.", flag=False),
         option("editable", None, "Symlink local Poetry source rather than copying."),
     ]
