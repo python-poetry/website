@@ -22,7 +22,7 @@ $ poetry self update
 ### Official Poetry badge
 
 Poetry provides an official badge that can be used to indicate that a project is managed with Poetry.
-See the [documentation](docs/community/#badge) for details.
+See the [documentation](/docs/community/#badge) for details.
 
 ### Support for repositories that do not provide a supported hash algorithm
 
