@@ -18,13 +18,13 @@ repos:
       - id: debug-statements
       - id: check-docstring-first
 
-  - repo: https://github.com/psf/black
+  - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 23.9.1
     hooks:
       - id: black
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.288
+    rev: v0.0.290
     hooks:
       - id: ruff
 
@@ -33,5 +33,5 @@ repos:
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@2.7.1
-          - prettier-plugin-go-template@0.0.13
+          - prettier@3.0.3
+          - prettier-plugin-go-template@0.0.15

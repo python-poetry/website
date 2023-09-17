@@ -23,10 +23,10 @@ export default class extends Controller {
                 button.replaceChild(_checkmarkIcon, _copyIcon)
                 setTimeout(
                   () => button.replaceChild(_copyIcon, _checkmarkIcon),
-                  2000
+                  2000,
                 )
               },
-              () => (button.innerHTML = "Error")
+              () => (button.innerHTML = "Error"),
             )
         })
         const pre = codeBlock.parentNode

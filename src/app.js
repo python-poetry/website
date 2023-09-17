@@ -24,11 +24,11 @@ application.register("tabs", TabsController)
 // Search
 const searchClient = algoliasearch(
   "SIHVOPCWNI",
-  "ed995fb51a9bb73b4d9da7857ea3a368"
+  "ed995fb51a9bb73b4d9da7857ea3a368",
 )
 
 const searchContainer = Array.from(
-  document.getElementsByClassName("search-container")
+  document.getElementsByClassName("search-container"),
 ).filter((element) => {
   return window.getComputedStyle(element).getPropertyValue("display") !== "none"
 })[0]
