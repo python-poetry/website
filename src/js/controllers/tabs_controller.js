@@ -24,7 +24,7 @@ export default class extends Controller {
       // If target specifies an index, use that
     } else if (event.currentTarget.dataset.id) {
       this.index = this.tabTargets.findIndex(
-        (tab) => tab.id == event.currentTarget.dataset.id
+        (tab) => tab.id == event.currentTarget.dataset.id,
       )
 
       // Otherwise, use the index of the current target
