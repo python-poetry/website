@@ -56,7 +56,7 @@
                 <p
                   class="mt-1 text-sm overflow-hidden overflow-ellipsis opacity-60"
                 >
-                  {{- safeHTML (strings.TrimPrefix .Name (index (split .Page.Summary ". ") 0)) -}}.
+                  {{- safeHTML (strings.TrimPrefix (index (split .Name "|") 0) (index (split .Page.Summary ". ") 0)) -}}.
                 </p>
               </div>
             </a>
