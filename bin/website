@@ -174,21 +174,19 @@ class DocsPullCommand(ConfigureCommand):
             with temporary_directory() as tmp_dir:
                 os.chdir(tmp_dir)
                 tmp_dir = Path(tmp_dir)
-                subprocess.run(
-                    [
-                        "git",
-                        "clone",
-                        "--single-branch",
-                        "--branch",
-                        version,
-                        "--depth",
-                        "1",
-                        "--filter=blob:none",
-                        "--sparse",
-                        self.REPOSITORY,
-                        ".",
-                    ]
-                )
+                subprocess.run([
+                    "git",
+                    "clone",
+                    "--single-branch",
+                    "--branch",
+                    version,
+                    "--depth",
+                    "1",
+                    "--filter=blob:none",
+                    "--sparse",
+                    self.REPOSITORY,
+                    ".",
+                ])
                 subprocess.run(["git", "sparse-checkout", "init", "--cone"])
                 subprocess.run(["git", "sparse-checkout", "set", "docs"])
 
