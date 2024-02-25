@@ -4,13 +4,13 @@
 
 This is the source of the official [Poetry website][official website].
 
-It's built using the static site generator [Hugo](https://gohugo.io) and the Markdown docs from the [Poetry repo](https://github.com/python-poetry/poetry/tree/master/docs).
+It's built using the static site generator [Hugo](https://gohugo.io) and the Markdown docs from the [Poetry repo](https://github.com/python-poetry/poetry/tree/main/docs).
 
 [official website]: https://python-poetry.org
 
 ## Requirements
 
-- [Poetry](https://python-poetry.org/docs/master/#installing-with-the-official-installer)
+- [Poetry](https://python-poetry.org/docs/main/#installing-with-the-official-installer)
 - [Node.js 18](https://nodejs.org/en/download/) (and `npm`)
 
 ## Local development

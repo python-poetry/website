@@ -50,7 +50,7 @@ def get_branches() -> list[str]:
     return [
         branch["name"]
         for branch in httpx.get(BRANCHES_URL).json()
-        if branch["name"] in {"master", "main"}
+        if branch["name"] in {"main"}
     ]
 
 
