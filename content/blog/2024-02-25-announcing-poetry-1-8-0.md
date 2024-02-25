@@ -66,7 +66,7 @@ has to download the whole file to calculate the hash itself.
 Although we tested this feature with various package indices,
 there still might be servers that respond to HTTP range requests in an unexpected way.
 Therefore, if you experience any issues with this feature,
-you can [disable lazy-wheel](docs/main/configuration#solverlazy-wheel).
+you can [disable lazy-wheel](/docs/configuration#solverlazy-wheel).
 
 ## Other important Changes
 
