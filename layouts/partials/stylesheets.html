@@ -1,6 +1,6 @@
 {{ $style := resources.Get "assets/app.css" }}
 
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 {{ else }}
   {{ $style := $style | fingerprint }}
