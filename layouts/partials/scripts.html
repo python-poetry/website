@@ -1,6 +1,6 @@
 {{ $script := resources.Get "assets/app.js" }}
 
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
   <script type="module" src="{{ $script.RelPermalink }}"></script>
 {{ else }}
   {{ $script := $script | fingerprint }}
