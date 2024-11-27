@@ -1,9 +1,10 @@
 name: "Deploy Preview"
 
 on:
-  push:
-    branches-ignore:
-      - main
+  pull_request:
+    # allow repository maintainers to modify and test workflow
+    paths:
+      - ".github/workflows/deploy-preview.yaml"
   pull_request_target:
     # enable runs for this workflow when labeled as safe only
     # prevent execution when the workflow itself is modified from a fork
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
-      || (github.event_name == 'push' && github.event.push.repository.full_name == github.repository)
+      || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
     steps:
       - name: Checkout
         uses: actions/checkout@v3
