@@ -26,7 +26,7 @@
     "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-replace": "^6.0.1",
-    "algoliasearch": "^4.9.1",
+    "algoliasearch": "^5.15.0",
     "atomic-algolia": "^0.3.19",
     "autoprefixer": "^10.2.5",
     "concurrently": "^9.0.1",
