@@ -56,13 +56,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           env: Preview
 
-      - name: Install Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.139.2"
-
       - name: Build
-        run: hugo --buildDrafts --buildFuture --logLevel info
+        run: npx hugo --buildDrafts --buildFuture --logLevel info
 
       - name: Deploy
         uses: amondnet/vercel-action@v25
