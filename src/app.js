@@ -1,6 +1,6 @@
 import "./css/app.css"
 
-import algoliasearch from "algoliasearch/dist/algoliasearch.esm.browser"
+import { algoliasearch } from "algoliasearch"
 import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js"
 import { Application } from "@hotwired/stimulus"
 import { TransitionController, ClickOutsideController } from "stimulus-use"
