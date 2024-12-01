@@ -17,11 +17,10 @@ pre-commit = ">=2.13.0"
 
 [tool.ruff]
 fix = true
-unfixable = [
-    "ERA", # do not autoremove commented out code
-]
-target-version = "py310"
 line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
 extend-select = [
     "B",   # flake8-bugbear
     "C4",  # flake8-comprehensions
@@ -36,19 +35,18 @@ extend-select = [
     "TID", # flake8-tidy-imports
     "UP",  # pyupgrade
 ]
+unfixable = [
+    "ERA", # do not autoremove commented out code
+]
 
-[tool.ruff.flake8-tidy-imports]
+[tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 force-single-line = true
 lines-between-types = 1
 lines-after-imports = 2
 required-imports = ["from __future__ import annotations"]
-
-[tool.black]
-target-version = ["py310"]
-preview = true
 
 [tool.website.config]
 baseURL = "https://python-poetry.org/"
