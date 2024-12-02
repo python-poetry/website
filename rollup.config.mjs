@@ -7,7 +7,7 @@ import postcss from "rollup-plugin-postcss"
 import replace from "@rollup/plugin-replace"
 import image from "@rollup/plugin-image"
 
-import path from "path"
+import { fileURLToPath } from "node:url"
 
 const dev = {
   input: "src/app.js",
@@ -36,7 +36,7 @@ const dev = {
     eslint(),
     babel({
       exclude: "node_modules/**",
-      configFile: path.resolve(__dirname, "babel.config.json"),
+      configFile: fileURLToPath(new URL("babel.config.json", import.meta.url)),
       babelHelpers: "bundled",
     }),
     image({
@@ -72,7 +72,7 @@ const prod = {
     eslint(),
     babel({
       exclude: "node_modules/**",
-      configFile: path.resolve(__dirname, "babel.config.json"),
+      configFile: fileURLToPath(new URL("babel.config.json", import.meta.url)),
       babelHelpers: "bundled",
     }),
     terser(),
