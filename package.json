@@ -44,6 +44,6 @@
     "tailwindcss": "^3.3.2"
   },
   "dependencies": {
-    "vercel": "^27.0.2"
+    "vercel": "^39.1.3"
   }
 }
