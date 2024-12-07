@@ -4,6 +4,27 @@ layout: single
 title: History
 ---
 
+## [1.8.5] - 2024-12-06
+
+### Changed
+
+- Require `pkginfo>=1.12` to fix an issue with an unknown metadata version 2.4 ([#9888](https://github.com/python-poetry/poetry/pull/9888)).
+- Do not fail if the unknown metadata version is only a minor version update ([#9888](https://github.com/python-poetry/poetry/pull/9888)).
+
+## [1.8.4] - 2024-10-14
+
+### Added
+
+- **Add official support for Python 3.13** ([#9523](https://github.com/python-poetry/poetry/pull/9523)).
+
+### Changed
+
+- Require `virtualenv>=20.26.6` to mitigate potential command injection when running `poetry shell` in untrusted projects ([#9757](https://github.com/python-poetry/poetry/pull/9757)).
+
+### poetry-core ([`1.9.1`](https://github.com/python-poetry/poetry-core/releases/tag/1.9.1))
+
+- Add `3.13` to the list of available Python versions ([#747](https://github.com/python-poetry/poetry-core/pull/747)).
+
 ## [1.8.3] - 2024-05-08
 
 ### Added
@@ -1870,7 +1891,7 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 ### Fixed
 
 - Fixed `add` command picking up prereleases by default.
-- Fixed dependendency resolution on Windows when unpacking distributions.
+- Fixed dependency resolution on Windows when unpacking distributions.
 - Fixed dependency resolution with post releases.
 - Fixed dependencies being installed even if not necessary for current system.
 
@@ -2084,7 +2105,9 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[Unreleased]: https://github.com/python-poetry/poetry/compare/1.8.3...main
+[Unreleased]: https://github.com/python-poetry/poetry/compare/1.8.5...main
+[1.8.5]: https://github.com/python-poetry/poetry/releases/tag/1.8.5
+[1.8.4]: https://github.com/python-poetry/poetry/releases/tag/1.8.4
 [1.8.3]: https://github.com/python-poetry/poetry/releases/tag/1.8.3
 [1.8.2]: https://github.com/python-poetry/poetry/releases/tag/1.8.2
 [1.8.1]: https://github.com/python-poetry/poetry/releases/tag/1.8.1
