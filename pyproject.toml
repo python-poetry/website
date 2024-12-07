@@ -65,7 +65,7 @@ tags = "/blog/tag/:title/"
 description = "Python dependency management and packaging made easy"
 
 [tool.website.config.params.documentation]
-defaultVersion = "1.8"
+defaultVersion = "1.8"  # TODO: update default version
 
 [tool.website.config.markup.goldmark.renderer]
 unsafe = true
@@ -74,7 +74,7 @@ unsafe = true
 keepWhitespace = true
 
 [tool.website.versions]
-"1.8" = "1.8"
+"1.8" = "1.8"  # TODO: update versions
 "1.7" = "1.7"
 
 [build-system]
