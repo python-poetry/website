@@ -29,14 +29,17 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Build Assets
+        run: npm ci && npm run prod
+
+      # Ruby must be set up after running "npm ci" because installing hugo-bin via npm
+      # removes the vendor directory that is created by "bundle install"
+      # https://github.com/fenneclab/hugo-bin/blob/a5500e4f622f46886947d3438243bd97cfe6c04c/lib/install.js#L28-L30
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
           bundler-cache: true
-
-      - name: Build Assets
-        run: npm ci && npm run prod
 
       - name: Fetch Documentation
         run: |
