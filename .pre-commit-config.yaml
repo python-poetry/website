@@ -19,7 +19,7 @@ repos:
       - id: check-docstring-first
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.6
+    rev: v0.9.5
     hooks:
       - id: ruff
       - id: ruff-format
@@ -29,10 +29,10 @@ repos:
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@3.0.3
+          - prettier@3.3.3
           - prettier-plugin-go-template@0.0.15
 
   - repo: https://github.com/woodruffw/zizmor-pre-commit
-    rev: v1.0.0
+    rev: v1.3.0
     hooks:
       - id: zizmor
