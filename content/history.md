@@ -4,6 +4,10 @@ layout: single
 title: History
 ---
 
+## [2.1.0] - 2025-02-xx
+
+TODO
+
 ## [2.0.1] - 2025-01-11
 
 ### Added
@@ -2268,7 +2272,8 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[Unreleased]: https://github.com/python-poetry/poetry/compare/2.0.1...main
+[Unreleased]: https://github.com/python-poetry/poetry/compare/2.1.0...main
+[2.1.0]: https://github.com/python-poetry/poetry/releases/tag/2.1.0
 [2.0.1]: https://github.com/python-poetry/poetry/releases/tag/2.0.1
 [2.0.0]: https://github.com/python-poetry/poetry/releases/tag/2.0.0
 [1.8.5]: https://github.com/python-poetry/poetry/releases/tag/1.8.5
