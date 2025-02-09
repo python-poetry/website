@@ -1,8 +1,6 @@
 [tool.poetry]
 name = "website"
-version = "0.1.0"
-description = ""
-authors = ["Sébastien Eustace <sebastien@eustace.io>"]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
