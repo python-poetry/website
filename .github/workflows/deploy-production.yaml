@@ -8,10 +8,15 @@ on:
       - main
   workflow_dispatch: {}
 
+permissions: {}
+
 jobs:
   deploy-preview:
     name: Build & Deploy
     runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+      pull-requests: write
 
     steps:
       - name: Checkout

@@ -16,6 +16,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+permissions: {}
+
 jobs:
   deploy-preview:
     name: Build & Deploy
@@ -23,6 +25,9 @@ jobs:
     if: |
       (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
       || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    permissions:
+      deployments: write
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
