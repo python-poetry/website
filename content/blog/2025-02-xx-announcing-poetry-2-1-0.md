@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Announcing Poetry 2.1.0"
-date: 2025-02-xx
+date: 2025-02-01
 categories: [releases]
 tags: ["2.x", "2.1"]
 ---
