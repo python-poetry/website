@@ -7,7 +7,7 @@ python = "^3.10"
 cleo = "^2.1.0"
 PyYAML = "^6.0"
 tomli = "^2.0"
-httpx = "^0.26"
+httpx = "^0.28"
 tomli-w = "^1.0"
 
 [tool.poetry.group.dev.dependencies]
