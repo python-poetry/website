@@ -2,8 +2,8 @@
 layout: single
 title: "Announcing Poetry 2.1.0"
 date: 2025-02-xx
-categories: [ releases ]
-tags: [ "2.x", "2.1" ]
+categories: [releases]
+tags: ["2.x", "2.1"]
 ---
 
 The Poetry team is pleased to announce the immediate availability of Poetry **2.1.0**.
