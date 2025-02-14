@@ -75,8 +75,8 @@ defined in the `[build-system]` section of `pyproject.toml`. However, to avoid i
 currently issue a **warning** in such cases and continue using the built-in `poetry-core` backend by default.
 
 {{% warning %}}
-This behavior will change in the next minor release of Poetry. When a `[build-system]` section is not defined,
-Poetry will then default to using `setuptools`.
+This behavior will change in a future minor release so that Poetry will default to `setuptools`
+if no `[build-system]` section is defined.
 {{% /warning %}}
 
 ### Experimental commands to manage Python installations
@@ -92,8 +92,19 @@ poetry env use 3.13
 
 {{% note %}}
 The `python install` command uses [python-build-standalone](https://gregoryszorc.com/docs/python-build-standalone/main/),
-which has some quirks compared to standard Python installations. See their documentation for more information.
+which has some quirks compared to standard Python installations.
+See their [documentation](https://gregoryszorc.com/docs/python-build-standalone/main/quirks.html) for more information.
 {{% /note %}}
+
+## Upcoming Changes
+
+### Defaulting to `setuptools` instead of `poetry-core` if no build system is defined
+
+Per [PEP 517](https://peps.python.org/pep-0517/), a build tool should fall back to `setuptools` if no build system is
+defined in the `[build-system]` section of `pyproject.toml`. However, to avoid immediate disruption, Poetry will
+currently issue a **warning** in such cases and continue using the built-in `poetry-core` backend by default.
+This behavior will change in a future minor release so that Poetry will default to `setuptools`
+if no `[build-system]` section is defined.
 
 ## Changelog
 
