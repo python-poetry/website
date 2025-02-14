@@ -79,6 +79,22 @@ This behavior will change in the next minor release of Poetry. When a `[build-sy
 Poetry will then default to using `setuptools`.
 {{% /warning %}}
 
+### Experimental commands to manage Python installations
+
+Poetry now includes experimental [commands](docs/cli/#python) to manage Python installations.
+You can install, list and remove Python versions, which you can use afterward to create project environments.
+For example, if you want to use Python 3.13 for your project, but you do not have it installed yet, you can run:
+
+```bash
+poetry python install 3.13
+poetry env use 3.13
+```
+
+{{% note %}}
+The `python install` command uses [python-build-standalone](https://gregoryszorc.com/docs/python-build-standalone/main/),
+which has some quirks compared to standard Python installations. See their documentation for more information.
+{{% /note %}}
+
 ## Changelog
 
 TODO
