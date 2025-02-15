@@ -65,7 +65,7 @@ This parameter ensures compatibility with advanced use cases and third-party bui
 {{% note %}}
 You can pass configuration settings when building a dependency from source.
 Since such configuration settings are often platform-dependent this is done via a
-[config setting](docs/configuration/#installerbuild-config-settingspackage-name).
+[config setting](/docs/configuration/#installerbuild-config-settingspackage-name).
 {{% /note %}}
 
 #### Default behavior when no build system is defined
@@ -81,7 +81,7 @@ if no `[build-system]` section is defined.
 
 ### Experimental commands to manage Python installations
 
-Poetry now includes experimental [commands](docs/cli/#python) to manage Python installations.
+Poetry now includes experimental [commands](/docs/cli/#python) to manage Python installations.
 You can install, list and remove Python versions, which you can use afterward to create project environments.
 For example, if you want to use Python 3.13 for your project, but you do not have it installed yet, you can run:
 
