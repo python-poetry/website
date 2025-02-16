@@ -4,6 +4,16 @@ layout: single
 title: History
 ---
 
+## [2.1.1] - 2025-02-16
+
+### Fixed
+
+- Fix an issue where `poetry env use python` does not choose the Python from the PATH ([#10187](https://github.com/python-poetry/poetry/pull/10187)).
+
+### poetry-core ([`2.1.1`](https://github.com/python-poetry/poetry-core/releases/tag/2.1.1))
+
+- Fix an issue where simplifying a `python_version` marker resulted in an invalid marker ([#838](https://github.com/python-poetry/poetry-core/pull/838)).
+
 ## [2.1.0] - 2025-02-15
 
 ### Added
@@ -2335,7 +2345,8 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[Unreleased]: https://github.com/python-poetry/poetry/compare/2.1.0...main
+[Unreleased]: https://github.com/python-poetry/poetry/compare/2.1.1...main
+[2.1.1]: https://github.com/python-poetry/poetry/releases/tag/2.1.1
 [2.1.0]: https://github.com/python-poetry/poetry/releases/tag/2.1.0
 [2.0.1]: https://github.com/python-poetry/poetry/releases/tag/2.0.1
 [2.0.0]: https://github.com/python-poetry/poetry/releases/tag/2.0.0
