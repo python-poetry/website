@@ -65,7 +65,7 @@ jobs:
       - name: Build
         run: npx hugo --buildDrafts --buildFuture --logLevel info
 
-      - name: Deploy
+      - name: Deploy  # Test
         uses: amondnet/vercel-action@888da851026e0573da056b061931bcb765a915c4 # v41.1.4
         id: vercel-action
         with:
