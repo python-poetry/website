@@ -4,6 +4,16 @@ layout: single
 title: History
 ---
 
+## [2.3.1] - 2026-01-20
+
+### Fixed
+
+- Fix an issue where cached information about each package was always considered outdated ([#10699](https://github.com/python-poetry/poetry/pull/10699)).
+
+### Docs
+
+- Document SHELL_VERBOSITY environment variable ([#10678](https://github.com/python-poetry/poetry/pull/10678)).
+
 ## [2.3.0] - 2026-01-18
 
 ### Added
@@ -2519,7 +2529,8 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[Unreleased]: https://github.com/python-poetry/poetry/compare/2.3.0...main
+[Unreleased]: https://github.com/python-poetry/poetry/compare/2.3.1...main
+[2.3.1]: https://github.com/python-poetry/poetry/releases/tag/2.3.1
 [2.3.0]: https://github.com/python-poetry/poetry/releases/tag/2.3.0
 [2.2.1]: https://github.com/python-poetry/poetry/releases/tag/2.2.1
 [2.2.0]: https://github.com/python-poetry/poetry/releases/tag/2.2.0
