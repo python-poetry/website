@@ -4,6 +4,16 @@ layout: single
 title: History
 ---
 
+## [2.3.2] - 2026-02-01
+
+### Changed
+
+- Allow `dulwich>=1.0` ([#10701](https://github.com/python-poetry/poetry/pull/10701)).
+
+### poetry-core ([`2.3.1`](https://github.com/python-poetry/poetry-core/releases/tag/2.3.1))
+
+- Fix an issue where `platform_release` could not be parsed on Windows Server ([#911](https://github.com/python-poetry/poetry-core/pull/911)).
+
 ## [2.3.1] - 2026-01-20
 
 ### Fixed
@@ -2529,7 +2539,8 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[Unreleased]: https://github.com/python-poetry/poetry/compare/2.3.1...main
+[Unreleased]: https://github.com/python-poetry/poetry/compare/2.3.2...main
+[2.3.2]: https://github.com/python-poetry/poetry/releases/tag/2.3.2
 [2.3.1]: https://github.com/python-poetry/poetry/releases/tag/2.3.1
 [2.3.0]: https://github.com/python-poetry/poetry/releases/tag/2.3.0
 [2.2.1]: https://github.com/python-poetry/poetry/releases/tag/2.2.1
