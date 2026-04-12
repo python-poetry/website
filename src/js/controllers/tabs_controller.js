@@ -9,8 +9,11 @@ export default class extends Controller {
       this.data.get("inactiveTab") || "inactive"
     ).split(" ")
     if (this.anchor) {
-      this.index = this.tabTargets.findIndex((tab) => tab.id === this.anchor)
-      this.showTab()
+      const index = this.tabTargets.findIndex((tab) => tab.id === this.anchor)
+      if (index >= 0) {
+        this.index = index
+        this.showTab()
+      }
     }
   }
 
