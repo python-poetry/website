@@ -11,7 +11,7 @@ It's built using the static site generator [Hugo](https://gohugo.io) and the Mar
 ## Requirements
 
 - [Poetry](https://python-poetry.org/docs/main/#installing-with-the-official-installer)
-- [Node.js 18](https://nodejs.org/en/download/) (and `npm`)
+- [Node.js 20](https://nodejs.org/en/download/) (and `npm`)
 
 ## Local development
 
