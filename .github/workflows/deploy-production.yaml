@@ -25,12 +25,12 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.10"
 
       - name: Setup Node
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "18"
 
@@ -41,7 +41,7 @@ jobs:
       # removes the vendor directory that is created by "bundle install"
       # https://github.com/fenneclab/hugo-bin/blob/a5500e4f622f46886947d3438243bd97cfe6c04c/lib/install.js#L28-L30
       - name: Setup Ruby
-        uses: ruby/setup-ruby@708024e6c902387ab41de36e1669e43b5ee7085e # v1.283.0
+        uses: ruby/setup-ruby@7372622e62b60b3cb750dcd2b9e32c247ffec26a # v1.302.0
         with:
           ruby-version: "3.2"
           bundler-cache: true
@@ -75,10 +75,10 @@ jobs:
           npm run algolia
 
       - name: Deploy
-        uses: amondnet/vercel-action@888da851026e0573da056b061931bcb765a915c4 # v41.1.4
+        uses: amondnet/vercel-action@c71810f8732de6b8656e41155e63b6303ca3e4bf # v42.1.0
         id: vercel-action
         with:
-          vercel-version: 41.1.4
+          vercel-version: 48.12.1
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
