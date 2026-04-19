@@ -75,7 +75,7 @@ jobs:
           npm run algolia
 
       - name: Deploy
-        uses: amondnet/vercel-action@888da851026e0573da056b061931bcb765a915c4 # v41.1.4
+        uses: amondnet/vercel-action@44150af5cb68821920eac2370ee870d26a5c9838 # v42.0.0
         id: vercel-action
         with:
           vercel-version: 48.12.1
