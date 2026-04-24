@@ -14,6 +14,7 @@ jobs:
   deploy-preview:
     name: Build & Deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       deployments: write
       pull-requests: write
