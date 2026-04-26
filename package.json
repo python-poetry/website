@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": ">=20",
+    "node": ">=20.9",
     "npm": ">=7"
   },
   "scripts": {
@@ -19,6 +19,7 @@
     "@babel/core": "^7.14.3",
     "@babel/eslint-parser": "^7.14.4",
     "@babel/preset-env": "^7.14.2",
+    "@eslint/js": "^9.39.4",
     "@hotwired/stimulus": "^3.0.1",
     "@rollup/plugin-babel": "^7.0.0",
     "@rollup/plugin-commonjs": "^29.0.2",
@@ -31,7 +32,8 @@
     "atomic-algolia": "^0.3.19",
     "autoprefixer": "^10.2.5",
     "concurrently": "^9.0.1",
-    "eslint": "^8.16.0",
+    "eslint": "^9.39.4",
+    "globals": "^17.5.0",
     "hugo-bin": "^0.149.2",
     "postcss": "^8.2.10",
     "postcss-import": "^16.1.0",
