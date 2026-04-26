@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": ">=20.9",
-    "npm": ">=7"
+    "node": ">=22",
+    "npm": ">=10"
   },
   "scripts": {
     "dev": "concurrently --names=assets,server --prefix-colors=cyan.bold,magenta.bold 'rollup --config --watch' 'hugo server --buildDrafts --buildFuture --watch'",
