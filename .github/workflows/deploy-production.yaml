@@ -15,8 +15,10 @@ jobs:
     name: Build & Deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment:
+      name: Production
+      url: ${{ steps.vercel-action.outputs.preview-url }}
     permissions:
-      deployments: write
       pull-requests: write
 
     steps:
@@ -53,14 +55,6 @@ jobs:
           poetry install --no-root --only main
           poetry run python bin/website build
 
-      - name: Start Deployment
-        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
-        id: deployment
-        with:
-          step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
-          env: Production
-
       - name: Build
         run: npx hugo --minify --logLevel info
 
@@ -88,14 +82,3 @@ jobs:
           github-comment: false
           vercel-args: "--prod"
           working-directory: public
-
-      - name: Update Deployment Status
-        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
-        if: always()
-        with:
-          step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ job.status }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ steps.vercel-action.outputs.preview-url }}
-          env: ${{ steps.deployment.outputs.env }}
