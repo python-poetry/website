@@ -26,8 +26,10 @@ jobs:
     if: |
       (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
       || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    environment:
+      name: Preview
+      url: ${{ steps.vercel-action.outputs.preview-url }}
     permissions:
-      deployments: write
       pull-requests: write
     steps:
       - name: Checkout
@@ -55,14 +57,6 @@ jobs:
           poetry install --no-root --only main
           poetry run python bin/website build
 
-      - name: Start Deployment
-        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
-        id: deployment
-        with:
-          step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
-          env: Preview
-
       - name: Build
         run: npx hugo --buildDrafts --buildFuture --logLevel info
 
@@ -78,14 +72,3 @@ jobs:
           scope: python-poetry
           github-comment: true
           working-directory: public
-
-      - name: Update Deployment Status
-        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
-        if: always()
-        with:
-          step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ job.status }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ steps.vercel-action.outputs.preview-url }}
-          env: ${{ steps.deployment.outputs.env }}
