@@ -4,6 +4,16 @@ layout: single
 title: History
 ---
 
+## [2.4.1] - 2026-05-09
+
+### Changed
+
+- Re-allow `installer==0.7.0` ([#10887](https://github.com/python-poetry/poetry/pull/10887)).
+
+### Fixed
+
+- Fix an issue where `poetry update <package>` failed when `<package>` was a transitive dependency ([#10885](https://github.com/python-poetry/poetry/pull/10885)).
+
 ## [2.4.0] - 2026-05-03
 
 ### Added
@@ -2623,7 +2633,8 @@ This release **must** be downloaded via the `get-poetry.py` script and not via t
 
 Initial release
 
-[Unreleased]: https://github.com/python-poetry/poetry/compare/2.4.0...main
+[Unreleased]: https://github.com/python-poetry/poetry/compare/2.4.1...main
+[2.4.1]: https://github.com/python-poetry/poetry/releases/tag/2.4.1
 [2.4.0]: https://github.com/python-poetry/poetry/releases/tag/2.4.0
 [2.3.4]: https://github.com/python-poetry/poetry/releases/tag/2.3.4
 [2.3.3]: https://github.com/python-poetry/poetry/releases/tag/2.3.3
