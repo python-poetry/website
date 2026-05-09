@@ -99,7 +99,9 @@ class ConfigureCommand(Command):
 
 
 class DocsPullCommand(ConfigureCommand):
-    DESTINATION: Path = Path(__file__).parent.parent.joinpath("content/docs")
+    DESTINATION = Path(__file__).parent.parent / "content" / "docs"
+    HISTORY_DESTINATION = Path(__file__).parent.parent / "content" / "history.md"
+    HISTORY_FRONTMATTER = "---\ntype: page\nlayout: single\ntitle: History\n---\n\n"
     REPOSITORY = "https://github.com/python-poetry/poetry.git"
 
     name = "docs pull"
@@ -120,12 +122,17 @@ class DocsPullCommand(ConfigureCommand):
 
         self.DESTINATION.mkdir(parents=True)
 
+        if self.HISTORY_DESTINATION.exists():
+            self.HISTORY_DESTINATION.unlink()
+
         if self.option("local"):
+            local_src = Path(self.option("local"))
             self._pull_local_version(
-                src=Path(self.option("local")),
+                src=local_src,
                 dest=self.DESTINATION,
                 editable=self.option("editable"),
             )
+            self._write_history(local_src / "CHANGELOG.md")
             return 0
 
         for name, version in versions.items():
@@ -210,8 +217,23 @@ class DocsPullCommand(ConfigureCommand):
 
                         with path.joinpath(filepath.name).open("w") as f:
                             f.write(new_content)
+
+                if version == "main":
+                    self._write_history(tmp_dir / "CHANGELOG.md")
         finally:
             os.chdir(cwd.as_posix())
+
+    def _write_history(self, changelog: Path) -> None:
+        if not changelog.exists():
+            raise RuntimeError(f"Changelog file not found at {changelog}")
+        self.line(f"  Writing history from <b>{changelog.name}</b>")
+        lines = changelog.read_text(encoding="utf-8").splitlines(keepends=True)
+        # replace changelog heading with history page title
+        if lines and lines[0].lstrip().startswith("# "):
+            lines = lines[1:]
+        while lines and lines[0].strip() == "":
+            lines = lines[1:]
+        self.HISTORY_DESTINATION.write_text(self.HISTORY_FRONTMATTER + "".join(lines))
 
 
 class BuildCommand(DocsPullCommand):

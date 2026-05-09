@@ -2,6 +2,7 @@ node_modules
 public
 assets/assets
 /content/docs
+/content/history.md
 /resources
 .python-version
 .vscode

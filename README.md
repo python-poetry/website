@@ -15,6 +15,12 @@ It's built using the static site generator [Hugo](https://gohugo.io) and the Mar
 
 ## Local development
 
+> [!NOTE]
+> The following commands require GNU Make 4.3 or newer (the `Makefile` uses
+> [grouped targets](https://www.gnu.org/software/make/manual/html_node/Multiple-Targets.html),
+> introduced in 4.3). If you are on macOS, which may still ship an older version;
+> install a newer version with `brew install make` and invoke it as `gmake`.
+
 To work on this project locally, first fork and clone this repo. Then:
 
 ```sh

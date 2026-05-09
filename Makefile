@@ -9,10 +9,10 @@ help: ## Show this help
 .PHONY: clean
 clean: ## Clean generated files
 	@unlink content/docs &>/dev/null || true
-	@rm -rf assets/ content/docs/ public/ resources/
+	@rm -rf assets/ content/docs/ content/history.md public/ resources/
 
 .PHONY: site
-site: node_modules content/docs ## Build and serve site
+site: node_modules content/docs content/history.md ## Build and serve site
 	@test -f assets/assets/app.js || npx rollup --config
 	@npm run dev
 
@@ -20,7 +20,7 @@ node_modules: package.json package-lock.json
 	npm install
 	@touch node_modules
 
-content/docs: pyproject.toml
+content/docs content/history.md &: pyproject.toml
 	poetry install
 	poetry run ./bin/website configure $(WEBSITE_ARGS)
 	poetry run ./bin/website docs pull $(WEBSITE_ARGS)
