@@ -1,6 +1,6 @@
 import "./css/app.css"
 
-import { algoliasearch } from "algoliasearch"
+import { liteClient as algoliasearch } from "algoliasearch/lite"
 import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js"
 import { Application } from "@hotwired/stimulus"
 import { TransitionController, ClickOutsideController } from "stimulus-use"
