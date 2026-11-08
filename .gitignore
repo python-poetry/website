@@ -8,7 +8,6 @@ assets/assets
 .vscode
 .idea
 
-.vercel
 .env
 algolia.json
 .hugo_build.lock

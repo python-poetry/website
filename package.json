@@ -34,7 +34,7 @@
     "concurrently": "^9.0.1",
     "eslint": "^9.39.4",
     "globals": "^17.5.0",
-    "hugo-bin": "^0.149.2",
+    "hugo-bin": "^0.167.0",
     "postcss": "^8.2.10",
     "postcss-import": "^16.1.0",
     "postcss-nested": "^7.0.2",
