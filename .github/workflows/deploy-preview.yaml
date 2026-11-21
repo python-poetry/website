@@ -1,20 +1,16 @@
 name: "Deploy Preview"
 
+# Exactly one of the two triggers passes the deploy job's condition:
+# - PRs from branches of this repository run via pull_request, so maintainers
+#   can modify and test this workflow. No label is required.
+# - PRs from forks run via pull_request_target (which uses the workflow from the
+#   base branch) and only when labeled as safe.
 on:
   pull_request:
-    # allow repository maintainers to modify and test workflow
-    paths:
-      - ".github/workflows/deploy-preview.yaml"
   pull_request_target: # zizmor: ignore[dangerous-triggers]
-    # enable runs for this workflow when labeled as safe only
-    # prevent execution when the workflow itself is modified from a fork
     types:
       - labeled
       - synchronize
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions: {}
 
@@ -23,9 +19,16 @@ jobs:
     name: Build & Deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: |
-      (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
-      || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    if: >
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+      || (github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository
+          && contains(github.event.pull_request.labels.*.name, 'safe'))
+    # Cancel stale runs so that an older run cannot deploy or update the comment
+    # after a newer one. This is defined on the job (not the workflow) so that
+    # runs whose job is skipped by the condition above do not cancel others.
+    concurrency:
+      group: deploy-preview-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
     environment:
       name: Preview
       url: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}
